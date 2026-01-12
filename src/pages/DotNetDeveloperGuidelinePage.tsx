@@ -1,0 +1,401 @@
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import Layout from '../components/Layout';
+import PageHero from '../components/PageHero';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import {
+  CheckCircle2,
+  Code2,
+  BookOpen,
+  ShieldCheck,
+  Layout as LayoutIcon,
+  Database,
+  Server,
+  Zap,
+  ChevronRight,
+  Activity,
+  MessageSquare,
+  Layers,
+  Bug,
+  CircleHelp as HelpCircle,
+  PenTool,
+  Settings,
+  FlaskConical,
+  ArrowRight
+} from 'lucide-react';
+import { motion } from 'framer-motion';
+import CodeSnippet from '../components/CodeSnippet';
+
+const chapters = [
+  { id: "overview", title: "1. Project Overview", icon: BookOpen },
+  { id: "architecture", title: "2. Architecture Design", icon: Layers },
+  { id: "patterns", title: "3. Design Patterns", icon: Zap },
+  { id: "data-access", title: "4. Data Access Patterns", icon: Database },
+  { id: "api-approaches", title: "5. API Implementation", icon: Server },
+  { id: "naming", title: "6. Naming Conventions", icon: PenTool },
+  { id: "organization", title: "7. File & Project Org", icon: LayoutIcon },
+  { id: "validation", title: "8. Validation & Error", icon: ShieldCheck },
+  { id: "testing", title: "9. Testing Guidelines", icon: FlaskConical },
+];
+
+const DotNetDeveloperGuidelinePage: React.FC = () => {
+  const [activeSection, setActiveSection] = useState("overview");
+
+  const breadcrumbs = [
+    { label: 'Home', href: '/' },
+    { label: '.NET Guideline' }
+  ];
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.2, rootMargin: "-10% 0px -70% 0px" }
+    );
+
+    chapters.forEach((chapter) => {
+      const el = document.getElementById(chapter.id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <Layout>
+      <PageHero
+        title=".NET Developer Guideline"
+        subtitle="The exhaustive reference for .NET development, clean code patterns, and project-specific conventions at AII."
+        breadcrumbs={breadcrumbs}
+      />
+
+      <div className="container py-12 px-4 flex flex-col lg:flex-row gap-12">
+        {/* Content */}
+        <main className="flex-1 min-w-0 space-y-32 pb-24 lg:max-w-4xl">
+
+          {/* 1. Project Overview */}
+          <section id="overview" className="scroll-mt-28 space-y-8">
+            <div className="space-y-4">
+              <Badge variant="outline" className="text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 1</Badge>
+              <h2 className="text-4xl font-extrabold tracking-tight">Project Overview</h2>
+            </div>
+
+            <div className="prose prose-slate dark:prose-invert max-w-none space-y-6">
+              <p className="text-xl text-muted-foreground leading-relaxed">
+                AII .NET applications are built using **.NET 8.0/9.0** following **Clean Architecture** or **Vertical Slice** principles. Our goal is to maintain highly testable, independent, and scalable codebases.
+              </p>
+
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 not-prose">
+                {[
+                  { text: ".NET 8.0/9.0 ASP.NET Core", icon: Server },
+                  { text: "EF Core with PostgreSQL/SQL Server", icon: Database },
+                  { text: "MediatR for In-Process Messaging", icon: Zap },
+                  { text: "FluentValidation for Logic", icon: ShieldCheck },
+                  { text: "Mapster/AutoMapper for DTOs", icon: Layers },
+                  { text: "Serilog & OpenTelemetry", icon: Activity },
+                ].map((tech, i) => (
+                  <div key={i} className="glass flex items-center gap-3 p-4 rounded-xl border border-border/50">
+                    <tech.icon className="h-5 w-5 text-primary" />
+                    <span className="font-semibold text-sm">{tech.text}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* New Joiner Checklist */}
+              <div className="mt-12 p-8 rounded-3xl bg-blue-500/5 border border-blue-500/10 space-y-6 not-prose">
+                <div className="flex items-center gap-3 text-blue-500">
+                  <div className="p-2 rounded-lg bg-blue-500/10">
+                    <CheckCircle2 className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-2xl font-bold">New Developer Checklist</h3>
+                </div>
+                <p className="text-muted-foreground">Follow these steps to get your first .NET project running at AII:</p>
+                <div className="grid gap-4">
+                  {[
+                    { step: "Install SDK", desc: "Download and install .NET 8.0 SDK and Runtime." },
+                    { step: "Setup IDE", desc: "Install JetBrains Rider (preferred) or VS 2022 with C# extensions." },
+                    { step: "Clone Template", desc: "Run 'dotnet new install AII.Templates' to get our latest skeleton." },
+                    { step: "Docker Setup", desc: "Ensure Docker Desktop is running for local PostgreSQL/Redis instances." },
+                    { step: "Run Tests", desc: "Execute 'dotnet test' to ensure the baseline project is stable." },
+                  ].map((item, i) => (
+                    <div key={i} className="flex gap-4 p-4 rounded-xl border border-border/50 bg-background/50">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center font-bold text-sm">
+                        {i + 1}
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-foreground">{item.step}</h4>
+                        <p className="text-sm text-muted-foreground">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <Separator />
+
+          {/* 2. Architecture Design */}
+          <section id="architecture" className="scroll-mt-28 space-y-12">
+            <div className="space-y-4">
+              <Badge variant="outline" className="text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 2</Badge>
+              <h2 className="text-4xl font-extrabold tracking-tight">Architecture Design Choices</h2>
+            </div>
+
+            <div className="space-y-10">
+              <div className="space-y-6">
+                <h3 className="text-2xl font-bold flex items-center gap-2">Clean Architecture (Layered)</h3>
+                <p className="text-muted-foreground">Standard for enterprise-grade applications with complex domains.</p>
+                <div className="grid lg:grid-cols-2 gap-6">
+                  <CodeSnippet title="Order.cs (Domain Layer)" language="csharp" code={`public class Order : AggregateRoot\n{\n    public void MarkAsCompleted() {\n        if (Status != OrderStatus.Processing)\n            throw new DomainException("Invalid state transition");\n        Status = OrderStatus.Completed;\n    }\n}`} />
+                  <CodeSnippet title="CompleteOrderUseCase.cs (App Layer)" language="csharp" code={`public async Task Execute(int orderId) {\n    var order = await _orderRepository.GetByIdAsync(orderId);\n    order.MarkAsCompleted();\n    await _unitOfWork.SaveChangesAsync();\n}`} />
+                </div>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-primary/5 border border-primary/10 space-y-4">
+                <h4 className="font-bold flex items-center gap-2 text-primary"><LayoutIcon className="h-5 w-5" /> Layer Responsibilities</h4>
+                <div className="grid md:grid-cols-2 gap-6 text-sm">
+                  <div className="space-y-2">
+                    <p><strong>API Layer</strong>: Controllers, Endpoints, Middleware, Auth registration.</p>
+                    <p><strong>Application Layer</strong>: Commands, Queries, Handlers, DTOs, Validators.</p>
+                  </div>
+                  <div className="space-y-2">
+                    <p><strong>Domain Layer</strong>: Entities, Value Objects, Domain Logic, Exceptions.</p>
+                    <p><strong>Infrastructure Layer</strong>: Data Access, External Clients, File Storage.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <Separator />
+
+          {/* 3. Design Patterns */}
+          <section id="patterns" className="scroll-mt-28 space-y-12">
+            <div className="space-y-4">
+              <Badge variant="outline" className="text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 3</Badge>
+              <h2 className="text-4xl font-extrabold tracking-tight">Design Patterns</h2>
+            </div>
+
+            <div className="space-y-8">
+              <div className="grid lg:grid-cols-2 gap-8">
+                <div className="space-y-4">
+                  <h4 className="text-xl font-bold flex items-center gap-2"><Zap className="h-5 w-5 text-yellow-500" /> CQRS with MediatR</h4>
+                  <p className="text-sm text-muted-foreground">Separates read models from write models and enables decorators for logging and validation.</p>
+                  <CodeSnippet language="csharp" code={`public record CreateStudentCommand(string Name) : IRequest<int>;\npublic class CreateStudentHandler : IRequestHandler<CreateStudentCommand, int> { ... }`} />
+                </div>
+                <div className="space-y-4">
+                  <h4 className="text-xl font-bold flex items-center gap-2"><Activity className="h-5 w-5 text-emerald-500" /> Dependency Injection</h4>
+                  <p className="text-sm text-muted-foreground">Always use Constructor Injection. Prefer Scoped for DB context and Transient for lightweight services.</p>
+                  <CodeSnippet language="csharp" code={`public class Service(IRepository repo) : IService {\n    // Use Primary Constructor (C# 12)\n}`} />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <Separator />
+
+          {/* 4. Data Access */}
+          <section id="data-access" className="scroll-mt-28 space-y-12">
+            <div className="space-y-4">
+              <Badge variant="outline" className="text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 4</Badge>
+              <h2 className="text-4xl font-extrabold tracking-tight">Data Access Patterns</h2>
+            </div>
+
+            <div className="space-y-6">
+              <h3 className="text-2xl font-bold">Entity Framework Core</h3>
+              <p className="text-muted-foreground">The primary ORM for AII .NET projects. Follow these best practices for performance.</p>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="glass p-6 rounded-2xl border border-emerald-500/20 space-y-4">
+                  <h5 className="font-bold text-emerald-600">✅ Eager Loading & NoTracking</h5>
+                  <CodeSnippet language="csharp" code={`var students = await _context.Students\n    .AsNoTracking()\n    .Include(s => s.Courses)\n    .Where(s => s.IsActive)\n    .ToListAsync();`} />
+                </div>
+                <div className="glass p-6 rounded-2xl border border-blue-500/20 space-y-4">
+                  <h5 className="font-bold text-blue-600 font-mono">Dapper for Performance</h5>
+                  <p className="text-xs text-muted-foreground">Use Dapper for high-performance read scenarios or complex stored procedures.</p>
+                  <CodeSnippet language="csharp" code={`return await _dbConnection.QueryAsync<ReportDTO>(\n    "EXEC GetComplexReport @Date", new { Date = DateTime.Now });`} />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <Separator />
+
+          {/* 5. API Implementation */}
+          <section id="api-approaches" className="scroll-mt-28 space-y-12">
+            <div className="space-y-4">
+              <Badge variant="outline" className="text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 5</Badge>
+              <h2 className="text-4xl font-extrabold tracking-tight">API Implementation Approaches</h2>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-8">
+              <div className="space-y-4">
+                <h4 className="text-xl font-bold">Standard Controllers</h4>
+                <p className="text-sm text-muted-foreground">Best for large-scale APIs requiring complex route attributes or filters.</p>
+                <CodeSnippet language="csharp" code={`[ApiController, Route("api/[controller]")]\npublic class StudentsController : ControllerBase {\n    [HttpPost] public async Task<IActionResult> Create(DTO data) => Ok();\n}`} />
+              </div>
+              <div className="space-y-4">
+                <h4 className="text-xl font-bold">Minimal APIs</h4>
+                <p className="text-sm text-muted-foreground">Recommended for microservices or simple feature sets. Less boilerplate.</p>
+                <CodeSnippet language="csharp" code={`app.MapPost("/api/students", async (Command cmd, ISender sender) => \n    Results.Ok(await sender.Send(cmd)));`} />
+              </div>
+            </div>
+          </section>
+
+          <Separator />
+
+          {/* 6. Naming Conventions */}
+          <section id="naming" className="scroll-mt-28 space-y-8">
+            <div className="space-y-4">
+              <Badge variant="outline" className="text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 6</Badge>
+              <h2 className="text-4xl font-extrabold tracking-tight">Naming Conventions</h2>
+            </div>
+
+            <div className="overflow-x-auto rounded-3xl border glass">
+              <table className="w-full text-sm">
+                <thead className="bg-muted text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                  <tr>
+                    <th className="px-6 py-4 text-left">Element</th>
+                    <th className="px-6 py-4 text-left">Convention</th>
+                    <th className="px-6 py-4 text-left">Example</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y border-t">
+                  {[
+                    { el: "Classes", conv: "PascalCase", ex: "UserService" },
+                    { el: "Interfaces", conv: "IPascalCase", ex: "IUserRepository" },
+                    { el: "Methods", conv: "PascalCaseAsync", ex: "GetListAsync" },
+                    { el: "Fields (Private)", conv: "_camelCase", ex: "_logger" },
+                    { el: "Parameters", conv: "camelCase", ex: "userId" },
+                  ].map((row, i) => (
+                    <tr key={i} className="hover:bg-accent/5 transition-colors">
+                      <td className="px-6 py-4 font-semibold">{row.el}</td>
+                      <td className="px-6 py-4"><Badge variant="outline" className="bg-primary/5">{row.conv}</Badge></td>
+                      <td className="px-6 py-4 font-mono text-xs text-primary">{row.ex}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <Separator />
+
+          {/* 7. File Organization */}
+          <section id="organization" className="scroll-mt-28 space-y-12">
+            <div className="space-y-4">
+              <Badge variant="outline" className="text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 7</Badge>
+              <h2 className="text-4xl font-extrabold tracking-tight">File and Project Organization</h2>
+            </div>
+
+            <div className="p-8 rounded-3xl bg-slate-900 border border-slate-700 font-mono text-xs text-blue-400 group relative">
+              <div className="absolute top-4 right-4 text-[10px] uppercase font-bold text-slate-500 tracking-widest group-hover:text-blue-500/50 transition-colors">Clean Architecture Structure</div>
+              {`src/
+├── Application/      # UseCases, DTOs, Handlers
+│   ├── Common/
+│   ├── Interfaces/
+│   └── TodoItems/    # Feature-based folders
+├── Domain/           # Entities, Value Objects
+├── Infrastructure/   # Persistence, External Systems
+└── WebApi/           # Controllers, Middleware`}
+            </div>
+          </section>
+
+          <Separator />
+
+          {/* 8. Validation */}
+          <section id="validation" className="scroll-mt-28 space-y-12">
+            <div className="space-y-4">
+              <Badge variant="outline" className="text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 8</Badge>
+              <h2 className="text-4xl font-extrabold tracking-tight">Validation & Error Handling</h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-4">
+                <h4 className="font-bold flex items-center gap-2"><ShieldCheck className="h-5 w-5 text-emerald-500" /> FluentValidation</h4>
+                <p className="text-sm text-muted-foreground">Keep validation logic separate from your entities and commands.</p>
+                <CodeSnippet language="csharp" code={`public class CreateUserValidator : AbstractValidator<CreateUserCommand>\n{\n    public CreateUserValidator() {\n        RuleFor(x => x.Email).NotEmpty().EmailAddress();\n    }\n}`} />
+              </div>
+              <div className="space-y-4">
+                <h4 className="font-bold flex items-center gap-2"><Bug className="h-5 w-5 text-red-500" /> Global Exception Handling</h4>
+                <p className="text-sm text-muted-foreground italic">Use Exception Filters or Middleware to catch errors and return RFC-standard Problem Details.</p>
+              </div>
+            </div>
+          </section>
+
+          <Separator />
+
+          {/* 9. Testing */}
+          <section id="testing" className="scroll-mt-28 space-y-12">
+            <div className="space-y-4">
+              <Badge variant="outline" className="text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 9</Badge>
+              <h2 className="text-4xl font-extrabold tracking-tight">Testing Guidelines</h2>
+            </div>
+
+            <div className="space-y-10">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-4">
+                  <h4 className="font-bold">Unit Testing (xUnit)</h4>
+                  <p className="text-sm text-muted-foreground">Test business logic in isolation using Moq or NSubstitute.</p>
+                  <CodeSnippet language="csharp" code={`[Fact]\npublic async Task Handle_ValidRequest_ShouldReturnId() {\n    // Arrange, Act, Assert\n}`} />
+                </div>
+                <div className="space-y-4">
+                  <h4 className="font-bold">Integration Testing</h4>
+                  <p className="text-sm text-muted-foreground">Test the whole ASP.NET Core stack using WebApplicationFactory and Respawn.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="conclusion" className="p-12 rounded-[2.5rem] bg-primary text-primary-foreground border-none relative overflow-hidden">
+            <div className="relative z-10 space-y-6">
+              <h2 className="text-3xl font-bold">Ready to Build?</h2>
+              <p className="opacity-80 max-w-2xl">Following these .NET standards ensures your application is robust, secure, and ready for production at AII.</p>
+              <div className="flex gap-4">
+                <Button variant="secondary" asChild>
+                  <a href="/github-axa-usage">GitHub Workflow <ArrowRight className="ml-2 h-4 w-4" /></a>
+                </Button>
+                <Button variant="outline" className="bg-white/10 border-white/20 hover:bg-white/20" asChild>
+                  <a href="/coding-standard">Global Standards</a>
+                </Button>
+              </div>
+            </div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl pointer-events-none" />
+          </section>
+
+        </main>
+
+        {/* Right Side Sticky ToC */}
+        <aside className="lg:w-64 shrink-0 h-[calc(100vh-8rem)] sticky top-24 hidden xl:block overflow-y-auto pl-4 border-l">
+          <div className="space-y-1 pb-12">
+            <h4 className="text-[10px] font-bold mb-6 px-3 text-muted-foreground/60 uppercase tracking-[0.2em]">On this page</h4>
+            {chapters.map((chapter) => (
+              <a
+                key={chapter.id}
+                href={`#${chapter.id}`}
+                className={`flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg transition-all ${activeSection === chapter.id
+                  ? "text-primary font-bold"
+                  : "text-muted-foreground hover:text-foreground"
+                  }`}
+              >
+                <chapter.icon className={`h-3.5 w-3.5 shrink-0 ${activeSection === chapter.id ? "text-primary" : "text-muted-foreground/40"}`} />
+                {chapter.title}
+              </a>
+            ))}
+          </div>
+        </aside>
+      </div>
+    </Layout>
+  );
+};
+
+export default DotNetDeveloperGuidelinePage;
