@@ -9,6 +9,9 @@ import FlutterDeveloperGuidelinePage from './pages/FlutterDeveloperGuidelinePage
 import CleanArchitecturePage from './pages/CleanArchitecturePage';
 import CodingStandardPage from './pages/CodingStandardPage';
 import GitHubAxaUsagePage from './pages/GitHubAxaUsagePage';
+import OpenShiftGuidelinePage from './pages/OpenShiftGuidelinePage';
+import JenkinsGuidelinePage from './pages/JenkinsGuidelinePage';
+import SonarQubeGuidelinePage from './pages/SonarQubeGuidelinePage';
 import SearchResultsPage from './pages/SearchResultsPage';
 import ScrollToTop from './components/ScrollToTop';
 import { Toaster } from "@/components/ui/toaster";
@@ -80,6 +83,9 @@ function App() {
           <Route path="/clean-architecture" element={<CleanArchitecturePage />} />
           <Route path="/coding-standard" element={<CodingStandardPage />} />
           <Route path="/github-axa-usage" element={<GitHubAxaUsagePage />} />
+          <Route path="/openshift-guideline" element={<OpenShiftGuidelinePage />} />
+          <Route path="/jenkins-guideline" element={<JenkinsGuidelinePage />} />
+          <Route path="/sonarqube-guideline" element={<SonarQubeGuidelinePage />} />
           <Route path="/search" element={<SearchResultsPage />} />
         </Routes>
       </Router>

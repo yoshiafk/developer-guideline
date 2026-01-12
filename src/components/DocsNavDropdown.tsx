@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from "@/lib/utils";
-import { ChevronDown, FileCode, Coffee, Code2, Atom, Smartphone, GitBranch, Terminal, Layers } from 'lucide-react';
+import { ChevronDown, FileCode, Coffee, Code2, Atom, Smartphone, GitBranch, Terminal, Layers, Server, Wrench, ScanSearch } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface NavItem {
@@ -40,6 +40,14 @@ const navigation: NavGroup[] = [
             { title: "Flutter Development", href: "/flutter-developer-guideline", icon: Smartphone, description: "Cross-platform" },
         ],
     },
+    {
+        title: "DevOps & CI/CD",
+        items: [
+            { title: "OpenShift Platform", href: "/openshift-guideline", icon: Server, description: "Container platform" },
+            { title: "Jenkins CI/CD", href: "/jenkins-guideline", icon: Wrench, description: "Build & deploy" },
+            { title: "SonarQube", href: "/sonarqube-guideline", icon: ScanSearch, description: "Code quality" },
+        ],
+    },
 ];
 
 const DocsNavDropdown: React.FC = () => {
@@ -74,7 +82,7 @@ const DocsNavDropdown: React.FC = () => {
                         transition={{ duration: 0.15, ease: "easeOut" }}
                         className="absolute left-0 top-full pt-2 z-50"
                     >
-                        <div className="w-[540px] glass rounded-2xl shadow-2xl border p-4 grid grid-cols-3 gap-4">
+                        <div className="w-[700px] glass rounded-2xl shadow-2xl border p-4 grid grid-cols-4 gap-4">
                             {navigation.map((group) => (
                                 <div key={group.title} className="space-y-2">
                                     <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide px-2">

@@ -12,7 +12,10 @@ import {
   Coffee,
   Atom,
   Smartphone,
-  FileCode
+  FileCode,
+  Server,
+  Wrench,
+  ScanSearch
 } from "lucide-react";
 
 // Custom Python icon component
@@ -51,6 +54,14 @@ export function Sidebar({ className }: SidebarProps) {
       items: [
         { title: "React Development", href: "/react-developer-guideline", icon: Atom },
         { title: "Flutter Development", href: "/flutter-developer-guideline", icon: Smartphone },
+      ],
+    },
+    {
+      title: "DevOps & CI/CD",
+      items: [
+        { title: "OpenShift Platform", href: "/openshift-guideline", icon: Server },
+        { title: "Jenkins CI/CD", href: "/jenkins-guideline", icon: Wrench },
+        { title: "SonarQube", href: "/sonarqube-guideline", icon: ScanSearch },
       ],
     },
   ];
