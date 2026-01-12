@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
 import PageHero from '../components/PageHero';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -31,23 +31,45 @@ import { motion } from 'framer-motion';
 import CodeSnippet from '../components/CodeSnippet';
 
 const CleanArchitecturePage: React.FC = () => {
+  const [activeSection, setActiveSection] = useState("architecture");
+
   const breadcrumbs = [
     { label: 'Home', href: '/' },
-    { label: '.NET Developer Guideline', href: '/dotnet-guideline' },
+    { label: 'General', href: '/coding-standard' },
     { label: 'Clean Architecture Standards' }
   ];
 
   const sections = [
-    { id: "architecture", title: "Architecture Decisions", icon: Layers },
-    { id: "patterns", title: "Design Patterns", icon: Zap },
-    { id: "data-access", title: "Data Access", icon: Database },
-    { id: "api-style", title: "API Approaches", icon: Globe },
-    { id: "checklist", title: "Standards Checklist", icon: CheckCircle2 },
-    { id: "structure", title: "Project Structure", icon: LayoutIcon },
-    { id: "code-patterns", title: "Essential Patterns", icon: Code2 },
-    { id: "testing", title: "Testing Patterns", icon: FlaskConical },
-    { id: "matrix", title: "Decision Matrix", icon: TableIcon },
+    { id: "architecture", title: "1. Architecture Decisions", icon: Layers },
+    { id: "patterns", title: "2. Design Patterns", icon: Zap },
+    { id: "data-access", title: "3. Data Access", icon: Database },
+    { id: "api-style", title: "4. API Approaches", icon: Globe },
+    { id: "checklist", title: "5. Standards Checklist", icon: CheckCircle2 },
+    { id: "structure", title: "6. Project Structure", icon: LayoutIcon },
+    { id: "code-patterns", title: "7. Essential Patterns", icon: Code2 },
+    { id: "testing", title: "8. Testing Patterns", icon: FlaskConical },
+    { id: "matrix", title: "9. Decision Matrix", icon: TableIcon },
   ];
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.2, rootMargin: "-10% 0px -70% 0px" }
+    );
+
+    sections.forEach((section) => {
+      const el = document.getElementById(section.id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <Layout>
@@ -101,7 +123,7 @@ const CleanArchitecturePage: React.FC = () => {
           </section>
 
           {/* 1. Architecture Decisions */}
-          <section id="architecture" className="scroll-mt-24 space-y-8">
+          <section id="architecture" className="scroll-mt-28 space-y-8">
             <div className="flex items-center gap-3">
               <div className="p-2 rounded-lg bg-blue-500/10 text-blue-500">
                 <Layers className="h-6 w-6" />
@@ -161,7 +183,7 @@ const CleanArchitecturePage: React.FC = () => {
           </section>
 
           {/* 2. Design Patterns */}
-          <section id="patterns" className="scroll-mt-24 space-y-8">
+          <section id="patterns" className="scroll-mt-28 space-y-8">
             <div className="flex items-center gap-3">
               <div className="p-2 rounded-lg bg-yellow-500/10 text-yellow-500">
                 <Zap className="h-6 w-6" />
@@ -200,7 +222,7 @@ const CleanArchitecturePage: React.FC = () => {
           </section>
 
           {/* 3. Data Access */}
-          <section id="data-access" className="scroll-mt-24 space-y-8">
+          <section id="data-access" className="scroll-mt-28 space-y-8">
             <div className="flex items-center gap-3">
               <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-500">
                 <Database className="h-6 w-6" />
@@ -227,7 +249,7 @@ const CleanArchitecturePage: React.FC = () => {
           </section>
 
           {/* 4. Standards Checklist */}
-          <section id="checklist" className="scroll-mt-24 space-y-8 p-8 rounded-2xl bg-muted/30 border border-primary/5">
+          <section id="checklist" className="scroll-mt-28 space-y-8 p-8 rounded-2xl bg-muted/30 border border-primary/5">
             <div className="flex items-center gap-3">
               <div className="p-2 rounded-lg bg-indigo-500/10 text-indigo-500">
                 <CheckCircle2 className="h-6 w-6" />
@@ -261,7 +283,7 @@ const CleanArchitecturePage: React.FC = () => {
           </section>
 
           {/* 5. Project Structure */}
-          <section id="structure" className="scroll-mt-24 space-y-8">
+          <section id="structure" className="scroll-mt-28 space-y-8">
             <h2 className="text-3xl font-bold tracking-tight">Recommended Project Structure</h2>
             <div className="p-6 rounded-lg bg-slate-900 overflow-x-auto border border-slate-700">
               <pre className="text-xs text-blue-300 font-mono leading-relaxed group">
@@ -275,7 +297,7 @@ const CleanArchitecturePage: React.FC = () => {
           </section>
 
           {/* 6. Testing Patterns */}
-          <section id="testing" className="scroll-mt-24 space-y-8">
+          <section id="testing" className="scroll-mt-28 space-y-8">
             <div className="flex items-center gap-3">
               <div className="p-2 rounded-lg bg-pink-500/10 text-pink-500">
                 <FlaskConical className="h-6 w-6" />
@@ -298,7 +320,7 @@ const CleanArchitecturePage: React.FC = () => {
           </section>
 
           {/* 7. Decision Matrix */}
-          <section id="matrix" className="scroll-mt-24 space-y-8">
+          <section id="matrix" className="scroll-mt-28 space-y-8">
             <h2 className="text-3xl font-bold tracking-tight">Decision Matrix</h2>
             <div className="overflow-x-auto rounded-xl border border-border">
               <table className="w-full text-sm text-left">
@@ -341,7 +363,7 @@ const CleanArchitecturePage: React.FC = () => {
           </section>
 
           {/* 8. Common Mistakes */}
-          <section id="mistakes" className="scroll-mt-24 space-y-8 bg-destructive/5 p-8 rounded-2xl border border-destructive/10">
+          <section id="mistakes" className="scroll-mt-28 space-y-8 bg-destructive/5 p-8 rounded-2xl border border-destructive/10">
             <h2 className="text-2xl font-bold flex items-center gap-2 text-destructive">
               <Bug className="h-6 w-6" /> Common Mistakes to Avoid
             </h2>
@@ -383,15 +405,18 @@ const CleanArchitecturePage: React.FC = () => {
 
         {/* Right Side ToC */}
         <aside className="lg:w-64 shrink-0 h-[calc(100vh-8rem)] sticky top-24 hidden xl:block overflow-y-auto pl-4 border-l">
-          <div className="space-y-1">
+          <div className="space-y-1 pb-12">
             <h4 className="text-[10px] font-bold mb-6 px-3 text-muted-foreground/60 uppercase tracking-[0.2em]">On This Page</h4>
             {sections.map((section) => (
               <a
                 key={section.id}
                 href={`#${section.id}`}
-                className="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md hover:text-primary transition-all group text-muted-foreground"
+                className={`flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg transition-all ${activeSection === section.id
+                  ? "text-primary font-bold"
+                  : "text-muted-foreground hover:text-foreground"
+                  }`}
               >
-                <section.icon className="h-4 w-4 opacity-50 group-hover:opacity-100 transition-colors" />
+                <section.icon className={`h-3.5 w-3.5 shrink-0 ${activeSection === section.id ? "text-primary" : "text-muted-foreground/40"}`} />
                 {section.title}
               </a>
             ))}

@@ -61,7 +61,7 @@ const HomePage: React.FC = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid gap-8 md:grid-cols-3"
+            className="grid gap-10 md:grid-cols-3"
           >
             {[
               {
@@ -80,7 +80,7 @@ const HomePage: React.FC = () => {
                 description: "Leveraging the latest language features and modern design patterns."
               }
             ].map((feature, index) => (
-              <motion.div key={index} variants={itemVariants} className="glass-card rounded-2xl p-8 hover:bg-card/80 transition-all border group">
+              <motion.div key={index} variants={itemVariants} className="glass-card rounded-2xl p-8 hover:bg-muted/50 transition-all border group hover:-translate-y-2 duration-300">
                 <div className="mb-4 inline-flex p-3 rounded-xl bg-primary/10 text-primary group-hover:scale-110 transition-transform">
                   <feature.icon className="h-6 w-6" />
                 </div>
@@ -152,7 +152,7 @@ const HomePage: React.FC = () => {
             <p className="text-muted-foreground max-w-[600px] text-lg">Dive deep into specific topics with our comprehensive guides covering development standards and best practices for every stack.</p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
             {/* .NET Card */}
             <Card className="glass-card group hover:scale-[1.02] transition-all duration-300">
               <CardHeader className="p-8">

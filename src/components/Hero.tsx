@@ -16,6 +16,8 @@ const Hero: React.FC = () => {
     }
   };
 
+  const [isFocused, setIsFocused] = React.useState(false);
+
   return (
     <section className="relative overflow-hidden pt-16 pb-24 lg:pt-32 lg:pb-40">
       {/* Dynamic Background */}
@@ -41,21 +43,33 @@ const Hero: React.FC = () => {
           {/* Prompt Search Bar */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="w-full max-w-2xl"
+            animate={{
+              opacity: 1,
+              scale: isFocused ? 1.02 : 1,
+              y: isFocused ? -4 : 0
+            }}
+            transition={{ duration: 0.3 }}
+            className="w-full max-w-2xl px-4 md:px-0"
           >
             <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary/50 to-blue-400/50 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-              <div className="relative glass rounded-2xl flex items-center p-2 shadow-2xl">
-                <Search className="ml-4 h-6 w-6 text-muted-foreground" />
+              <motion.div
+                animate={{
+                  opacity: isFocused ? 0.6 : 0.25,
+                  scale: isFocused ? 1.05 : 1
+                }}
+                className="absolute -inset-1 bg-gradient-to-r from-primary to-blue-400 rounded-2xl blur group-hover:opacity-50 transition duration-500"
+              />
+              <div className={`relative glass rounded-2xl flex items-center p-2 shadow-2xl transition-all duration-300 ${isFocused ? 'bg-background/80' : ''}`}>
+                <Search className={`ml-4 h-6 w-6 transition-colors duration-300 ${isFocused ? 'text-primary' : 'text-muted-foreground'}`} />
                 <input
                   type="text"
                   placeholder="What are you looking for? (e.g. 'branching', 'Clean Architecture', 'async')"
-                  className="w-full bg-transparent border-none focus:ring-0 px-4 py-3 text-lg"
+                  className="w-full bg-transparent border-none outline-none focus:outline-none focus:ring-0 px-4 py-3 text-lg"
                   onKeyDown={handleSearch}
+                  onFocus={() => setIsFocused(true)}
+                  onBlur={() => setIsFocused(false)}
                 />
-                <div className="hidden sm:flex items-center gap-1 bg-muted px-3 py-1.5 rounded-xl border text-muted-foreground">
+                <div className={`hidden sm:flex items-center gap-1 px-3 py-1.5 rounded-xl border transition-colors duration-300 ${isFocused ? 'bg-primary/10 border-primary/20 text-primary' : 'bg-muted text-muted-foreground'}`}>
                   <span className="text-xs">⌘</span>
                   <span className="text-xs">K</span>
                 </div>
@@ -70,13 +84,13 @@ const Hero: React.FC = () => {
             className="flex flex-wrap items-center justify-center gap-6"
           >
             <Button asChild size="lg" className="h-12 px-8 rounded-xl shadow-lg hover:shadow-primary/20 transition-all font-bold">
-              <Link to="/clean-architecture">
+              <Link to="/github-axa-usage">
                 <Rocket className="mr-2 h-5 w-5" />
                 Get Started
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="h-12 px-8 rounded-xl glass hover:bg-muted/50 transition-all font-bold">
-              <Link to="/dotnet-developer-guideline">
+              <Link to="/coding-standard">
                 <BookOpen className="mr-2 h-5 w-5" />
                 Explore Guidelines
               </Link>

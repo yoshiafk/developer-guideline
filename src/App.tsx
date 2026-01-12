@@ -10,6 +10,7 @@ import CleanArchitecturePage from './pages/CleanArchitecturePage';
 import CodingStandardPage from './pages/CodingStandardPage';
 import GitHubAxaUsagePage from './pages/GitHubAxaUsagePage';
 import SearchResultsPage from './pages/SearchResultsPage';
+import ScrollToTop from './components/ScrollToTop';
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
@@ -68,6 +69,7 @@ function App() {
   return (
     <TooltipProvider>
       <Router basename={import.meta.env.BASE_URL}>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/dotnet-developer-guideline" element={<DotNetDeveloperGuidelinePage />} />

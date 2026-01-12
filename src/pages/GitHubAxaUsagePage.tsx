@@ -96,31 +96,6 @@ const GitHubAxaUsagePage: React.FC = () => {
       />
 
       <div className="container py-12 px-4 flex flex-col lg:flex-row gap-12">
-        {/* Sticky Sidebar */}
-        <aside className="lg:w-72 shrink-0 h-[calc(100vh-8rem)] sticky top-24 hidden lg:block overflow-y-auto pr-4">
-          <div className="space-y-1 pb-12">
-            <h4 className="text-xs font-bold mb-4 px-3 text-muted-foreground uppercase tracking-[0.2em]">Table of Contents</h4>
-            {chapters.map((chapter) => (
-              <a
-                key={chapter.id}
-                href={`#${chapter.id}`}
-                className={`flex items-center gap-3 px-3 py-2.5 text-sm font-medium rounded-lg transition-all border border-transparent ${activeSection === chapter.id
-                  ? "bg-primary/10 text-primary border-primary/20 shadow-sm"
-                  : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
-                  }`}
-              >
-                <chapter.icon className={`h-4 w-4 shrink-0 ${activeSection === chapter.id ? "text-primary" : "text-muted-foreground/60"}`} />
-                {chapter.title}
-                {activeSection === chapter.id && (
-                  <motion.div layoutId="activeIndGit" className="ml-auto">
-                    <ChevronRight className="h-3 w-3" />
-                  </motion.div>
-                )}
-              </a>
-            ))}
-          </div>
-        </aside>
-
         {/* Content Area */}
         <main className="flex-1 min-w-0 space-y-32 pb-24 lg:max-w-4xl">
 
@@ -148,10 +123,10 @@ const GitHubAxaUsagePage: React.FC = () => {
                   color: "emerald"
                 },
                 {
-                  title: "Branching Rules",
-                  desc: "Mandatory prefix patterns for all feature work.",
-                  icon: GitBranch,
-                  tags: ["feature/*", "bugfix/*"],
+                  title: "CI/CD Pipelines",
+                  desc: "Automated testing and deployment for every change.",
+                  icon: Activity,
+                  tags: ["Build", "Test", "Deploy"],
                 },
                 {
                   title: "PR Quality",
@@ -744,6 +719,26 @@ const GitHubAxaUsagePage: React.FC = () => {
           </section>
 
         </main>
+
+        {/* Right Side Sticky ToC */}
+        <aside className="lg:w-72 shrink-0 h-[calc(100vh-8rem)] sticky top-24 hidden lg:block overflow-y-auto pl-4 border-l">
+          <div className="space-y-1 pb-12">
+            <h4 className="text-[10px] font-bold mb-6 px-3 text-muted-foreground/60 uppercase tracking-[0.2em]">On this page</h4>
+            {chapters.map((chapter) => (
+              <a
+                key={chapter.id}
+                href={`#${chapter.id}`}
+                className={`flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg transition-all ${activeSection === chapter.id
+                  ? "text-primary font-bold"
+                  : "text-muted-foreground hover:text-foreground"
+                  }`}
+              >
+                <chapter.icon className={`h-3.5 w-3.5 shrink-0 ${activeSection === chapter.id ? "text-primary" : "text-muted-foreground/40"}`} />
+                {chapter.title}
+              </a>
+            ))}
+          </div>
+        </aside>
       </div>
     </Layout>
   );

@@ -156,6 +156,3 @@ This project is proprietary to AII. All rights reserved.
 ## 📞 Support
 
 For questions or support, please contact the AII development team.
-
-
-Next, review the content writing on each guideline page, is there anything to be improved to make it clearer and easy to follow for new joiner developer, while maintaining the Best Practice and Clean Code Principle (do research on this based on the documentation on internet)
