@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Code2, Menu, Search, Github, ExternalLink } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { Code2, Menu, Search, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from './ThemeToggle';
 import SearchModal from './SearchModal';
+import DocsNavDropdown from './DocsNavDropdown';
 import {
   Sheet,
   SheetContent,
@@ -13,11 +14,34 @@ import {
 } from '@/components/ui/sheet';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
+// Mobile navigation items
+const mobileNavigation = [
+  {
+    title: "Getting Started", items: [
+      { title: "GitHub Workflow", href: "/github-axa-usage" },
+      { title: "Coding Standards", href: "/coding-standard" },
+      { title: "Clean Architecture", href: "/clean-architecture" },
+    ]
+  },
+  {
+    title: "Backend", items: [
+      { title: ".NET Development", href: "/dotnet-developer-guideline" },
+      { title: "Java Development", href: "/java-developer-guideline" },
+      { title: "Python Development", href: "/python-developer-guideline" },
+    ]
+  },
+  {
+    title: "Frontend & Mobile", items: [
+      { title: "React Development", href: "/react-developer-guideline" },
+      { title: "Flutter Development", href: "/flutter-developer-guideline" },
+    ]
+  },
+];
+
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,99 +51,135 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navigation = [
-    { name: 'Documentation', href: '/' },
-  ];
+  // Keyboard shortcut for search
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setIsSearchOpen(true);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   return (
-    <header className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${isScrolled ? 'glass' : 'bg-background'
-      }`}>
-      <div className="container flex h-14 items-center">
-        <div className="mr-4 hidden md:flex">
-          <Link to="/" className="mr-6 flex items-center space-x-2 transition-transform hover:scale-105">
-            <div className="p-1 rounded-lg bg-primary/10">
-              <Code2 className="h-6 w-6 text-primary" />
+    <header
+      className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${isScrolled ? 'glass' : 'bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'
+        }`}
+      role="banner"
+    >
+      <div className="container flex h-16 items-center justify-between">
+        {/* Left: Logo + Nav */}
+        <div className="flex items-center gap-6">
+          {/* Logo */}
+          <Link
+            to="/"
+            className="flex items-center gap-2 transition-opacity hover:opacity-80"
+            aria-label="AII Developer Guidelines Home"
+          >
+            <div className="p-1.5 rounded-lg bg-primary/10">
+              <Code2 className="h-5 w-5 text-primary" />
             </div>
-            <span className="hidden font-bold sm:inline-block text-gradient">
-              AII Developer Guidelines
+            <span className="hidden font-bold text-foreground sm:inline-block">
+              AII Dev Guide
             </span>
           </Link>
-          <nav className="flex items-center space-x-6 text-sm font-medium">
-            {navigation.map((item) => (
-              <Link
-                key={item.href}
-                to={item.href}
-                className={`transition-colors hover:text-foreground/80 ${location.pathname === item.href ? 'text-foreground' : 'text-foreground/60'
-                  }`}
-              >
-                {item.name}
-              </Link>
-            ))}
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
+            <DocsNavDropdown />
           </nav>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Menu Button */}
         <Sheet>
           <SheetTrigger asChild>
             <Button
               variant="ghost"
-              className="mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
+              size="icon"
+              className="md:hidden"
+              aria-label="Open menu"
             >
               <Menu className="h-5 w-5" />
-              <span className="sr-only">Toggle Menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="pr-0">
-            <SheetHeader className="px-7">
+          <SheetContent side="left" className="w-80">
+            <SheetHeader>
               <SheetTitle>
-                <Link to="/" className="flex items-center">
-                  <Code2 className="mr-2 h-6 w-6 text-primary" />
+                <Link to="/" className="flex items-center gap-2">
+                  <Code2 className="h-5 w-5 text-primary" />
                   <span className="font-bold">AII Dev Guide</span>
                 </Link>
               </SheetTitle>
             </SheetHeader>
-            <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
-              <div className="flex flex-col space-y-3">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.href}
-                    to={item.href}
-                    className="text-foreground/70 transition-colors hover:text-foreground"
-                  >
-                    {item.name}
-                  </Link>
+            <ScrollArea className="my-4 h-[calc(100vh-8rem)]">
+              <div className="space-y-6 py-4">
+                {mobileNavigation.map((group) => (
+                  <div key={group.title}>
+                    <h4 className="mb-2 px-2 text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+                      {group.title}
+                    </h4>
+                    <div className="space-y-1">
+                      {group.items.map((item) => (
+                        <Link
+                          key={item.href}
+                          to={item.href}
+                          className={`block px-2 py-2 text-sm rounded-lg transition-colors ${location.pathname === item.href
+                              ? 'bg-primary/10 text-primary font-medium'
+                              : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                            }`}
+                        >
+                          {item.title}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
             </ScrollArea>
           </SheetContent>
         </Sheet>
 
-        <div className="flex flex-1 items-center justify-between space-x-4 md:justify-end">
-          <div className="w-full flex-1 md:w-auto md:flex-none">
-            <Button
-              variant="outline"
-              onClick={() => setIsSearchOpen(true)}
-              className="relative h-9 w-full justify-start rounded-xl bg-muted/20 border-transparent hover:bg-muted/40 transition-all text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-64"
-            >
-              <Search className="mr-2 h-4 w-4" />
-              <span className="hidden lg:inline-flex">Search documentation...</span>
-              <span className="inline-flex lg:hidden">Search...</span>
-              <kbd className="pointer-events-none absolute right-[0.5rem] top-[0.4rem] hidden h-5 select-none items-center gap-1 rounded bg-background px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex border shadow-sm">
-                <span className="text-xs">⌘</span>K
-              </kbd>
-            </Button>
-          </div>
-          <nav className="flex items-center gap-2">
-            <Button variant="ghost" size="icon" asChild className="rounded-full">
-              <a href="https://github.com/yoshiafk" target="_blank" rel="noreferrer">
-                <Github className="h-5 w-5" />
-              </a>
-            </Button>
-            <div className="h-4 w-[1px] bg-border mx-1" />
-            <ThemeToggle />
-          </nav>
+        {/* Right: Search + Actions */}
+        <div className="flex items-center gap-2">
+          {/* Search Button */}
+          <Button
+            variant="outline"
+            onClick={() => setIsSearchOpen(true)}
+            className="relative h-9 w-9 p-0 md:w-60 md:justify-start md:px-3 md:py-2 rounded-lg bg-muted/30 border-transparent hover:bg-muted/50 transition-all"
+            aria-label="Search documentation"
+          >
+            <Search className="h-4 w-4 md:mr-2" />
+            <span className="hidden md:inline-flex text-sm text-muted-foreground">
+              Search docs...
+            </span>
+            <kbd className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 hidden h-5 select-none items-center gap-1 rounded bg-background px-1.5 font-mono text-[10px] font-medium md:flex border shadow-sm">
+              <span className="text-xs">⌘</span>K
+            </kbd>
+          </Button>
+
+          {/* Divider */}
+          <div className="hidden md:block h-4 w-px bg-border" />
+
+          {/* GitHub */}
+          <Button
+            variant="ghost"
+            size="icon"
+            asChild
+            className="rounded-full h-9 w-9"
+            aria-label="View GitHub repository"
+          >
+            <a href="https://github.axa.com/aii" target="_blank" rel="noreferrer">
+              <Github className="h-4 w-4" />
+            </a>
+          </Button>
+
+          {/* Theme Toggle */}
+          <ThemeToggle />
         </div>
       </div>
+
       <SearchModal isOpen={isSearchOpen} onOpenChange={setIsSearchOpen} />
     </header>
   );

@@ -27,6 +27,7 @@ import {
   Activity,
   Accessibility
 } from 'lucide-react';
+import PageNavigation from '../components/PageNavigation';
 
 const chapters = [
   { id: "overview", title: "1. Project Overview", icon: BookOpen },
@@ -90,10 +91,11 @@ const ReactDeveloperGuidelinePage: React.FC = () => {
         title="React Development Guideline"
         subtitle="Standardized practices for building modern, scalable, and maintainable frontend applications at AII."
         breadcrumbs={breadcrumbs}
+        readingTime={35}
       />
 
-      <div className="container py-12 px-4 flex flex-col lg:flex-row gap-12">
-        <main className="flex-1 min-w-0 space-y-32 pb-24 lg:max-w-4xl">
+      <div className="container py-8 px-4 flex flex-col lg:flex-row gap-12">
+        <main className="flex-1 min-w-0 space-y-16 pb-16 lg:max-w-4xl">
 
           {/* Chapter 1: Project Overview */}
           <section id="overview" className="scroll-mt-28 space-y-8">
@@ -891,6 +893,14 @@ const App = () => (
             ))}
           </div>
         </aside>
+      </div>
+
+      {/* Page Navigation */}
+      <div className="container px-4 pb-8">
+        <PageNavigation
+          previous={{ title: ".NET Development", href: "/dotnet-developer-guideline" }}
+          next={{ title: "Flutter Development", href: "/flutter-developer-guideline" }}
+        />
       </div>
     </Layout>
   );

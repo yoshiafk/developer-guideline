@@ -52,12 +52,12 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onOpenChange }) => {
                 <div className="container max-w-3xl mx-auto py-12 px-6">
                     <div className="relative group mb-8">
                         <div className="absolute -inset-1 bg-primary/20 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-                        <div className="relative flex items-center bg-background/50 border rounded-2xl p-2 px-4 shadow-sm focus-within:ring-2 ring-primary/20 transition-all">
+                        <div className="relative flex items-center bg-background/50 rounded-2xl p-2 px-4 shadow-sm transition-all">
                             <Search className="h-6 w-6 text-muted-foreground mr-3" />
                             <input
                                 autoFocus
                                 placeholder="Search documentation, patterns, or components..."
-                                className="flex-1 bg-transparent border-none focus:outline-none text-xl py-2"
+                                className="flex-1 bg-transparent border-none outline-none focus:outline-none focus:ring-0 text-xl py-2"
                                 value={query}
                                 onChange={(e) => setQuery(e.target.value)}
                                 onKeyDown={(e) => {

@@ -28,6 +28,7 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import CodeSnippet from '../components/CodeSnippet';
+import PageNavigation from '../components/PageNavigation';
 
 const chapters = [
   { id: "overview", title: "1. Project Overview", icon: BookOpen },
@@ -75,11 +76,12 @@ const DotNetDeveloperGuidelinePage: React.FC = () => {
         title=".NET Developer Guideline"
         subtitle="The exhaustive reference for .NET development, clean code patterns, and project-specific conventions at AII."
         breadcrumbs={breadcrumbs}
+        readingTime={25}
       />
 
-      <div className="container py-12 px-4 flex flex-col lg:flex-row gap-12">
+      <div className="container py-8 px-4 flex flex-col lg:flex-row gap-12">
         {/* Content */}
-        <main className="flex-1 min-w-0 space-y-32 pb-24 lg:max-w-4xl">
+        <main className="flex-1 min-w-0 space-y-16 pb-16 lg:max-w-4xl">
 
           {/* 1. Project Overview */}
           <section id="overview" className="scroll-mt-28 space-y-8">
@@ -393,6 +395,14 @@ const DotNetDeveloperGuidelinePage: React.FC = () => {
             ))}
           </div>
         </aside>
+      </div>
+
+      {/* Page Navigation */}
+      <div className="container px-4 pb-8">
+        <PageNavigation
+          previous={{ title: "GitHub Workflow", href: "/github-axa-usage" }}
+          next={{ title: "Java Development", href: "/java-developer-guideline" }}
+        />
       </div>
     </Layout>
   );

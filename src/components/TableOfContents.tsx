@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { cn } from "@/lib/utils";
 
 interface TocItem {
   id: string;
@@ -38,9 +39,9 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ contentRef, className
           }
         });
       },
-      { 
+      {
         rootMargin: '-80px 0px -70% 0px', // Better detection range
-        threshold: 0.5 
+        threshold: 0.5
       }
     );
 
@@ -67,74 +68,35 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ contentRef, className
   if (tocItems.length === 0) return null;
 
   return (
-    <aside 
-      className={className}
-      style={{
-        position: 'sticky',
-        top: '96px',
-        height: 'calc(100vh - 96px - 32px)',
-        overflowY: 'auto',
-        padding: '16px',
-        borderLeft: '1px solid #E5E7EB',
-        backgroundColor: '#FFFFFF',
-        borderRadius: '12px',
-        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
-      }}
+    <aside
+      className={cn(
+        "sticky top-24 h-[calc(100vh-96px-32px)] overflow-y-auto p-4",
+        "border-l border-border bg-background rounded-xl shadow-sm",
+        className
+      )}
     >
-      <div style={{ marginBottom: '16px' }}>
-        <h4 style={{
-          fontSize: '12px',
-          fontWeight: 600,
-          color: '#9CA3AF',
-          textTransform: 'uppercase',
-          letterSpacing: '0.05em',
-          marginBottom: '12px',
-          margin: 0
-        }}>
+      <div className="mb-4">
+        <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
           On This Page
         </h4>
       </div>
       <nav aria-label="Table of contents">
-        <ul style={{
-          listStyle: 'none',
-          padding: 0,
-          margin: 0
-        }}>
+        <ul className="space-y-1">
           {tocItems.map((item) => (
-            <li 
+            <li
               key={item.id}
-              style={{
-                marginBottom: '4px',
-                paddingLeft: item.level === 3 ? '16px' : '0'
-              }}
+              className={item.level === 3 ? 'pl-4' : ''}
             >
               <a
                 href={`#${item.id}`}
-                style={{
-                  display: 'block',
-                  color: activeId === item.id ? '#00008F' : '#4B5563',
-                  fontSize: item.level === 3 ? '13px' : '14px',
-                  fontWeight: activeId === item.id ? 600 : 400,
-                  padding: '8px 12px',
-                  borderLeft: activeId === item.id ? '2px solid #00008F' : '2px solid transparent',
-                  backgroundColor: activeId === item.id ? '#EFF6FF' : 'transparent',
-                  textDecoration: 'none',
-                  borderRadius: '6px',
-                  transition: 'all 150ms ease',
-                  cursor: 'pointer'
-                }}
-                onMouseEnter={(e) => {
-                  if (activeId !== item.id) {
-                    e.currentTarget.style.color = '#00008F';
-                    e.currentTarget.style.backgroundColor = '#F9FAFB';
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (activeId !== item.id) {
-                    e.currentTarget.style.color = '#4B5563';
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                  }
-                }}
+                className={cn(
+                  "block px-3 py-2 rounded-md text-sm transition-all duration-150",
+                  "border-l-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary",
+                  item.level === 3 ? 'text-[13px]' : 'text-sm',
+                  activeId === item.id
+                    ? "border-primary bg-primary/10 text-primary font-semibold"
+                    : "border-transparent text-muted-foreground hover:text-primary hover:bg-muted/50"
+                )}
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection(item.id);

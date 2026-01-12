@@ -67,9 +67,25 @@
         @apply border-border;
     }
 
+    html {
+        scroll-behavior: smooth;
+    }
+
     body {
         @apply bg-background text-foreground antialiased;
         font-feature-settings: "rlig" 1, "calt" 1;
+    }
+
+    /* Global focus-visible styles for accessibility */
+    :focus-visible {
+        @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+    }
+
+    /* Remove focus ring from elements that handle it themselves */
+    button:focus-visible,
+    a:focus-visible,
+    [role="button"]:focus-visible {
+        @apply outline-none;
     }
 }
 
@@ -115,9 +131,9 @@
 }
 
 ::-webkit-scrollbar-track {
-    @apply bg-muted/20;
+    @apply bg-muted/20 dark:bg-muted/10;
 }
 
 ::-webkit-scrollbar-thumb {
-    @apply bg-muted-foreground/20 rounded-full border-4 border-transparent bg-clip-padding hover:bg-muted-foreground/40 transition-colors;
+    @apply bg-muted-foreground/20 dark:bg-muted-foreground/30 rounded-full border-4 border-transparent bg-clip-padding hover:bg-muted-foreground/40 dark:hover:bg-muted-foreground/50 transition-colors;
 }

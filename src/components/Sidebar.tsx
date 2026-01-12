@@ -56,40 +56,47 @@ export function Sidebar({ className }: SidebarProps) {
   ];
 
   return (
-    <div className={cn("glass-sidebar h-full rounded-r-2xl", className)}>
+    <nav
+      className={cn("glass-sidebar h-full rounded-r-2xl", className)}
+      aria-label="Main navigation"
+    >
       <div className="space-y-6 py-6">
         {navigation.map((group) => (
           <div key={group.title} className="px-4 py-2">
             <h2 className="mb-3 px-2 text-xs font-bold uppercase tracking-widest text-muted-foreground/60">
               {group.title}
             </h2>
-            <div className="space-y-1">
+            <ul className="space-y-1" role="list">
               {group.items.map((item) => {
                 const isActive = location.pathname === item.href;
                 return (
-                  <Button
-                    key={item.href}
-                    asChild
-                    variant="ghost"
-                    className={cn(
-                      "w-full justify-start transition-all duration-200",
-                      isActive
-                        ? "glass-card text-primary font-bold shadow-sm"
-                        : "text-muted-foreground hover:bg-primary/5 hover:text-primary"
-                    )}
-                  >
-                    <Link to={item.href}>
-                      <item.icon className={cn("mr-2 h-4 w-4", isActive ? "text-primary" : "text-muted-foreground/60")} />
-                      {item.title}
-                    </Link>
-                  </Button>
+                  <li key={item.href}>
+                    <Button
+                      asChild
+                      variant="ghost"
+                      className={cn(
+                        "w-full justify-start transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
+                        isActive
+                          ? "glass-card text-primary font-bold shadow-sm"
+                          : "text-muted-foreground hover:bg-primary/5 hover:text-primary"
+                      )}
+                    >
+                      <Link
+                        to={item.href}
+                        aria-current={isActive ? "page" : undefined}
+                      >
+                        <item.icon className={cn("mr-2 h-4 w-4", isActive ? "text-primary" : "text-muted-foreground/60")} />
+                        {item.title}
+                      </Link>
+                    </Button>
+                  </li>
                 );
               })}
-            </div>
+            </ul>
           </div>
         ))}
       </div>
-    </div>
+    </nav>
   );
 }
 
