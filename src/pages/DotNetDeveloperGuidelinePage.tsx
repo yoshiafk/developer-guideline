@@ -90,7 +90,7 @@ const DotNetDeveloperGuidelinePage: React.FC = () => {
 
             <div className="prose prose-slate dark:prose-invert max-w-none space-y-6">
               <p className="text-xl text-muted-foreground leading-relaxed">
-                AII .NET applications are built using **.NET 8.0/9.0** following **Clean Architecture** or **Vertical Slice** principles. Our goal is to maintain highly testable, independent, and scalable codebases.
+                AII .NET applications are built using <strong>.NET 8.0/9.0</strong> following <strong>Clean Architecture</strong> or <strong>Vertical Slice</strong> principles. Our goal is to maintain highly testable, independent, and scalable codebases.
               </p>
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 not-prose">
@@ -299,14 +299,14 @@ const DotNetDeveloperGuidelinePage: React.FC = () => {
 
             <div className="p-8 rounded-3xl bg-slate-900 border border-slate-700 font-mono text-xs text-blue-400 group relative">
               <div className="absolute top-4 right-4 text-[10px] uppercase font-bold text-slate-500 tracking-widest group-hover:text-blue-500/50 transition-colors">Clean Architecture Structure</div>
-              {`src/
+              <pre className="leading-relaxed">{`src/
 ├── Application/      # UseCases, DTOs, Handlers
 │   ├── Common/
 │   ├── Interfaces/
 │   └── TodoItems/    # Feature-based folders
 ├── Domain/           # Entities, Value Objects
 ├── Infrastructure/   # Persistence, External Systems
-└── WebApi/           # Controllers, Middleware`}
+└── WebApi/           # Controllers, Middleware`}</pre>
             </div>
           </section>
 

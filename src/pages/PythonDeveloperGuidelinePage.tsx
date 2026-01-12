@@ -52,13 +52,27 @@ const PythonDeveloperGuidelinePage: React.FC = () => {
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setActiveSection(entry.target.id);
-                    }
-                });
+                // Find the entry that's most visible (closest to top of viewport)
+                const visibleEntries = entries.filter(entry => entry.isIntersecting);
+
+                if (visibleEntries.length > 0) {
+                    // Sort by intersection ratio (most visible first) and position
+                    const mostVisible = visibleEntries.reduce((prev, current) => {
+                        // Prefer the one with higher intersection ratio
+                        if (current.intersectionRatio > prev.intersectionRatio) {
+                            return current;
+                        }
+                        // If same ratio, prefer the one closer to top
+                        if (current.intersectionRatio === prev.intersectionRatio) {
+                            return current.boundingClientRect.top < prev.boundingClientRect.top ? current : prev;
+                        }
+                        return prev;
+                    });
+
+                    setActiveSection(mostVisible.target.id);
+                }
             },
-            { threshold: 0.2, rootMargin: "-10% 0px -70% 0px" }
+            { threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0], rootMargin: "-10% 0px -70% 0px" }
         );
 
         chapters.forEach((chapter) => {

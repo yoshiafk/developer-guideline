@@ -325,7 +325,7 @@ const GitHubAxaUsagePage: React.FC = () => {
                 <ShieldAlert className="h-6 w-6 text-destructive shrink-0" />
                 <div>
                   <h4 className="font-bold text-destructive">Crucial Restriction</h4>
-                  <p className="text-sm text-muted-foreground italic">**NEVER** commit directly to master, development, or any locked branches. All changes must be submitted via Pull Requests.</p>
+                  <p className="text-sm text-muted-foreground italic"><strong>NEVER</strong> commit directly to master, development, or any locked branches. All changes must be submitted via Pull Requests.</p>
                 </div>
               </div>
             </div>
@@ -376,7 +376,7 @@ const GitHubAxaUsagePage: React.FC = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4 text-sm leading-relaxed">
-                    <p>Merging into any protected branch requires a review and approval from **at least 1 designated code owner**.</p>
+                    <p>Merging into any protected branch requires a review and approval from <strong>at least 1 designated code owner</strong>.</p>
                     <Separator className="bg-primary/10" />
                     <ul className="space-y-3 list-none p-0 italic text-muted-foreground">
                       <li className="flex gap-2"><ArrowRight className="h-3 w-3 mt-1 text-primary shrink-0" /> PRs should be small and focused.</li>
@@ -475,7 +475,7 @@ const GitHubAxaUsagePage: React.FC = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="text-sm text-muted-foreground leading-relaxed">
-                  All new features and bug fixes **must** include relevant unit or integration tests. Code without tests will not be approved.
+                  All new features and bug fixes <strong>must</strong> include relevant unit or integration tests. Code without tests will not be approved.
                 </CardContent>
               </Card>
 
@@ -537,7 +537,7 @@ const GitHubAxaUsagePage: React.FC = () => {
               </div>
               <CardContent className="p-8 space-y-6">
                 <p className="text-muted-foreground leading-relaxed text-lg">
-                  **Always pull the latest changes** from the target branch (e.g., master, development, or release/**) before starting work or creating a PR.
+                  <strong>Always pull the latest changes</strong> from the target branch (e.g., master, development, or release/**) before starting work or creating a PR.
                 </p>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="p-4 rounded-xl bg-muted border font-mono text-xs">

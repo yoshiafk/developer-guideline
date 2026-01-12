@@ -92,7 +92,7 @@ const CleanArchitecturePage: React.FC = () => {
               </p>
             </div>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Our architecture standards ensure consistency across services. We support two primary patterns based on complexity: **Clean Architecture** for rich domains and **Vertical Slice** for feature-focused or CRUD-heavy applications.
+              Our architecture standards ensure consistency across services. We support two primary patterns based on complexity: <strong>Clean Architecture</strong> for rich domains and <strong>Vertical Slice</strong> for feature-focused or CRUD-heavy applications.
             </p>
 
             {/* Quick Handbook for New Joiners */}

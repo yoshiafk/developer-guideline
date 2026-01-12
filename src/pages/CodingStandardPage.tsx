@@ -281,7 +281,7 @@ const CodingStandardPage: React.FC = () => {
 
               <div className="space-y-4">
                 <h4 className="font-bold flex items-center gap-2 text-primary"><Fingerprint className="h-5 w-5" /> Sensitive Data Handling</h4>
-                <p className="text-sm text-muted-foreground">**NEVER** log PII (Personally Identifiable Information) or credentials. Use masked logging and environment-based configuration for secrets.</p>
+                <p className="text-sm text-muted-foreground"><strong>NEVER</strong> log PII (Personally Identifiable Information) or credentials. Use masked logging and environment-based configuration for secrets.</p>
               </div>
             </div>
           </section>
@@ -323,6 +323,216 @@ const CodingStandardPage: React.FC = () => {
             </div>
           </section>
 
+          <Separator />
+
+          {/* 6. Documentation & Style */}
+          <section id="documentation" className="scroll-mt-28 space-y-12">
+            <div className="space-y-4">
+              <Badge variant="outline" className="text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 6</Badge>
+              <h2 className="text-4xl font-extrabold tracking-tight">Documentation & Style</h2>
+              <p className="text-lg text-muted-foreground">Clear documentation and consistent code style improve maintainability and team collaboration.</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <Card className="glass shadow-lg">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <MessageSquare className="h-5 w-5 text-primary" />
+                    Code Comments
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-sm text-muted-foreground">Write comments that explain <strong>why</strong>, not <strong>what</strong>. The code itself should be self-documenting for the "what".</p>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                      <span>Explain complex business logic</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                      <span>Document non-obvious decisions</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                      <span>Add TODO/FIXME with context</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="glass shadow-lg">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <FileText className="h-5 w-5 text-primary" />
+                    README Standards
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-sm text-muted-foreground">Every project must have a comprehensive README with:</p>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                      <span>Project overview and purpose</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                      <span>Setup and installation steps</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                      <span>Environment variables</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                      <span>API documentation links</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-muted/30 border space-y-4">
+              <h4 className="font-bold flex items-center gap-2">
+                <Code2 className="h-5 w-5 text-primary" />
+                Code Formatting
+              </h4>
+              <p className="text-sm text-muted-foreground">Use automated formatters and linters to maintain consistent code style across the team. Configure your IDE to format on save.</p>
+              <div className="grid sm:grid-cols-3 gap-4 text-sm">
+                <div className="p-3 rounded-lg bg-background border">
+                  <strong>.NET:</strong> EditorConfig + StyleCop
+                </div>
+                <div className="p-3 rounded-lg bg-background border">
+                  <strong>JavaScript/TypeScript:</strong> Prettier + ESLint
+                </div>
+                <div className="p-3 rounded-lg bg-background border">
+                  <strong>Python:</strong> Black + Flake8
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <Separator />
+
+          {/* 7. Testing Strategy */}
+          <section id="testing-strategy" className="scroll-mt-28 space-y-12">
+            <div className="space-y-4">
+              <Badge variant="outline" className="text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 7</Badge>
+              <h2 className="text-4xl font-extrabold tracking-tight">Testing Strategy</h2>
+              <p className="text-lg text-muted-foreground">Comprehensive testing ensures code quality, prevents regressions, and builds confidence in deployments.</p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="glass shadow-lg border-emerald-500/20">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-emerald-600">
+                    <FlaskConical className="h-5 w-5" />
+                    Unit Tests
+                  </CardTitle>
+                  <CardDescription>70% Coverage Target</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-3 text-sm">
+                  <p className="text-muted-foreground">Test individual functions and methods in isolation.</p>
+                  <div className="space-y-2">
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                      <span>Fast execution</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                      <span>No external dependencies</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-500 mt-0.5" />
+                      <span>Mock external services</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="glass shadow-lg border-blue-500/20">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-blue-600">
+                    <Layers className="h-5 w-5" />
+                    Integration Tests
+                  </CardTitle>
+                  <CardDescription>Critical Paths</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-3 text-sm">
+                  <p className="text-muted-foreground">Test interactions between components and external systems.</p>
+                  <div className="space-y-2">
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-blue-500 mt-0.5" />
+                      <span>Database operations</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-blue-500 mt-0.5" />
+                      <span>API endpoints</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-blue-500 mt-0.5" />
+                      <span>Message queues</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="glass shadow-lg border-purple-500/20">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-purple-600">
+                    <Globe className="h-5 w-5" />
+                    E2E Tests
+                  </CardTitle>
+                  <CardDescription>User Journeys</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-3 text-sm">
+                  <p className="text-muted-foreground">Test complete user workflows from start to finish.</p>
+                  <div className="space-y-2">
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-purple-500 mt-0.5" />
+                      <span>Critical user flows</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-purple-500 mt-0.5" />
+                      <span>Cross-service scenarios</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-purple-500 mt-0.5" />
+                      <span>UI automation</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="p-8 rounded-3xl bg-gradient-to-br from-primary/10 to-blue-500/10 border border-primary/20 space-y-6">
+              <h4 className="text-xl font-bold flex items-center gap-2">
+                <Activity className="h-6 w-6 text-primary" />
+                Testing Best Practices
+              </h4>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-3">
+                  <h5 className="font-bold text-primary">Test Naming</h5>
+                  <p className="text-sm text-muted-foreground">Use descriptive names: <code className="text-primary">MethodName_Scenario_ExpectedBehavior</code></p>
+                  <Badge variant="outline" className="font-mono text-xs">CreateUser_InvalidEmail_ThrowsValidationException</Badge>
+                </div>
+                <div className="space-y-3">
+                  <h5 className="font-bold text-primary">AAA Pattern</h5>
+                  <p className="text-sm text-muted-foreground">Structure tests with Arrange, Act, Assert sections for clarity.</p>
+                  <div className="flex gap-2">
+                    <Badge variant="outline">Arrange</Badge>
+                    <Badge variant="outline">Act</Badge>
+                    <Badge variant="outline">Assert</Badge>
+                  </div>
+                </div>
+              </div>
+              <div className="pt-4 border-t border-primary/10">
+                <p className="text-sm text-muted-foreground italic">
+                  <strong>Remember:</strong> Tests are documentation. They should clearly communicate the expected behavior of your code.
+                </p>
+              </div>
+            </div>
+          </section>
+
           <section id="language-nav" className="p-12 rounded-[2.5rem] bg-primary/5 border border-primary/10 space-y-8">
             <h2 className="text-3xl font-bold text-center">Language-Specific Guidelines</h2>
             <p className="text-center text-muted-foreground max-w-2xl mx-auto">While the above principles are universal, each language has its own idioms and conventions. Select your stack for detailed implementation guides.</p>
@@ -333,7 +543,7 @@ const CodingStandardPage: React.FC = () => {
                 { name: "Java", path: "/java-developer-guideline", color: "red" },
                 { name: "Python", path: "/python-developer-guideline", color: "yellow" }
               ].map((lang) => (
-                <Button key={lang.name} asChild variant="outline" className="h-16 font-bold hover:bg-primary hover:text-white transition-all">
+                <Button key={lang.name} asChild variant="outline" className="h-16 font-bold hover:bg-primary/20 hover:text-primary hover:border-primary transition-all">
                   <Link to={lang.path}>{lang.name}</Link>
                 </Button>
               ))}

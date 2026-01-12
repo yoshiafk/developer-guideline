@@ -156,3 +156,5 @@ This project is proprietary to AII. All rights reserved.
 ## 📞 Support
 
 For questions or support, please contact the AII development team.
+
+Now do check on styling and overall UI/UX design on this application, based on best practice is there anything we can improve, do research on similiar guideline applciation or web, create comprehensive implementation plan and task after your finding
