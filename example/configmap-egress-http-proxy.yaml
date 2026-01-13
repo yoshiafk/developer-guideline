@@ -1,0 +1,13 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: egress-http-proxy
+  labels:
+    axa-cloud.com/kind: egress-http-proxy
+data:
+  whitelist-domains: "*.axa.com;*.axa.ch;*.kubernetes.io;*.redhat.io;sts.amazonaws.com"
+  whitelist-ports-http: "80"
+  whitelist-ports-https: 443;8443
+  limit-cpu: 75m
+  limit-memory: 200Mi
+  session-affinity: None
