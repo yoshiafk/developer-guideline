@@ -40,7 +40,7 @@ npm install
 
 3. Start the development server:
 ```bash
-npm start
+npm run dev
 ```
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser
@@ -49,7 +49,7 @@ npm start
 
 ### Development
 ```bash
-npm start          # Start development server
+npm run dev        # Start development server
 npm test           # Run test suite
 npm run build      # Build for production
 ```
@@ -127,7 +127,6 @@ The site is automatically deployed to GitHub Pages using GitHub Actions. The pro
 To deploy manually:
 
 ```bash
-npm run build
 npm run deploy
 ```
 
@@ -157,4 +156,11 @@ This project is proprietary to AII. All rights reserved.
 
 For questions or support, please contact the AII development team.
 
-Now do check on styling and overall UI/UX design on this application, based on best practice is there anything we can improve, do research on similiar guideline applciation or web, create comprehensive implementation plan and task after your finding
+New Documentation
+-- FinOps
+-- Artifactory
+-- Architecture Diagram
+-- CARE Documentation
+-- Advance Search Feature
+-- Docs Header kurang transparency change to Frosted
+
