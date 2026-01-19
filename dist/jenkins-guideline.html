@@ -1,0 +1,816 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <link rel="icon" href="/aii/developer-guideline/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1e40af">
+    <meta name="description" content="AII IT Playbook - Comprehensive IT standards, engineering patterns, and best practices for the AII enterprise ecosystem.">
+    <link rel="apple-touch-icon" href="/aii/developer-guideline/axa_logo_solid_rgb.png">
+    
+    <!-- Google Fonts - Multiple import methods for maximum reliability -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    
+    <!-- Critical CSS: Force font loading before any other styles -->
+    <style>
+      /* Prevent font fallback to Times New Roman */
+      html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, td, tfoot, th, thead, tr, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+        font-family: 'Geist', 'Segoe UI', 'Roboto', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', sans-serif !important;
+      }
+      code, kbd, pre, samp, [class*="code"], [class*="mono"] {
+        font-family: 'Geist Mono', 'Courier New', 'Courier', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Consolas', monospace !important;
+      }
+    </style>
+    
+    <link rel="manifest" href="/aii/developer-guideline/manifest.json">
+    <title>AII IT Playbook</title>
+    <script type="module" crossorigin="" src="/aii/developer-guideline/js/main-5JxUamUV.js"></script>
+    <link rel="stylesheet" crossorigin="" href="/aii/developer-guideline/css/app-BKNUCGyD.css">
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root" data-server-rendered="true"><div class="relative flex min-h-screen flex-col bg-background"><div class="fixed top-0 left-0 right-0 h-1 bg-primary origin-left z-[60]" style="transform:scaleX(0)"></div><a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-lg focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-all">Skip to content</a><div data-pagefind-ignore="true"><header class="sticky top-0 z-50 w-full border-b transition-all duration-300 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60" role="banner"><div class="container flex h-16 items-center justify-between"><div class="flex items-center gap-6"><a class="flex items-center gap-2 transition-opacity hover:opacity-80" aria-label="AII IT Playbook Home" href="/aii/developer-guideline/"><div class="p-1.5 rounded-lg bg-primary/10"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code-xml h-5 w-5 text-primary" aria-hidden="true"><path d="m18 16 4-4-4-4"></path><path d="m6 8-4 4 4 4"></path><path d="m14.5 4-5 16"></path></svg></div><span class="hidden font-bold text-foreground sm:inline-block">AII IT Playbook</span></a><nav class="hidden md:flex items-center gap-1" aria-label="Main navigation"><div class="relative"><button class="flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-colors hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary text-muted-foreground" aria-expanded="false" aria-haspopup="true">Docs<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-4 w-4 transition-transform duration-200" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div></nav></div><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 w-9 md:hidden" aria-label="Open menu" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="radix-_R_15p_" data-state="closed"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-5 w-5" aria-hidden="true"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg></button><div class="flex items-center gap-2"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:text-accent-foreground relative h-9 w-9 p-0 md:w-60 md:justify-start md:px-3 md:py-2 rounded-lg hover:bg-muted/30 transition-colors" aria-label="Search documentation"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search h-4 w-4 md:mr-2" aria-hidden="true"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg><span class="hidden md:inline-flex text-sm text-muted-foreground">Search docs...</span><kbd class="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 hidden h-5 select-none items-center gap-1 rounded bg-background px-1.5 font-mono text-[10px] font-medium md:flex border shadow-sm"><span class="text-xs">⌘</span>K</kbd></button><div class="hidden md:block h-4 w-px bg-border"></div><a href="https://github.axa.com/aii" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground rounded-full h-9 w-9" aria-label="View GitHub repository"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github h-4 w-4" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></a><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 w-9" disabled=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun h-[1.2rem] w-[1.2rem]" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button></div></div></header></div><div class="flex-1 items-start md:grid md:grid-cols-[240px_minmax(0,1fr)] lg:grid-cols-[260px_minmax(0,1fr)] xl:grid-cols-[280px_minmax(0,1fr)]"><aside class="fixed top-14 z-30 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block" role="navigation" aria-label="Documentation navigation"><div data-pagefind-ignore="true"><div dir="ltr" class="relative overflow-hidden h-full py-6 pr-3 lg:py-8 lg:pr-4" style="position:relative;--radix-scroll-area-corner-width:0px;--radix-scroll-area-corner-height:0px"><style>[data-radix-scroll-area-viewport]{scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch;}[data-radix-scroll-area-viewport]::-webkit-scrollbar{display:none}</style><div data-radix-scroll-area-viewport="" class="h-full w-full rounded-[inherit]" style="overflow-x:hidden;overflow-y:hidden"><div style="min-width:100%;display:table"><nav class="glass-sidebar h-full rounded-r-2xl" aria-label="Main navigation"><div class="space-y-6 py-6"><div class="px-4 py-2"><h2 class="mb-3 px-2 text-xs font-bold uppercase tracking-widest text-muted-foreground/60">General</h2><ul class="space-y-1" role="list"><li><a class="inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-9 px-4 py-2 w-full justify-start transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 text-muted-foreground hover:bg-primary/5 hover:text-primary" href="/aii/developer-guideline/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house mr-2 h-4 w-4 text-muted-foreground/60" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>Home</a></li><li><a class="inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-9 px-4 py-2 w-full justify-start transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 text-muted-foreground hover:bg-primary/5 hover:text-primary" href="/aii/developer-guideline/github-axa-usage"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-git-branch mr-2 h-4 w-4 text-muted-foreground/60" aria-hidden="true"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg>GitHub Workflow</a></li><li><a class="inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-9 px-4 py-2 w-full justify-start transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 text-muted-foreground hover:bg-primary/5 hover:text-primary" href="/aii/developer-guideline/coding-standard"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-terminal mr-2 h-4 w-4 text-muted-foreground/60" aria-hidden="true"><path d="M12 19h8"></path><path d="m4 17 6-6-6-6"></path></svg>Global Coding Standards</a></li><li><a class="inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-9 px-4 py-2 w-full justify-start transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 text-muted-foreground hover:bg-primary/5 hover:text-primary" href="/aii/developer-guideline/clean-architecture"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layers mr-2 h-4 w-4 text-muted-foreground/60" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path></svg>Clean Architecture</a></li></ul></div><div class="px-4 py-2"><h2 class="mb-3 px-2 text-xs font-bold uppercase tracking-widest text-muted-foreground/60">Backend Guidelines</h2><ul class="space-y-1" role="list"><li><a class="inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-9 px-4 py-2 w-full justify-start transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 text-muted-foreground hover:bg-primary/5 hover:text-primary" href="/aii/developer-guideline/dotnet-developer-guideline"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-code mr-2 h-4 w-4 text-muted-foreground/60" aria-hidden="true"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="M10 12.5 8 15l2 2.5"></path><path d="m14 12.5 2 2.5-2 2.5"></path></svg>.NET Development</a></li><li><a class="inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-9 px-4 py-2 w-full justify-start transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 text-muted-foreground hover:bg-primary/5 hover:text-primary" href="/aii/developer-guideline/java-developer-guideline"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-coffee mr-2 h-4 w-4 text-muted-foreground/60" aria-hidden="true"><path d="M10 2v2"></path><path d="M14 2v2"></path><path d="M16 8a1 1 0 0 1 1 1v8a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1h14a4 4 0 1 1 0 8h-1"></path><path d="M6 2v2"></path></svg>Java Development</a></li><li><a class="inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-9 px-4 py-2 w-full justify-start transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 text-muted-foreground hover:bg-primary/5 hover:text-primary" href="/aii/developer-guideline/python-developer-guideline"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code-xml mr-2 h-4 w-4 text-muted-foreground/60" aria-hidden="true"><path d="m18 16 4-4-4-4"></path><path d="m6 8-4 4 4 4"></path><path d="m14.5 4-5 16"></path></svg>Python Development</a></li></ul></div><div class="px-4 py-2"><h2 class="mb-3 px-2 text-xs font-bold uppercase tracking-widest text-muted-foreground/60">Frontend &amp; Mobile</h2><ul class="space-y-1" role="list"><li><a class="inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-9 px-4 py-2 w-full justify-start transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 text-muted-foreground hover:bg-primary/5 hover:text-primary" href="/aii/developer-guideline/react-developer-guideline"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-atom mr-2 h-4 w-4 text-muted-foreground/60" aria-hidden="true"><circle cx="12" cy="12" r="1"></circle><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z"></path><path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z"></path></svg>React Development</a></li><li><a class="inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-9 px-4 py-2 w-full justify-start transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 text-muted-foreground hover:bg-primary/5 hover:text-primary" href="/aii/developer-guideline/flutter-developer-guideline"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-smartphone mr-2 h-4 w-4 text-muted-foreground/60" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>Flutter Development</a></li></ul></div><div class="px-4 py-2"><h2 class="mb-3 px-2 text-xs font-bold uppercase tracking-widest text-muted-foreground/60">DevOps &amp; CI/CD</h2><ul class="space-y-1" role="list"><li><a class="inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-9 px-4 py-2 w-full justify-start transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 text-muted-foreground hover:bg-primary/5 hover:text-primary" href="/aii/developer-guideline/openshift-guideline"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-server mr-2 h-4 w-4 text-muted-foreground/60" aria-hidden="true"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"></rect><rect width="20" height="8" x="2" y="14" rx="2" ry="2"></rect><line x1="6" x2="6.01" y1="6" y2="6"></line><line x1="6" x2="6.01" y1="18" y2="18"></line></svg>OpenShift Platform</a></li><li><a aria-current="page" class="inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 w-full justify-start transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 glass-card text-primary font-bold shadow-sm" href="/aii/developer-guideline/jenkins-guideline"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wrench mr-2 h-4 w-4 text-primary" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"></path></svg>Jenkins CI/CD</a></li><li><a class="inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-9 px-4 py-2 w-full justify-start transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 text-muted-foreground hover:bg-primary/5 hover:text-primary" href="/aii/developer-guideline/sonarqube-guideline"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scan-search mr-2 h-4 w-4 text-muted-foreground/60" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2"></path><path d="M17 3h2a2 2 0 0 1 2 2v2"></path><path d="M21 17v2a2 2 0 0 1-2 2h-2"></path><path d="M7 21H5a2 2 0 0 1-2-2v-2"></path><circle cx="12" cy="12" r="3"></circle><path d="m16 16-1.9-1.9"></path></svg>SonarQube</a></li></ul></div></div></nav></div></div></div></div></aside><main id="main-content" role="main" class="relative py-6 lg:gap-10 lg:py-8 " data-pagefind-body="true"><div class="w-full min-w-0 px-3 md:px-4 lg:px-6"><section class="relative overflow-hidden pt-8 pb-12 lg:pt-12 lg:pb-16"><div class="absolute inset-0 -z-10 bg-[radial-gradient(35%_35%_at_50%_0%,rgba(0,51,160,0.06)_0%,transparent_100%)]"></div><div class="container px-4"><nav class="flex mb-4 items-center gap-2 text-sm font-medium text-muted-foreground animate-in-fade" aria-label="Breadcrumb"><a class="hover:text-primary transition-colors flex items-center" href="/aii/developer-guideline/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house h-4 w-4" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg></a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right h-4 w-4 opacity-50" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><span class="text-foreground font-bold">DevOps &amp; CI/CD</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right h-4 w-4 opacity-50" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><span class="text-foreground font-bold">Jenkins</span></nav><div class="max-w-[800px] space-y-3 animate-in-fade"><div class="flex flex-wrap items-center gap-3"><h1 class="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl text-gradient">Jenkins CI/CD Guide</h1><div class="rounded-md border px-2.5 py-0.5 font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 flex items-center gap-1 text-xs"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock h-3 w-3" aria-hidden="true"><path d="M12 6v6l4 2"></path><circle cx="12" cy="12" r="10"></circle></svg>35<!-- --> min read</div></div><p class="text-lg text-muted-foreground leading-relaxed">Build, test, and deploy applications using Jenkins pipelines on AXA's OpenShift platform.</p></div></div><div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent"></div></section><div class="py-8 flex flex-col lg:flex-row gap-12"><main class="flex-1 min-w-0 space-y-16 pb-16"><section id="introduction" class="scroll-mt-28 space-y-8"><div class="space-y-4"><div class="inline-flex items-center rounded-md border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 1</div><h2 class="text-4xl font-extrabold tracking-tight">Introduction</h2><p class="text-xl text-muted-foreground leading-relaxed">Jenkins is AXA's primary CI/CD automation server, hosted on OpenShift. We use <strong>Jenkinsfile</strong> in each project repository to define build, test, and deployment pipelines.</p></div><div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"><div class="glass flex items-center gap-3 p-4 rounded-xl border border-border/50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-code h-5 w-5 text-primary" aria-hidden="true"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="M10 12.5 8 15l2 2.5"></path><path d="m14 12.5 2 2.5-2 2.5"></path></svg><span class="font-semibold text-sm">Pipeline as Code</span></div><div class="glass flex items-center gap-3 p-4 rounded-xl border border-border/50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder-code h-5 w-5 text-primary" aria-hidden="true"><path d="M10 10.5 8 13l2 2.5"></path><path d="m14 10.5 2 2.5-2 2.5"></path><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2z"></path></svg><span class="font-semibold text-sm">Jenkinsfile per Repo</span></div><div class="glass flex items-center gap-3 p-4 rounded-xl border border-border/50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layers h-5 w-5 text-primary" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"></path><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"></path><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"></path></svg><span class="font-semibold text-sm">OpenShift Integration</span></div><div class="glass flex items-center gap-3 p-4 rounded-xl border border-border/50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-test-tube h-5 w-5 text-primary" aria-hidden="true"><path d="M14.5 2v17.5c0 1.4-1.1 2.5-2.5 2.5c-1.4 0-2.5-1.1-2.5-2.5V2"></path><path d="M8.5 2h7"></path><path d="M14.5 16h-5"></path></svg><span class="font-semibold text-sm">Automated Testing</span></div><div class="glass flex items-center gap-3 p-4 rounded-xl border border-border/50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-git-branch h-5 w-5 text-primary" aria-hidden="true"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg><span class="font-semibold text-sm">Multi-branch Pipelines</span></div><div class="glass flex items-center gap-3 p-4 rounded-xl border border-border/50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-terminal h-5 w-5 text-primary" aria-hidden="true"><path d="M12 19h8"></path><path d="m4 17 6-6-6-6"></path></svg><span class="font-semibold text-sm">Declarative Syntax</span></div></div><div class="p-8 rounded-3xl bg-slate-900 border border-slate-700 font-mono text-xs text-blue-400"><div class="text-[10px] uppercase font-bold text-slate-500 tracking-widest mb-4">AXA CI/CD Pipeline Flow</div><pre class="leading-relaxed">┌─────────────────────────────────────────────────────────────────┐
+│                     Jenkins Pipeline Flow                        │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐   │
+│  │  Commit  │───▶│  Build   │───▶│   Test   │───▶│ Analyze  │   │
+│  │  (Git)   │    │ (Maven/  │    │ (Unit/   │    │ (Sonar-  │   │
+│  │          │    │  npm)    │    │  Integ)  │    │  Qube)   │   │
+│  └──────────┘    └──────────┘    └──────────┘    └────┬─────┘   │
+│                                                       │          │
+│                                                       ▼          │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │              OpenShift Build &amp; Deploy                     │   │
+│  │  ┌──────────┐    ┌──────────┐    ┌──────────┐            │   │
+│  │  │ Build    │───▶│  Image   │───▶│  Deploy  │            │   │
+│  │  │ Config   │    │  Stream  │    │  (Dev/   │            │   │
+│  │  │ (oc)     │    │          │    │  Stage)  │            │   │
+│  │  └──────────┘    └──────────┘    └──────────┘            │   │
+│  └──────────────────────────────────────────────────────────┘   │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘</pre></div><div class="p-6 rounded-2xl bg-amber-500/5 border border-amber-500/20 space-y-4"><div class="flex items-center gap-2 text-amber-600"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-triangle-alert h-5 w-5" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg><h4 class="font-bold">AXA Jenkins Standard</h4></div><p class="text-sm text-muted-foreground">Every project at AXA must include a <code class="text-primary bg-muted px-1.5 py-0.5 rounded">Jenkinsfile</code> in the repository root. This file defines the complete CI/CD pipeline using declarative syntax. The pipeline triggers OpenShift Builds and manages deployments across environments.</p></div></section><div data-orientation="horizontal" role="none" class="shrink-0 bg-border h-[1px] w-full"></div><section id="getting-access" class="scroll-mt-28 space-y-12"><div class="space-y-4"><div class="inline-flex items-center rounded-md border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 2</div><h2 class="text-4xl font-extrabold tracking-tight">Getting Access</h2><p class="text-lg text-muted-foreground">Set up your Jenkins access and configure credentials.</p></div><div class="p-8 rounded-3xl bg-cyan-500/5 border border-cyan-500/10 space-y-6"><div class="flex items-center gap-3 text-cyan-600"><div class="p-2 rounded-lg bg-cyan-500/10"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-6 w-6" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg></div><h3 class="text-2xl font-bold">Access Checklist</h3></div><div class="grid gap-4"><div class="flex gap-4 p-4 rounded-xl border border-border/50 bg-background/50"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-600 flex items-center justify-center font-bold text-sm">1</div><div><h4 class="font-bold text-foreground">Request Jenkins Access</h4><p class="text-sm text-muted-foreground">Submit access request through AXA service portal for Jenkins.</p></div></div><div class="flex gap-4 p-4 rounded-xl border border-border/50 bg-background/50"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-600 flex items-center justify-center font-bold text-sm">2</div><div><h4 class="font-bold text-foreground">Login to Jenkins</h4><p class="text-sm text-muted-foreground">Access Jenkins via SSO at https://jenkins.apps.openshift.axa.com</p></div></div><div class="flex gap-4 p-4 rounded-xl border border-border/50 bg-background/50"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-600 flex items-center justify-center font-bold text-sm">3</div><div><h4 class="font-bold text-foreground">Find Your Project</h4><p class="text-sm text-muted-foreground">Navigate to your team's folder/job in the Jenkins dashboard.</p></div></div><div class="flex gap-4 p-4 rounded-xl border border-border/50 bg-background/50"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-600 flex items-center justify-center font-bold text-sm">4</div><div><h4 class="font-bold text-foreground">Configure Credentials</h4><p class="text-sm text-muted-foreground">Add required credentials (Git tokens, registry secrets) in Jenkins Credentials.</p></div></div><div class="flex gap-4 p-4 rounded-xl border border-border/50 bg-background/50"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-cyan-500/10 text-cyan-600 flex items-center justify-center font-bold text-sm">5</div><div><h4 class="font-bold text-foreground">Create Pipeline Job</h4><p class="text-sm text-muted-foreground">Create a new Pipeline job pointing to your repository's Jenkinsfile.</p></div></div></div></div><div class="group relative my-6 rounded-lg border bg-muted/50 overflow-hidden"><div class="flex items-center justify-between border-b bg-muted/80 px-4 py-2"><div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code h-4 w-4 text-muted-foreground" aria-hidden="true"><path d="m16 18 6-6-6-6"></path><path d="m8 6-6 6 6 6"></path></svg><span class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">groovy</span><span class="ml-2 text-sm font-medium text-foreground">Required Jenkins Credentials</span></div><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent h-8 w-8 text-muted-foreground hover:text-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy h-4 w-4" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span class="sr-only">Copy code</span></button></div><div class="overflow-x-auto p-4 font-mono text-sm leading-relaxed" style="max-height:none"><div class="flex gap-4"><pre class="flex-1 whitespace-pre-wrap break-words"><code>// Common credentials used in AXA Jenkins pipelines
+
+// Git credentials for cloning repositories
+credentials('github-axa-token')        // GitHub AXA personal access token
+
+// OpenShift service account token
+credentials('openshift-token')          // For oc login
+
+// SonarQube token for code analysis
+credentials('sonarqube-token')          // SonarQube authentication
+
+// Container registry credentials (if external)
+credentials('registry-credentials')     // Docker registry auth
+
+// Notification credentials
+credentials('teams-webhook')            // Microsoft Teams webhook URL</code></pre></div></div></div></section><div data-orientation="horizontal" role="none" class="shrink-0 bg-border h-[1px] w-full"></div><section id="jenkinsfile-basics" class="scroll-mt-28 space-y-12"><div class="space-y-4"><div class="inline-flex items-center rounded-md border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 3</div><h2 class="text-4xl font-extrabold tracking-tight">Jenkinsfile Basics</h2><p class="text-lg text-muted-foreground">Understanding the declarative pipeline syntax and structure.</p></div><div class="space-y-8"><div class="group relative my-6 rounded-lg border bg-muted/50 overflow-hidden"><div class="flex items-center justify-between border-b bg-muted/80 px-4 py-2"><div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code h-4 w-4 text-muted-foreground" aria-hidden="true"><path d="m16 18 6-6-6-6"></path><path d="m8 6-6 6 6 6"></path></svg><span class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">groovy</span><span class="ml-2 text-sm font-medium text-foreground">Basic Jenkinsfile Structure</span></div><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent h-8 w-8 text-muted-foreground hover:text-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy h-4 w-4" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span class="sr-only">Copy code</span></button></div><div class="overflow-x-auto p-4 font-mono text-sm leading-relaxed" style="max-height:none"><div class="flex gap-4"><pre class="flex-1 whitespace-pre-wrap break-words"><code>// Jenkinsfile - Declarative Pipeline Syntax
+pipeline {
+    // Define agent/executor
+    agent {
+        kubernetes {
+            // Use OpenShift's built-in agent
+            inheritFrom 'maven'  // or 'nodejs', 'gradle', etc.
+        }
+    }
+    
+    // Environment variables
+    environment {
+        APP_NAME = 'my-application'
+        VERSION = "${env.BUILD_NUMBER}"
+        OPENSHIFT_PROJECT_DEV = 'my-app-dev'
+        OPENSHIFT_PROJECT_STAGING = 'my-app-staging'
+        SONAR_PROJECT_KEY = 'my-application'
+    }
+    
+    // Pipeline options
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10'))
+        timeout(time: 30, unit: 'MINUTES')
+        timestamps()
+        disableConcurrentBuilds()
+    }
+    
+    // Build triggers
+    triggers {
+        // Poll SCM every 5 minutes
+        pollSCM('H/5 * * * *')
+        // Or use webhooks (preferred)
+    }
+    
+    // Pipeline stages
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+                script {
+                    env.GIT_COMMIT_SHORT = sh(
+                        script: 'git rev-parse --short HEAD',
+                        returnStdout: true
+                    ).trim()
+                }
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                echo "Building ${APP_NAME} version ${VERSION}"
+                // Build steps here
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                echo "Running tests..."
+                // Test steps here
+            }
+        }
+        
+        stage('Deploy') {
+            when {
+                branch 'main'
+            }
+            steps {
+                echo "Deploying to OpenShift..."
+                // Deployment steps here
+            }
+        }
+    }
+    
+    // Post-build actions
+    post {
+        success {
+            echo 'Pipeline succeeded!'
+            // Send success notification
+        }
+        failure {
+            echo 'Pipeline failed!'
+            // Send failure notification
+        }
+        always {
+            // Cleanup
+            cleanWs()
+        }
+    }
+}</code></pre></div></div></div><div class="p-6 rounded-2xl bg-muted/30 border space-y-4"><h4 class="font-bold">Declarative vs Scripted Pipeline</h4><div class="overflow-x-auto"><table class="w-full text-sm"><thead class="bg-muted text-xs font-bold uppercase text-muted-foreground"><tr><th class="px-4 py-3 text-left">Aspect</th><th class="px-4 py-3 text-left">Declarative (Preferred)</th><th class="px-4 py-3 text-left">Scripted</th></tr></thead><tbody class="divide-y"><tr><td class="px-4 py-2 font-medium">Syntax</td><td class="px-4 py-2">Structured, opinionated</td><td class="px-4 py-2">Flexible, Groovy-based</td></tr><tr><td class="px-4 py-2 font-medium">Learning Curve</td><td class="px-4 py-2"><div class="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent text-primary-foreground shadow hover:bg-primary/80 bg-emerald-500">Easier</div></td><td class="px-4 py-2"><div class="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80">Steeper</div></td></tr><tr><td class="px-4 py-2 font-medium">Error Checking</td><td class="px-4 py-2">Syntax validation built-in</td><td class="px-4 py-2">Runtime errors</td></tr><tr><td class="px-4 py-2 font-medium">Restart</td><td class="px-4 py-2">Stage restart supported</td><td class="px-4 py-2">Not supported</td></tr><tr><td class="px-4 py-2 font-medium">Use Case</td><td class="px-4 py-2">Most pipelines</td><td class="px-4 py-2">Complex logic</td></tr></tbody></table></div></div><div class="group relative my-6 rounded-lg border bg-muted/50 overflow-hidden"><div class="flex items-center justify-between border-b bg-muted/80 px-4 py-2"><div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code h-4 w-4 text-muted-foreground" aria-hidden="true"><path d="m16 18 6-6-6-6"></path><path d="m8 6-6 6 6 6"></path></svg><span class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">groovy</span><span class="ml-2 text-sm font-medium text-foreground">Using script{} Block for Complex Logic</span></div><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent h-8 w-8 text-muted-foreground hover:text-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy h-4 w-4" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span class="sr-only">Copy code</span></button></div><div class="overflow-x-auto p-4 font-mono text-sm leading-relaxed" style="max-height:none"><div class="flex gap-4"><pre class="flex-1 whitespace-pre-wrap break-words"><code>stage('Dynamic Stage') {
+    steps {
+        script {
+            // Groovy code block for complex logic
+            def environments = ['dev', 'staging', 'prod']
+            
+            for (env in environments) {
+                echo "Processing environment: ${env}"
+            }
+            
+            // Conditional logic
+            if (env.BRANCH_NAME == 'main') {
+                currentBuild.displayName = "#${BUILD_NUMBER} - Production"
+            } else {
+                currentBuild.displayName = "#${BUILD_NUMBER} - ${BRANCH_NAME}"
+            }
+            
+            // Capture command output
+            def gitTag = sh(
+                script: 'git describe --tags --always',
+                returnStdout: true
+            ).trim()
+            
+            echo "Git tag: ${gitTag}"
+        }
+    }
+}</code></pre></div></div></div></div></section><div data-orientation="horizontal" role="none" class="shrink-0 bg-border h-[1px] w-full"></div><section id="build-test" class="scroll-mt-28 space-y-12"><div class="space-y-4"><div class="inline-flex items-center rounded-md border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 4</div><h2 class="text-4xl font-extrabold tracking-tight">Build &amp; Test</h2><p class="text-lg text-muted-foreground">Configure <span class="relative inline-block px-1"><span class="absolute bottom-[10%] left-0 h-[60%] -z-10" style="background-color:rgba(0, 51, 160, 0.15);width:0%"></span>build and test stages</span> for different technology stacks.</p></div><div class="space-y-8"><div class="w-full space-y-4"><div dir="ltr" data-orientation="horizontal" class="w-full"><div role="tablist" aria-orientation="horizontal" class="inline-flex h-10 items-center justify-center rounded-md text-muted-foreground bg-muted/50 p-1 border border-border/50" tabindex="-1" data-orientation="horizontal" style="outline:none"><button type="button" role="tab" aria-selected="true" aria-controls="radix-_R_hra9_-content-maven" data-state="active" id="radix-_R_hra9_-trigger-maven" class="relative inline-flex items-center justify-center whitespace-nowrap rounded-sm text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:text-foreground z-10 px-4 py-2" tabindex="-1" data-orientation="horizontal" data-radix-collection-item=""><div class="absolute inset-0 rounded-sm bg-background shadow-sm"></div><span class="relative z-20">Maven/Java</span></button><button type="button" role="tab" aria-selected="false" aria-controls="radix-_R_hra9_-content-node" data-state="inactive" id="radix-_R_hra9_-trigger-node" class="relative inline-flex items-center justify-center whitespace-nowrap rounded-sm text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:text-foreground z-10 px-4 py-2" tabindex="-1" data-orientation="horizontal" data-radix-collection-item=""><span class="relative z-20">Node.js/React</span></button><button type="button" role="tab" aria-selected="false" aria-controls="radix-_R_hra9_-content-dotnet" data-state="inactive" id="radix-_R_hra9_-trigger-dotnet" class="relative inline-flex items-center justify-center whitespace-nowrap rounded-sm text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:text-foreground z-10 px-4 py-2" tabindex="-1" data-orientation="horizontal" data-radix-collection-item=""><span class="relative z-20">.NET Core</span></button></div><div class="mt-4"><div data-state="active" data-orientation="horizontal" role="tabpanel" aria-labelledby="radix-_R_hra9_-trigger-maven" id="radix-_R_hra9_-content-maven" tabindex="0" class="ring-offset-background focus-visible:outline-none focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-0 mt-0" style="animation-duration:0s"><div class="group relative my-6 rounded-lg border bg-muted/50 overflow-hidden"><div class="flex items-center justify-between border-b bg-muted/80 px-4 py-2"><div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code h-4 w-4 text-muted-foreground" aria-hidden="true"><path d="m16 18 6-6-6-6"></path><path d="m8 6-6 6 6 6"></path></svg><span class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">groovy</span><span class="ml-2 text-sm font-medium text-foreground">Maven/Java</span></div><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent h-8 w-8 text-muted-foreground hover:text-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy h-4 w-4" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span class="sr-only">Copy code</span></button></div><div class="overflow-x-auto p-4 font-mono text-sm leading-relaxed" style="max-height:none"><div class="flex gap-4"><pre class="flex-1 whitespace-pre-wrap break-words"><code>pipeline {
+    agent {
+        kubernetes {
+            inheritFrom 'maven'
+        }
+    }
+    
+    environment {
+        MAVEN_OPTS = '-Xmx1024m -XX:MaxMetaspaceSize=512m'
+    }
+    
+    stages {
+        stage('Build') {
+            steps {
+                sh '''
+                    mvn clean compile -B -DskipTests
+                '''
+            }
+        }
+        
+        stage('Unit Tests') {
+            steps {
+                sh 'mvn test -B'
+            }
+            post {
+                always {
+                    junit '**/target/surefire-reports/*.xml'
+                    jacoco(
+                        execPattern: '**/target/jacoco.exec',
+                        classPattern: '**/target/classes',
+                        sourcePattern: '**/src/main/java'
+                    )
+                }
+            }
+        }
+        
+        stage('Integration Tests') {
+            steps {
+                sh 'mvn verify -B -DskipUnitTests'
+            }
+            post {
+                always {
+                    junit '**/target/failsafe-reports/*.xml'
+                }
+            }
+        }
+        
+        stage('Package') {
+            steps {
+                sh 'mvn package -B -DskipTests'
+                archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+            }
+        }
+        
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    sh '''
+                        mvn sonar:sonar \
+                            -Dsonar.projectKey=${SONAR_PROJECT_KEY} \
+                            -Dsonar.projectName="${APP_NAME}" \
+                            -Dsonar.java.coveragePlugin=jacoco \
+                            -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+                    '''
+                }
+            }
+        }
+        
+        stage('Quality Gate') {
+            steps {
+                timeout(time: 5, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
+            }
+        }
+    }
+}</code></pre></div></div></div></div><div data-state="inactive" data-orientation="horizontal" role="tabpanel" aria-labelledby="radix-_R_hra9_-trigger-node" hidden="" id="radix-_R_hra9_-content-node" tabindex="0" class="ring-offset-background focus-visible:outline-none focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-0 mt-0"></div><div data-state="inactive" data-orientation="horizontal" role="tabpanel" aria-labelledby="radix-_R_hra9_-trigger-dotnet" hidden="" id="radix-_R_hra9_-content-dotnet" tabindex="0" class="ring-offset-background focus-visible:outline-none focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-0 mt-0"></div></div></div></div></div></section><div data-orientation="horizontal" role="none" class="shrink-0 bg-border h-[1px] w-full"></div><section id="deployment" class="scroll-mt-28 space-y-12"><div class="space-y-4"><div class="inline-flex items-center rounded-md border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 5</div><h2 class="text-4xl font-extrabold tracking-tight">Deployment Pipelines</h2><p class="text-lg text-muted-foreground">Trigger OpenShift Builds and manage deployments across environments.</p></div><div class="space-y-8"><div class="group relative my-6 rounded-lg border bg-muted/50 overflow-hidden"><div class="flex items-center justify-between border-b bg-muted/80 px-4 py-2"><div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code h-4 w-4 text-muted-foreground" aria-hidden="true"><path d="m16 18 6-6-6-6"></path><path d="m8 6-6 6 6 6"></path></svg><span class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">groovy</span><span class="ml-2 text-sm font-medium text-foreground">Complete CI/CD Pipeline with OpenShift</span></div><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent h-8 w-8 text-muted-foreground hover:text-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy h-4 w-4" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span class="sr-only">Copy code</span></button></div><div class="overflow-x-auto p-4 font-mono text-sm leading-relaxed" style="max-height:none"><div class="flex gap-4"><pre class="flex-1 whitespace-pre-wrap break-words"><code>pipeline {
+    agent {
+        kubernetes {
+            inheritFrom 'maven'
+        }
+    }
+    
+    environment {
+        APP_NAME = 'my-application'
+        OPENSHIFT_DEV = 'my-app-dev'
+        OPENSHIFT_STAGING = 'my-app-staging'
+        OPENSHIFT_PROD = 'my-app-prod'
+    }
+    
+    stages {
+        stage('Build Application') {
+            steps {
+                sh 'mvn clean package -B -DskipTests'
+            }
+        }
+        
+        stage('Run Tests') {
+            parallel {
+                stage('Unit Tests') {
+                    steps {
+                        sh 'mvn test -B'
+                    }
+                }
+                stage('Integration Tests') {
+                    steps {
+                        sh 'mvn verify -B -DskipUnitTests'
+                    }
+                }
+            }
+        }
+        
+        stage('Build Container Image') {
+            steps {
+                script {
+                    openshift.withCluster() {
+                        openshift.withProject("${OPENSHIFT_DEV}") {
+                            // Start OpenShift build
+                            def build = openshift.startBuild("${APP_NAME}",
+                                '--from-dir=.',
+                                '--follow',
+                                '--wait'
+                            )
+                            
+                            def buildResult = build.object()
+                            if (buildResult.status.phase != 'Complete') {
+                                error "Build failed: ${buildResult.status.phase}"
+                            }
+                            
+                            echo "Build completed: ${buildResult.metadata.name}"
+                        }
+                    }
+                }
+            }
+        }
+        
+        stage('Deploy to Dev') {
+            steps {
+                script {
+                    openshift.withCluster() {
+                        openshift.withProject("${OPENSHIFT_DEV}") {
+                            // Apply manifests
+                            openshift.apply('-f', 'k8s/base')
+                            openshift.apply('-f', 'k8s/overlays/dev')
+                            
+                            // Wait for deployment
+                            def deployment = openshift.selector('deployment', "${APP_NAME}")
+                            deployment.rollout().status('--timeout=5m')
+                            
+                            echo "Deployed to Dev successfully!"
+                        }
+                    }
+                }
+            }
+        }
+        
+        stage('Smoke Tests') {
+            steps {
+                script {
+                    openshift.withCluster() {
+                        openshift.withProject("${OPENSHIFT_DEV}") {
+                            def route = openshift.selector('route', "${APP_NAME}").object()
+                            def appUrl = "https://${route.spec.host}"
+                            
+                            // Basic health check
+                            sh """
+                                curl -sSf ${appUrl}/actuator/health || exit 1
+                                echo "Smoke tests passed!"
+                            """
+                        }
+                    }
+                }
+            }
+        }
+        
+        stage('Promote to Staging') {
+            when {
+                branch 'main'
+            }
+            steps {
+                script {
+                    openshift.withCluster() {
+                        // Tag image for staging
+                        openshift.withProject("${OPENSHIFT_DEV}") {
+                            openshift.tag(
+                                "${APP_NAME}:latest",
+                                "${OPENSHIFT_STAGING}/${APP_NAME}:staging"
+                            )
+                        }
+                        
+                        // Deploy to staging
+                        openshift.withProject("${OPENSHIFT_STAGING}") {
+                            openshift.apply('-f', 'k8s/base')
+                            openshift.apply('-f', 'k8s/overlays/staging')
+                            
+                            def deployment = openshift.selector('deployment', "${APP_NAME}")
+                            deployment.rollout().status('--timeout=5m')
+                            
+                            echo "Deployed to Staging successfully!"
+                        }
+                    }
+                }
+            }
+        }
+        
+        stage('Deploy to Production') {
+            when {
+                branch 'main'
+            }
+            input {
+                message "Deploy to Production?"
+                ok "Deploy"
+                submitter "admin,release-managers"
+            }
+            steps {
+                script {
+                    openshift.withCluster() {
+                        // Tag image for production
+                        openshift.withProject("${OPENSHIFT_STAGING}") {
+                            openshift.tag(
+                                "${APP_NAME}:staging",
+                                "${OPENSHIFT_PROD}/${APP_NAME}:prod-${BUILD_NUMBER}"
+                            )
+                            openshift.tag(
+                                "${APP_NAME}:staging",
+                                "${OPENSHIFT_PROD}/${APP_NAME}:latest"
+                            )
+                        }
+                        
+                        // Deploy to production
+                        openshift.withProject("${OPENSHIFT_PROD}") {
+                            openshift.apply('-f', 'k8s/base')
+                            openshift.apply('-f', 'k8s/overlays/production')
+                            
+                            def deployment = openshift.selector('deployment', "${APP_NAME}")
+                            deployment.rollout().status('--timeout=10m')
+                            
+                            echo "Deployed to Production successfully!"
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    post {
+        success {
+            script {
+                // Send success notification to Teams
+                office365ConnectorSend(
+                    webhookUrl: "${TEAMS_WEBHOOK}",
+                    color: "00FF00",
+                    message: "✅ Pipeline succeeded: ${JOB_NAME} #${BUILD_NUMBER}"
+                )
+            }
+        }
+        failure {
+            script {
+                office365ConnectorSend(
+                    webhookUrl: "${TEAMS_WEBHOOK}",
+                    color: "FF0000",
+                    message: "❌ Pipeline failed: ${JOB_NAME} #${BUILD_NUMBER}"
+                )
+            }
+        }
+        always {
+            cleanWs()
+        }
+    }
+}</code></pre></div></div></div><div class="grid md:grid-cols-2 gap-6"><div class="p-5 rounded-xl bg-emerald-500/5 border border-emerald-500/20"><p class="text-xs font-bold uppercase text-emerald-600 mb-2">✅ Deployment Best Practices</p><ul class="text-sm text-muted-foreground space-y-1"><li>• Use input<!-- --> for production approvals</li><li>• Tag images with build numbers</li><li>• Run smoke tests after each deploy</li><li>• Keep production deployments immutable</li><li>• Use parallel stages for faster builds</li></ul></div><div class="p-5 rounded-xl bg-destructive/5 border border-destructive/20"><p class="text-xs font-bold uppercase text-destructive mb-2">❌ Common Mistakes</p><ul class="text-sm text-muted-foreground space-y-1"><li>• Deploying without running tests</li><li>• Not waiting for rollout to complete</li><li>• Hardcoding credentials in Jenkinsfile</li><li>• Missing post<!-- --> failure handlers</li><li>• No manual approval for production</li></ul></div></div></div></section><div data-orientation="horizontal" role="none" class="shrink-0 bg-border h-[1px] w-full"></div><section id="shared-libraries" class="scroll-mt-28 space-y-12"><div class="space-y-4"><div class="inline-flex items-center rounded-md border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 6</div><h2 class="text-4xl font-extrabold tracking-tight">Shared Libraries</h2><p class="text-lg text-muted-foreground">Reuse pipeline code across projects with shared libraries.</p></div><div class="space-y-8"><div class="group relative my-6 rounded-lg border bg-muted/50 overflow-hidden"><div class="flex items-center justify-between border-b bg-muted/80 px-4 py-2"><div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code h-4 w-4 text-muted-foreground" aria-hidden="true"><path d="m16 18 6-6-6-6"></path><path d="m8 6-6 6 6 6"></path></svg><span class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">bash</span><span class="ml-2 text-sm font-medium text-foreground">Shared Library Structure</span></div><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent h-8 w-8 text-muted-foreground hover:text-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy h-4 w-4" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span class="sr-only">Copy code</span></button></div><div class="overflow-x-auto p-4 font-mono text-sm leading-relaxed" style="max-height:none"><div class="flex gap-4"><pre class="flex-1 whitespace-pre-wrap break-words"><code># Repository: github.axa.com/devops/jenkins-shared-library
+jenkins-shared-library/
+├── vars/                           # Global pipeline steps
+│   ├── buildMaven.groovy           # Maven build step
+│   ├── buildNodejs.groovy          # Node.js build step
+│   ├── deployToOpenshift.groovy    # OpenShift deployment
+│   ├── notifyTeams.groovy          # Teams notification
+│   └── sonarAnalysis.groovy        # SonarQube analysis
+├── src/
+│   └── com/
+│       └── axa/
+│           └── pipeline/
+│               ├── BuildConfig.groovy
+│               └── DeployConfig.groovy
+└── resources/
+    └── templates/
+        └── deployment.yaml</code></pre></div></div></div><div class="group relative my-6 rounded-lg border bg-muted/50 overflow-hidden"><div class="flex items-center justify-between border-b bg-muted/80 px-4 py-2"><div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code h-4 w-4 text-muted-foreground" aria-hidden="true"><path d="m16 18 6-6-6-6"></path><path d="m8 6-6 6 6 6"></path></svg><span class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">groovy</span><span class="ml-2 text-sm font-medium text-foreground">vars/deployToOpenshift.groovy</span></div><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent h-8 w-8 text-muted-foreground hover:text-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy h-4 w-4" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span class="sr-only">Copy code</span></button></div><div class="overflow-x-auto p-4 font-mono text-sm leading-relaxed" style="max-height:none"><div class="flex gap-4"><pre class="flex-1 whitespace-pre-wrap break-words"><code>// Shared library function for OpenShift deployment
+def call(Map config = [:]) {
+    def appName = config.appName ?: error("appName is required")
+    def project = config.project ?: error("project is required")
+    def imageTag = config.imageTag ?: 'latest'
+    def timeout = config.timeout ?: 5
+    
+    echo "Deploying ${appName} to ${project}"
+    
+    openshift.withCluster() {
+        openshift.withProject(project) {
+            // Apply Kubernetes manifests
+            if (fileExists('k8s/')) {
+                openshift.apply('-f', 'k8s/')
+            }
+            
+            // Tag the image if specified
+            if (config.sourceTag) {
+                openshift.tag(
+                    "${config.sourceProject}/${appName}:${config.sourceTag}",
+                    "${appName}:${imageTag}"
+                )
+            }
+            
+            // Wait for rollout
+            def deployment = openshift.selector('deployment', appName)
+            if (deployment.exists()) {
+                deployment.rollout().status("--timeout=${timeout}m")
+                echo "Deployment completed successfully!"
+            } else {
+                error "Deployment '${appName}' not found"
+            }
+            
+            // Return route URL
+            def route = openshift.selector('route', appName)
+            if (route.exists()) {
+                def routeObj = route.object()
+                return "https://${routeObj.spec.host}"
+            }
+            return null
+        }
+    }
+}</code></pre></div></div></div><div class="group relative my-6 rounded-lg border bg-muted/50 overflow-hidden"><div class="flex items-center justify-between border-b bg-muted/80 px-4 py-2"><div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code h-4 w-4 text-muted-foreground" aria-hidden="true"><path d="m16 18 6-6-6-6"></path><path d="m8 6-6 6 6 6"></path></svg><span class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">groovy</span><span class="ml-2 text-sm font-medium text-foreground">Using Shared Library in Jenkinsfile</span></div><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent h-8 w-8 text-muted-foreground hover:text-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy h-4 w-4" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span class="sr-only">Copy code</span></button></div><div class="overflow-x-auto p-4 font-mono text-sm leading-relaxed" style="max-height:none"><div class="flex gap-4"><pre class="flex-1 whitespace-pre-wrap break-words"><code>// Import shared library at the top of Jenkinsfile
+@Library('axa-jenkins-shared-library@main') _
+
+pipeline {
+    agent any
+    
+    environment {
+        APP_NAME = 'my-application'
+    }
+    
+    stages {
+        stage('Build') {
+            steps {
+                // Use shared library step
+                buildMaven(
+                    skipTests: false,
+                    javaVersion: '17'
+                )
+            }
+        }
+        
+        stage('SonarQube') {
+            steps {
+                sonarAnalysis(
+                    projectKey: "${APP_NAME}",
+                    qualityGate: true
+                )
+            }
+        }
+        
+        stage('Deploy to Dev') {
+            steps {
+                script {
+                    def appUrl = deployToOpenshift(
+                        appName: "${APP_NAME}",
+                        project: 'my-app-dev',
+                        imageTag: 'dev'
+                    )
+                    echo "Application deployed at: ${appUrl}"
+                }
+            }
+        }
+        
+        stage('Promote to Staging') {
+            when { branch 'main' }
+            steps {
+                deployToOpenshift(
+                    appName: "${APP_NAME}",
+                    project: 'my-app-staging',
+                    sourceProject: 'my-app-dev',
+                    sourceTag: 'dev',
+                    imageTag: 'staging'
+                )
+            }
+        }
+    }
+    
+    post {
+        always {
+            notifyTeams(
+                status: currentBuild.result,
+                jobName: "${JOB_NAME}",
+                buildNumber: "${BUILD_NUMBER}"
+            )
+        }
+    }
+}</code></pre></div></div></div></div></section><div data-orientation="horizontal" role="none" class="shrink-0 bg-border h-[1px] w-full"></div><section id="best-practices" class="scroll-mt-28 space-y-12"><div class="space-y-4"><div class="inline-flex items-center rounded-md border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 7</div><h2 class="text-4xl font-extrabold tracking-tight">Best Practices</h2><p class="text-lg text-muted-foreground">Follow these guidelines for maintainable, secure, and efficient pipelines.</p></div><div class="grid gap-6"><div class="rounded-xl border bg-card text-card-foreground glass shadow-sm"><div class="flex flex-col space-y-1.5 p-6"><div class="font-semibold tracking-tight text-lg flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-workflow h-5 w-5 text-blue-500" aria-hidden="true"><rect width="8" height="8" x="3" y="3" rx="2"></rect><path d="M7 11v4a2 2 0 0 0 2 2h4"></path><rect width="8" height="8" x="13" y="13" rx="2"></rect></svg>Pipeline Structure</div></div><div class="p-6 pt-0"><ul class="grid md:grid-cols-2 gap-2"><li class="flex items-start gap-2 text-sm text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Use declarative syntax over scripted</li><li class="flex items-start gap-2 text-sm text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Keep Jenkinsfile in repository root</li><li class="flex items-start gap-2 text-sm text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Use meaningful stage names</li><li class="flex items-start gap-2 text-sm text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Fail fast - run quick checks first</li><li class="flex items-start gap-2 text-sm text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Use parallel stages where possible</li></ul></div></div><div class="rounded-xl border bg-card text-card-foreground glass shadow-sm"><div class="flex flex-col space-y-1.5 p-6"><div class="font-semibold tracking-tight text-lg flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield h-5 w-5 text-emerald-500" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>Security</div></div><div class="p-6 pt-0"><ul class="grid md:grid-cols-2 gap-2"><li class="flex items-start gap-2 text-sm text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Never hardcode credentials in Jenkinsfile</li><li class="flex items-start gap-2 text-sm text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Use Jenkins Credentials Manager</li><li class="flex items-start gap-2 text-sm text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Mask sensitive values in logs</li><li class="flex items-start gap-2 text-sm text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Restrict access to production jobs</li><li class="flex items-start gap-2 text-sm text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Audit pipeline changes</li></ul></div></div><div class="rounded-xl border bg-card text-card-foreground glass shadow-sm"><div class="flex flex-col space-y-1.5 p-6"><div class="font-semibold tracking-tight text-lg flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock h-5 w-5 text-amber-500" aria-hidden="true"><path d="M12 6v6l4 2"></path><circle cx="12" cy="12" r="10"></circle></svg>Performance</div></div><div class="p-6 pt-0"><ul class="grid md:grid-cols-2 gap-2"><li class="flex items-start gap-2 text-sm text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Cache dependencies between builds</li><li class="flex items-start gap-2 text-sm text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Use lightweight agents when possible</li><li class="flex items-start gap-2 text-sm text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Parallelize independent stages</li><li class="flex items-start gap-2 text-sm text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Set appropriate timeouts</li><li class="flex items-start gap-2 text-sm text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Clean workspace after builds</li></ul></div></div><div class="rounded-xl border bg-card text-card-foreground glass shadow-sm"><div class="flex flex-col space-y-1.5 p-6"><div class="font-semibold tracking-tight text-lg flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings h-5 w-5 text-purple-500" aria-hidden="true"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path><circle cx="12" cy="12" r="3"></circle></svg>Maintainability</div></div><div class="p-6 pt-0"><ul class="grid md:grid-cols-2 gap-2"><li class="flex items-start gap-2 text-sm text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Use shared libraries for common code</li><li class="flex items-start gap-2 text-sm text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Document complex pipeline logic</li><li class="flex items-start gap-2 text-sm text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Version control your Jenkinsfiles</li><li class="flex items-start gap-2 text-sm text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Use environment variables for config</li><li class="flex items-start gap-2 text-sm text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>Test pipeline changes on feature branches</li></ul></div></div></div><div class="group relative my-6 rounded-lg border bg-muted/50 overflow-hidden"><div class="flex items-center justify-between border-b bg-muted/80 px-4 py-2"><div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code h-4 w-4 text-muted-foreground" aria-hidden="true"><path d="m16 18 6-6-6-6"></path><path d="m8 6-6 6 6 6"></path></svg><span class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">groovy</span><span class="ml-2 text-sm font-medium text-foreground">Complete Jenkinsfile Template</span></div><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent h-8 w-8 text-muted-foreground hover:text-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy h-4 w-4" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span class="sr-only">Copy code</span></button></div><div class="overflow-x-auto p-4 font-mono text-sm leading-relaxed" style="max-height:none"><div class="flex gap-4"><pre class="flex-1 whitespace-pre-wrap break-words"><code>@Library('axa-jenkins-shared-library@main') _
+
+pipeline {
+    agent {
+        kubernetes {
+            inheritFrom 'maven'
+        }
+    }
+    
+    environment {
+        APP_NAME = 'my-application'
+        SONAR_PROJECT = 'my-application'
+    }
+    
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10'))
+        timeout(time: 30, unit: 'MINUTES')
+        timestamps()
+        disableConcurrentBuilds()
+    }
+    
+    stages {
+        stage('Initialize') {
+            steps {
+                script {
+                    currentBuild.displayName = "#${BUILD_NUMBER} - ${GIT_BRANCH}"
+                }
+            }
+        }
+        
+        stage('Build &amp; Test') {
+            parallel {
+                stage('Compile') {
+                    steps {
+                        sh 'mvn clean compile -B'
+                    }
+                }
+                stage('Static Analysis') {
+                    steps {
+                        sh 'mvn checkstyle:check -B'
+                    }
+                }
+            }
+        }
+        
+        stage('Unit Tests') {
+            steps {
+                sh 'mvn test -B'
+            }
+            post {
+                always {
+                    junit '**/target/surefire-reports/*.xml'
+                }
+            }
+        }
+        
+        stage('SonarQube') {
+            steps {
+                sonarAnalysis(projectKey: "${SONAR_PROJECT}")
+            }
+        }
+        
+        stage('Package') {
+            steps {
+                sh 'mvn package -B -DskipTests'
+            }
+        }
+        
+        stage('Build Image') {
+            steps {
+                script {
+                    openshift.withCluster() {
+                        openshift.withProject('my-app-dev') {
+                            openshift.startBuild("${APP_NAME}",
+                                '--from-dir=.',
+                                '--follow',
+                                '--wait'
+                            )
+                        }
+                    }
+                }
+            }
+        }
+        
+        stage('Deploy Dev') {
+            steps {
+                deployToOpenshift(
+                    appName: "${APP_NAME}",
+                    project: 'my-app-dev'
+                )
+            }
+        }
+        
+        stage('Deploy Staging') {
+            when { branch 'main' }
+            steps {
+                deployToOpenshift(
+                    appName: "${APP_NAME}",
+                    project: 'my-app-staging',
+                    sourceProject: 'my-app-dev',
+                    sourceTag: 'latest',
+                    imageTag: 'staging'
+                )
+            }
+        }
+        
+        stage('Deploy Production') {
+            when { branch 'main' }
+            input {
+                message "Deploy to Production?"
+                ok "Deploy"
+            }
+            steps {
+                deployToOpenshift(
+                    appName: "${APP_NAME}",
+                    project: 'my-app-prod',
+                    sourceProject: 'my-app-staging',
+                    sourceTag: 'staging',
+                    imageTag: "prod-${BUILD_NUMBER}"
+                )
+            }
+        }
+    }
+    
+    post {
+        success {
+            notifyTeams(status: 'SUCCESS')
+        }
+        failure {
+            notifyTeams(status: 'FAILURE')
+        }
+        always {
+            cleanWs()
+        }
+    }
+}</code></pre></div></div></div></section><div data-orientation="horizontal" role="none" class="shrink-0 bg-border h-[1px] w-full"></div><section id="case-study" class="scroll-mt-28 space-y-12"><div class="space-y-4"><div class="inline-flex items-center rounded-md border text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 8</div><h2 class="text-4xl font-extrabold tracking-tight">Case Study: .NET Production Pipeline</h2><p class="text-lg text-muted-foreground">A real-world example of a comprehensive .NET pipeline featuring SonarScanner integration, Artifactory authentication, and advanced test coverage processing.</p></div><div class="space-y-8"><div class="grid md:grid-cols-3 gap-4"><div class="p-4 rounded-xl preview-card border bg-background/50"><h4 class="font-bold text-sm mb-1">NuGet/Artifactory</h4><p class="text-xs text-muted-foreground">Dynamic nuget.config generation with credentials.</p></div><div class="p-4 rounded-xl preview-card border bg-background/50"><h4 class="font-bold text-sm mb-1">SonarScanner</h4><p class="text-xs text-muted-foreground">Full analysis with PR vs Branch conditional logic.</p></div><div class="p-4 rounded-xl preview-card border bg-background/50"><h4 class="font-bold text-sm mb-1">Coverage Processing</h4><p class="text-xs text-muted-foreground">Automated path fixing for SonarQube compatibility.</p></div></div><div class="group relative my-6 rounded-lg border bg-muted/50 overflow-hidden"><div class="flex items-center justify-between border-b bg-muted/80 px-4 py-2"><div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code h-4 w-4 text-muted-foreground" aria-hidden="true"><path d="m16 18 6-6-6-6"></path><path d="m8 6-6 6 6 6"></path></svg><span class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">groovy</span><span class="ml-2 text-sm font-medium text-foreground">Production .NET Jenkinsfile (Surrounding Systems)</span></div><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent h-8 w-8 text-muted-foreground hover:text-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy h-4 w-4" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg><span class="sr-only">Copy code</span></button></div><div class="overflow-x-auto p-4 font-mono text-sm leading-relaxed" style="max-height:none"><div class="flex gap-4"><pre class="flex-1 whitespace-pre-wrap break-words"><code>pipeline {
+  agent any
+
+  options {
+    skipDefaultCheckout(true) // avoid duplicate SCM checkout
+  }
+
+  environment {
+    TARGET_NS                 = 'surrounding-systems-dev-axa-magi-id'
+    APP_NAME                  = 'virtual-account-snap-mandiri'
+    SOLUTION                  = 'JwtApp.sln'
+    BC_NAME                   = "${APP_NAME}"
+    KUBE_CRED_ID              = 'jenkins-dev-axa-magi-id-kubeconfig'
+    GITHUB_CRED               = 'github-ssh-prod'
+    ARTIFACTORY_CRED_ID       = 'artifactory-credentials'
+    SONAR_PROJECT_KEY         = 'aii_virtual-account-snap-mandiri_...'
+  }
+
+  stages {
+    stage('📥 Checkout Code') {
+      steps {
+        checkout([$class: 'GitSCM', ...]) // Standard checkout
+        sh 'git submodule update --init --recursive'
+      }
+    }
+
+    stage('📦 Restore NuGet Packages') {
+      steps {
+        withCredentials([usernamePassword(credentialsId: env.ARTIFACTORY_CRED_ID, ...)]) {
+          sh '''
+            # Generate temporary nuget.config with Artifactory auth
+            cat &gt; nuget.config &lt;&lt;EOF
+&lt;configuration&gt;
+  &lt;packageSources&gt;
+    &lt;add key="AXA-Virtual" value="https://artifactory.asia.axa-cloud.com/..." /&gt;
+  &lt;/packageSources&gt;
+&lt;/configuration&gt;
+EOF
+            dotnet restore "${SOLUTION}" --configfile nuget.config
+          '''
+        }
+      }
+    }
+
+    stage('🔍 SonarQube Analysis (Begin)') {
+      steps {
+        withSonarQubeEnv('SonarQube') {
+          script {
+            def sonarArgs = env.CHANGE_ID ? "/d:sonar.pullrequest.key=${CHANGE_ID} ..." : "/d:sonar.branch.name=${BRANCH_NAME}"
+            sh "dotnet sonarscanner begin /k:\"${SONAR_PROJECT_KEY}\" ${sonarArgs} ..."
+          }
+        }
+      }
+    }
+
+    stage('⚙️ Build Project') {
+      steps {
+        sh 'dotnet build "${SOLUTION}" -c Release --no-restore'
+      }
+    }
+
+    stage('📊 Parse Test Coverage') {
+      steps {
+        sh '''
+          # Advanced logic to fix absolute paths in OpenCover files
+          # This ensures SonarQube correctly maps coverage to source files
+          sed -i 's|fullPath="[^"]*/virtual-account-snap-mandiri/|fullPath="|g' coverage.opencover.xml
+        '''
+      }
+    }
+
+    stage('✅ SonarQube Analysis (End)') {
+      steps {
+        withSonarQubeEnv('SonarQube') {
+          sh 'dotnet sonarscanner end /d:sonar.token="${SONAR_AUTH_TOKEN}"'
+        }
+      }
+    }
+
+    stage('🚀 Deploy to OpenShift') {
+      when { branch 'dev' }
+      steps {
+        withCredentials([file(credentialsId: env.KUBE_CRED_ID, variable: 'KUBECONFIG')]) {
+          sh 'oc start-build ${BC_NAME} --follow -n ${TARGET_NS}'
+        }
+      }
+    }
+  }
+}</code></pre></div></div></div><div class="p-6 rounded-2xl bg-primary/5 border border-primary/10 space-y-4"><h4 class="font-bold flex items-center gap-2 text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings h-5 w-5" aria-hidden="true"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path><circle cx="12" cy="12" r="3"></circle></svg> Key Takeaways</h4><ul class="space-y-3 text-sm text-muted-foreground"><li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4 text-emerald-500 shrink-0 mt-0.5" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg><span><strong>Dynamic Config</strong>: Generating `nuget.config` on the fly prevents credential leakage and ensures clean builds.</span></li><li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4 text-emerald-500 shrink-0 mt-0.5" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg><span><strong>PR Analysis</strong>: Conditional use of `sonar.pullrequest` arguments allows Jenkins to report status directly back to GitHub PRs.</span></li><li class="flex gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-4 w-4 text-emerald-500 shrink-0 mt-0.5" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg><span><strong>Path Normalization</strong>: Using `sed` or `tr` to fix coverage reports is often necessary when tools generate absolute paths that don't match the SonarQube workspace.</span></li></ul></div></div></section><nav class="flex items-center justify-between gap-4 py-8 border-t" aria-label="Page navigation"><a class="group flex-1 flex flex-col items-start gap-1 p-4 rounded-xl border hover:border-primary/20 hover:bg-primary/5 transition-all" href="/aii/developer-guideline/openshift-guideline"><span class="flex items-center text-xs font-medium text-muted-foreground group-hover:text-primary transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left h-4 w-4 mr-1" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg>Previous</span><span class="font-semibold text-foreground group-hover:text-primary transition-colors">OpenShift Platform</span></a><a class="group flex-1 flex flex-col items-end gap-1 p-4 rounded-xl border hover:border-primary/20 hover:bg-primary/5 transition-all text-right" href="/aii/developer-guideline/sonarqube-guideline"><span class="flex items-center text-xs font-medium text-muted-foreground group-hover:text-primary transition-colors">Next<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right h-4 w-4 ml-1" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></span><span class="font-semibold text-foreground group-hover:text-primary transition-colors">SonarQube</span></a></nav></main><aside class="hidden lg:block w-64 flex-shrink-0"><div class="sticky top-28 space-y-4"><h4 class="font-bold text-sm text-muted-foreground uppercase tracking-wide">On This Page</h4><nav class="space-y-1"><a href="#introduction" class="flex items-center gap-2 px-3 py-2 text-sm rounded-lg transition-colors bg-primary/10 text-primary font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open h-4 w-4" aria-hidden="true"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>1. Introduction</a><a href="#getting-access" class="flex items-center gap-2 px-3 py-2 text-sm rounded-lg transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock h-4 w-4" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>2. Getting Access</a><a href="#jenkinsfile-basics" class="flex items-center gap-2 px-3 py-2 text-sm rounded-lg transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-code h-4 w-4" aria-hidden="true"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="M10 12.5 8 15l2 2.5"></path><path d="m14 12.5 2 2.5-2 2.5"></path></svg>3. Jenkinsfile Basics</a><a href="#build-test" class="flex items-center gap-2 px-3 py-2 text-sm rounded-lg transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-test-tube h-4 w-4" aria-hidden="true"><path d="M14.5 2v17.5c0 1.4-1.1 2.5-2.5 2.5c-1.4 0-2.5-1.1-2.5-2.5V2"></path><path d="M8.5 2h7"></path><path d="M14.5 16h-5"></path></svg>4. Build &amp; Test</a><a href="#deployment" class="flex items-center gap-2 px-3 py-2 text-sm rounded-lg transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rocket h-4 w-4" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>5. Deployment Pipelines</a><a href="#shared-libraries" class="flex items-center gap-2 px-3 py-2 text-sm rounded-lg transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-share2 lucide-share-2 h-4 w-4" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"></line><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"></line></svg>6. Shared Libraries</a><a href="#best-practices" class="flex items-center gap-2 px-3 py-2 text-sm rounded-lg transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield h-4 w-4" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>7. Best Practices</a><a href="#case-study" class="flex items-center gap-2 px-3 py-2 text-sm rounded-lg transition-colors text-muted-foreground hover:text-foreground hover:bg-muted/50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cog h-4 w-4" aria-hidden="true"><path d="M11 10.27 7 3.34"></path><path d="m11 13.73-4 6.93"></path><path d="M12 22v-2"></path><path d="M12 2v2"></path><path d="M14 12h8"></path><path d="m17 20.66-1-1.73"></path><path d="m17 3.34-1 1.73"></path><path d="M2 12h2"></path><path d="m20.66 17-1.73-1"></path><path d="m20.66 7-1.73 1"></path><path d="m3.34 17 1.73-1"></path><path d="m3.34 7 1.73 1"></path><circle cx="12" cy="12" r="2"></circle><circle cx="12" cy="12" r="8"></circle></svg>8. Case Study: .NET</a></nav></div></aside></div></div></main></div></div><div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events:none"><ol tabindex="-1" class="fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]"></ol></div><script>window.__staticRouterHydrationData = JSON.parse("{\"loaderData\":{\"0\":null,\"0-10\":null},\"actionData\":null,\"errors\":null}");</script></div>
+<script>window.__VITE_REACT_SSG_HASH__ = '9ia66bl96u'</script>
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // https://github.com/rafgraph/spa-github-pages
+      // Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
+  
+
+</body></html>

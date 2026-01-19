@@ -8,16 +8,37 @@ import {
 } from '@/components/ui/tooltip'
 
 export function ThemeToggle() {
-  const [theme, setThemeState] = useState<'light' | 'dark'>(
-    (localStorage.getItem('theme') as 'light' | 'dark') || 'light'
-  )
+  const [isDark, setIsDark] = useState<boolean>(false);
+  const [mounted, setMounted] = useState<boolean>(false);
 
   useEffect(() => {
-    const root = window.document.documentElement
-    root.classList.remove('light', 'dark')
-    root.classList.add(theme)
-    localStorage.setItem('theme', theme)
-  }, [theme])
+    setMounted(true);
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem('theme');
+      setIsDark(savedTheme === 'dark');
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!mounted || typeof window === 'undefined') return;
+    const root = document.documentElement;
+    root.classList.remove('light', 'dark');
+    if (isDark) {
+      root.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      root.classList.add('light');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDark, mounted]);
+
+  if (!mounted) {
+    return (
+      <Button variant="ghost" size="icon" disabled>
+        <Sun className="h-[1.2rem] w-[1.2rem]" />
+      </Button>
+    );
+  }
 
   return (
     <Tooltip>
@@ -25,10 +46,10 @@ export function ThemeToggle() {
         <Button
           variant="ghost"
           size="icon"
-          onClick={() => setThemeState(theme === 'light' ? 'dark' : 'light')}
+          onClick={() => setIsDark(!isDark)}
         >
-          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+          <Sun className={`h-[1.2rem] w-[1.2rem] transition-all ${isDark ? '-rotate-90 scale-0' : 'rotate-0 scale-100'}`} />
+          <Moon className={`absolute h-[1.2rem] w-[1.2rem] transition-all ${isDark ? 'rotate-0 scale-100' : 'rotate-90 scale-0'}`} />
           <span className="sr-only">Toggle theme</span>
         </Button>
       </TooltipTrigger>
@@ -36,7 +57,7 @@ export function ThemeToggle() {
         <p>Toggle theme</p>
       </TooltipContent>
     </Tooltip>
-  )
+  );
 }
 
 export default ThemeToggle;

@@ -1,18 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import DotNetDeveloperGuidelinePage from './pages/DotNetDeveloperGuidelinePage';
-import ReactDeveloperGuidelinePage from './pages/ReactDeveloperGuidelinePage';
-import JavaDeveloperGuidelinePage from './pages/JavaDeveloperGuidelinePage';
-import PythonDeveloperGuidelinePage from './pages/PythonDeveloperGuidelinePage';
-import FlutterDeveloperGuidelinePage from './pages/FlutterDeveloperGuidelinePage';
-import CleanArchitecturePage from './pages/CleanArchitecturePage';
-import CodingStandardPage from './pages/CodingStandardPage';
-import GitHubAxaUsagePage from './pages/GitHubAxaUsagePage';
-import OpenShiftGuidelinePage from './pages/OpenShiftGuidelinePage';
-import JenkinsGuidelinePage from './pages/JenkinsGuidelinePage';
-import SonarQubeGuidelinePage from './pages/SonarQubeGuidelinePage';
-import SearchResultsPage from './pages/SearchResultsPage';
+import { Outlet } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -71,24 +58,8 @@ function App() {
 
   return (
     <TooltipProvider>
-      <Router basename={import.meta.env.BASE_URL}>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/dotnet-developer-guideline" element={<DotNetDeveloperGuidelinePage />} />
-          <Route path="/react-developer-guideline" element={<ReactDeveloperGuidelinePage />} />
-          <Route path="/java-developer-guideline" element={<JavaDeveloperGuidelinePage />} />
-          <Route path="/python-developer-guideline" element={<PythonDeveloperGuidelinePage />} />
-          <Route path="/flutter-developer-guideline" element={<FlutterDeveloperGuidelinePage />} />
-          <Route path="/clean-architecture" element={<CleanArchitecturePage />} />
-          <Route path="/coding-standard" element={<CodingStandardPage />} />
-          <Route path="/github-axa-usage" element={<GitHubAxaUsagePage />} />
-          <Route path="/openshift-guideline" element={<OpenShiftGuidelinePage />} />
-          <Route path="/jenkins-guideline" element={<JenkinsGuidelinePage />} />
-          <Route path="/sonarqube-guideline" element={<SonarQubeGuidelinePage />} />
-          <Route path="/search" element={<SearchResultsPage />} />
-        </Routes>
-      </Router>
+      <ScrollToTop />
+      <Outlet />
       <Toaster />
     </TooltipProvider>
   );

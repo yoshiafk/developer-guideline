@@ -13,13 +13,6 @@ export default defineConfig({
     assetsInlineLimit: 4096,
     rollupOptions: {
       output: {
-        manualChunks: {
-          'react': ['react', 'react-dom'],
-          'react-router': ['react-router-dom'],
-          'ui': ['framer-motion', 'lucide-react'],
-          'radix': ['@radix-ui/react-dialog', '@radix-ui/react-scroll-area', '@radix-ui/react-separator', '@radix-ui/react-slot', '@radix-ui/react-tabs', '@radix-ui/react-toast', '@radix-ui/react-tooltip'],
-          'vendor': ['highlight.js', 'minisearch', 'sonner', 'class-variance-authority', 'clsx', 'tailwind-merge']
-        },
         chunkFileNames: 'js/[name]-[hash].js',
         entryFileNames: 'js/main-[hash].js',
         assetFileNames: (assetInfo) => {

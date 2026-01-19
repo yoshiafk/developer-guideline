@@ -1,14 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import { ViteReactSSG } from 'vite-react-ssg';
 import './index.css';
-import App from './App';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import { routes } from './routes';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+export const createRoot = ViteReactSSG(
+  { routes, basename: import.meta.env.BASE_URL }
 );
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+
+export default createRoot;

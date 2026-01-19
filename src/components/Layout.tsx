@@ -22,7 +22,9 @@ const Layout: React.FC<LayoutProps> = ({ children, showSidebar = true, showReadi
     <div className="relative flex min-h-screen flex-col bg-background">
       {shouldShowProgress && <ReadingProgress />}
       <SkipToContent />
-      <Header />
+      <div data-pagefind-ignore>
+        <Header />
+      </div>
       <div className="flex-1 items-start md:grid md:grid-cols-[240px_minmax(0,1fr)] lg:grid-cols-[260px_minmax(0,1fr)] xl:grid-cols-[280px_minmax(0,1fr)]">
         {shouldShowSidebar && (
           <aside
@@ -30,15 +32,18 @@ const Layout: React.FC<LayoutProps> = ({ children, showSidebar = true, showReadi
             role="navigation"
             aria-label="Documentation navigation"
           >
-            <ScrollArea className="h-full py-6 pr-3 lg:py-8 lg:pr-4">
-              <Sidebar />
-            </ScrollArea>
+            <div data-pagefind-ignore>
+              <ScrollArea className="h-full py-6 pr-3 lg:py-8 lg:pr-4">
+                <Sidebar />
+              </ScrollArea>
+            </div>
           </aside>
         )}
         <main
           id="main-content"
           role="main"
           className={`relative py-6 lg:gap-10 lg:py-8 ${!shouldShowSidebar ? 'md:col-span-2' : ''}`}
+          data-pagefind-body
         >
           <div className={`w-full min-w-0 ${!shouldShowSidebar ? 'px-4 md:px-8 lg:px-12' : 'px-3 md:px-4 lg:px-6'}`}>
             {children}
