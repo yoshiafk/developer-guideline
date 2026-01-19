@@ -1,27 +1,39 @@
-# Pagefind Implementation Tasks
+# Pagefind Implementation Tasks (SSG Focus)
 
-## Phase 1: Environment Setup
-- [ ] Install Pagefind dependency: `npm install --save-dev pagefind`
-- [ ] Install SSG support (optional but recommended): `npm install --save-dev vite-ssg`
-- [ ] Configure `vite.config.ts` for static export.
+## Phase 1: SSG & Pagefind Setup
+- [ ] Install dependencies:
+  ```bash
+  npm install --save-dev pagefind vite-ssg fs-extra
+  ```
+- [ ] Refactor `src/main.tsx` to use `ViteSSG` instead of `ReactDOM.createRoot`.
+- [ ] Update `package.json` build scripts:
+  ```json
+  "build": "vite-ssg build && pagefind --site dist"
+  ```
 
-## Phase 2: Indexing Integration
-- [ ] Add `postbuild` script to `package.json`.
-- [ ] Configure Pagefind to ignore UI-only elements (nav, footer) using `data-pagefind-ignore`.
-- [ ] Add `data-pagefind-body` to the main content area in `Layout.tsx`.
+## Phase 2: Content Optimization
+- [ ] Update `src/components/Layout.tsx`:
+  - Add `data-pagefind-body` to the main content container.
+  - Add `data-pagefind-ignore` to `Header`, `Footer`, and `Breadcrumbs`.
+- [ ] Ensure all guideline pages use semantic HTML (h1, h2, h3) for better Pagefind indexing.
 
-## Phase 3: UI Implementation
-- [ ] Create `src/hooks/usePagefind.ts` to manage WASM initialization and searching.
-- [ ] Update `SearchModal.tsx` to display real-time results from Pagefind.
-- [ ] Implement "Wait for search index" loading states.
-- [ ] Map Pagefind results (url, title, excerpt) to existing UI cards.
+## Phase 3: Search Engine Integration
+- [ ] Implement `src/hooks/usePagefind.ts`:
+  - Handle WASM initialization from `/_pagefind/pagefind.js`.
+  - Implement search query logic.
+  - Handle result loading and data fetching.
+- [ ] Refactor `src/components/SearchModal.tsx`:
+  - Replace mock results with `usePagefind` results.
+  - Render excerpts with highlighted matches.
+  - Support keyboard navigation for search results.
 
-## Phase 4: Verification & Deployment
-- [ ] Run a local build: `npm run build`.
-- [ ] Verify the `dist/_pagefind` directory is created.
-- [ ] Test search functionality in `dist` using a local server (e.g., `npx serve dist`).
-- [ ] Push to GitHub and verify search works on GitHub Pages.
+## Phase 4: Validation
+- [ ] Test the build locally: `npm run build`.
+- [ ] Verify `dist/` contains multiple `index.html` files for different routes.
+- [ ] Verify `dist/_pagefind/` exists.
+- [ ] Preview locally using `npx serve dist` and verify search works.
 
-## Maintenance
-- [ ] Update `research.md` to reflect that Pagefind is the chosen engine.
-- [ ] Remove legacy `minisearch` dependency and `src/utils/advancedSearch.ts` if no longer needed.
+## Phase 5: Cleanup
+- [ ] Remove `minisearch` from `package.json`.
+- [ ] Delete legacy `src/utils/advancedSearch.ts`.
+- [ ] Update documentation to reflect the new search architecture.
