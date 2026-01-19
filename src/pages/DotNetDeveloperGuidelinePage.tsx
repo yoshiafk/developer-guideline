@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 import PageHero from '../components/PageHero';
+import OnThisPage from '../components/OnThisPage';
+import FileTree, { FileTreeItem } from '@/components/FileTree';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -42,33 +44,33 @@ const chapters = [
   { id: "testing", title: "9. Testing Guidelines", icon: FlaskConical },
 ];
 
-const DotNetDeveloperGuidelinePage: React.FC = () => {
-  const [activeSection, setActiveSection] = useState("overview");
+const folderStructureData: FileTreeItem[] = [
+  {
+    name: "src",
+    type: "folder",
+    children: [
+      {
+        name: "Application",
+        type: "folder",
+        comment: "UseCases, DTOs, Handlers",
+        children: [
+          { name: "Common", type: "folder" },
+          { name: "Interfaces", type: "folder" },
+          { name: "TodoItems", type: "folder", comment: "Feature-based folders" }
+        ]
+      },
+      { name: "Domain", type: "folder", comment: "Entities, Value Objects" },
+      { name: "Infrastructure", type: "folder", comment: "Persistence, External Systems" },
+      { name: "WebApi", type: "folder", comment: "Controllers, Middleware" }
+    ]
+  }
+];
 
+const DotNetDeveloperGuidelinePage: React.FC = () => {
   const breadcrumbs = [
     { label: 'Home', href: '/' },
     { label: '.NET Guideline' }
   ];
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.2, rootMargin: "-10% 0px -70% 0px" }
-    );
-
-    chapters.forEach((chapter) => {
-      const el = document.getElementById(chapter.id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <Layout>
@@ -156,7 +158,7 @@ const DotNetDeveloperGuidelinePage: React.FC = () => {
               <div className="space-y-6">
                 <h3 className="text-2xl font-bold flex items-center gap-2">Clean Architecture (Layered)</h3>
                 <p className="text-muted-foreground">Standard for enterprise-grade applications with complex domains.</p>
-                <div className="grid lg:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 gap-6">
                   <CodeSnippet title="Order.cs (Domain Layer)" language="csharp" code={`public class Order : AggregateRoot\n{\n    public void MarkAsCompleted() {\n        if (Status != OrderStatus.Processing)\n            throw new DomainException("Invalid state transition");\n        Status = OrderStatus.Completed;\n    }\n}`} />
                   <CodeSnippet title="CompleteOrderUseCase.cs (App Layer)" language="csharp" code={`public async Task Execute(int orderId) {\n    var order = await _orderRepository.GetByIdAsync(orderId);\n    order.MarkAsCompleted();\n    await _unitOfWork.SaveChangesAsync();\n}`} />
                 </div>
@@ -188,7 +190,7 @@ const DotNetDeveloperGuidelinePage: React.FC = () => {
             </div>
 
             <div className="space-y-8">
-              <div className="grid lg:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 gap-8">
                 <div className="space-y-4">
                   <h4 className="text-xl font-bold flex items-center gap-2"><Zap className="h-5 w-5 text-yellow-500" /> CQRS with MediatR</h4>
                   <p className="text-sm text-muted-foreground">Separates read models from write models and enables decorators for logging and validation.</p>
@@ -216,7 +218,7 @@ const DotNetDeveloperGuidelinePage: React.FC = () => {
               <h3 className="text-2xl font-bold">Entity Framework Core</h3>
               <p className="text-muted-foreground">The primary ORM for AII .NET projects. Follow these best practices for performance.</p>
 
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-6">
                 <div className="glass p-6 rounded-2xl border border-emerald-500/20 space-y-4">
                   <h5 className="font-bold text-emerald-600">✅ Eager Loading & NoTracking</h5>
                   <CodeSnippet language="csharp" code={`var students = await _context.Students\n    .AsNoTracking()\n    .Include(s => s.Courses)\n    .Where(s => s.IsActive)\n    .ToListAsync();`} />
@@ -239,7 +241,7 @@ const DotNetDeveloperGuidelinePage: React.FC = () => {
               <h2 className="text-4xl font-extrabold tracking-tight">API Implementation Approaches</h2>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 gap-8">
               <div className="space-y-4">
                 <h4 className="text-xl font-bold">Standard Controllers</h4>
                 <p className="text-sm text-muted-foreground">Best for large-scale APIs requiring complex route attributes or filters.</p>
@@ -299,17 +301,10 @@ const DotNetDeveloperGuidelinePage: React.FC = () => {
               <h2 className="text-4xl font-extrabold tracking-tight">File and Project Organization</h2>
             </div>
 
-            <div className="p-8 rounded-3xl bg-slate-900 border border-slate-700 font-mono text-xs text-blue-400 group relative">
-              <div className="absolute top-4 right-4 text-[10px] uppercase font-bold text-slate-500 tracking-widest group-hover:text-blue-500/50 transition-colors">Clean Architecture Structure</div>
-              <pre className="leading-relaxed">{`src/
-├── Application/      # UseCases, DTOs, Handlers
-│   ├── Common/
-│   ├── Interfaces/
-│   └── TodoItems/    # Feature-based folders
-├── Domain/           # Entities, Value Objects
-├── Infrastructure/   # Persistence, External Systems
-└── WebApi/           # Controllers, Middleware`}</pre>
-            </div>
+            <FileTree
+              title="Clean Architecture Structure"
+              data={folderStructureData}
+            />
           </section>
 
           <Separator />
@@ -376,25 +371,7 @@ const DotNetDeveloperGuidelinePage: React.FC = () => {
 
         </main>
 
-        {/* Right Side Sticky ToC */}
-        <aside className="lg:w-64 shrink-0 h-[calc(100vh-8rem)] sticky top-24 hidden xl:block overflow-y-auto pl-4 border-l">
-          <div className="space-y-1 pb-12">
-            <h4 className="text-[10px] font-bold mb-6 px-3 text-muted-foreground/60 uppercase tracking-[0.2em]">On this page</h4>
-            {chapters.map((chapter) => (
-              <a
-                key={chapter.id}
-                href={`#${chapter.id}`}
-                className={`flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg transition-all ${activeSection === chapter.id
-                  ? "text-primary font-bold"
-                  : "text-muted-foreground hover:text-foreground"
-                  }`}
-              >
-                <chapter.icon className={`h-3.5 w-3.5 shrink-0 ${activeSection === chapter.id ? "text-primary" : "text-muted-foreground/40"}`} />
-                {chapter.title}
-              </a>
-            ))}
-          </div>
-        </aside>
+        <OnThisPage chapters={chapters} />
       </div>
 
       {/* Page Navigation */}

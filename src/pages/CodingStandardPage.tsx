@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 import PageHero from '../components/PageHero';
+import OnThisPage from '../components/OnThisPage';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -48,33 +49,11 @@ const chapters = [
 ];
 
 const CodingStandardPage: React.FC = () => {
-  const [activeSection, setActiveSection] = useState("core-principles");
-
   const breadcrumbs = [
     { label: 'Home', href: '/' },
     { label: 'Global Standards' },
     { label: 'Coding Standards' }
   ];
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.2, rootMargin: "-10% 0px -70% 0px" }
-    );
-
-    chapters.forEach((chapter) => {
-      const el = document.getElementById(chapter.id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <Layout>
@@ -551,25 +530,7 @@ const CodingStandardPage: React.FC = () => {
           </section>
         </main>
 
-        {/* Right Side Sticky ToC */}
-        <aside className="lg:w-64 shrink-0 h-[calc(100vh-8rem)] sticky top-24 hidden xl:block overflow-y-auto pl-4 border-l">
-          <div className="space-y-1 pb-12">
-            <h4 className="text-[10px] font-bold mb-6 px-3 text-muted-foreground/60 uppercase tracking-[0.2em]">On this page</h4>
-            {chapters.map((chapter) => (
-              <a
-                key={chapter.id}
-                href={`#${chapter.id}`}
-                className={`flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg transition-all ${activeSection === chapter.id
-                  ? "text-primary font-bold"
-                  : "text-muted-foreground hover:text-foreground"
-                  }`}
-              >
-                <chapter.icon className={`h-3.5 w-3.5 shrink-0 ${activeSection === chapter.id ? "text-primary" : "text-muted-foreground/40"}`} />
-                {chapter.title}
-              </a>
-            ))}
-          </div>
-        </aside>
+        <OnThisPage chapters={chapters} />
       </div>
     </Layout>
   );

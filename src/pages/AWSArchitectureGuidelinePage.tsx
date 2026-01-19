@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PageHero from '@/components/PageHero';
 import Layout from '@/components/Layout';
+import OnThisPage from '@/components/OnThisPage';
 import CodeSnippet from '@/components/CodeSnippet';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -40,38 +41,11 @@ const chapters = [
 ];
 
 const AWSArchitectureGuidelinePage: React.FC = () => {
-    const [activeSection, setActiveSection] = useState("overview");
-
     const breadcrumbs = [
         { label: 'Home', href: '/' },
         { label: 'Cloud & Cost Management' },
         { label: 'AWS Architecture' }
     ];
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                const visibleEntries = entries.filter(entry => entry.isIntersecting);
-                if (visibleEntries.length > 0) {
-                    const mostVisible = visibleEntries.reduce((prev, current) => {
-                        if (current.intersectionRatio > prev.intersectionRatio) {
-                            return current;
-                        }
-                        return prev;
-                    });
-                    setActiveSection(mostVisible.target.id);
-                }
-            },
-            { threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0], rootMargin: "-10% 0px -70% 0px" }
-        );
-
-        chapters.forEach((chapter) => {
-            const el = document.getElementById(chapter.id);
-            if (el) observer.observe(el);
-        });
-
-        return () => observer.disconnect();
-    }, []);
 
     return (
         <Layout>
@@ -451,32 +425,7 @@ const AWSArchitectureGuidelinePage: React.FC = () => {
 
                 </main>
 
-                {/* Sidebar mini ToC */}
-                <aside className="lg:w-64 flex-shrink-0 hidden lg:block">
-                    <div className="sticky top-28 space-y-4">
-                        <div className="p-1 rounded-2xl bg-muted/50 border border-border/50">
-                            <div className="px-4 py-3 flex items-center gap-2 border-b border-border/50">
-                                <Cloud className="h-4 w-4 text-primary" />
-                                <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Pillars</span>
-                            </div>
-                            <div className="p-2 space-y-1">
-                                {chapters.map((chapter) => (
-                                    <a
-                                        key={chapter.id}
-                                        href={`#${chapter.id}`}
-                                        className={`flex items-center gap-3 px-3 py-2 rounded-xl text-sm transition-all ${activeSection === chapter.id
-                                            ? "bg-primary text-primary-foreground font-semibold shadow-lg shadow-primary/20"
-                                            : "text-muted-foreground hover:bg-primary/5 hover:text-primary"
-                                            }`}
-                                    >
-                                        <chapter.icon className="h-4 w-4" />
-                                        {chapter.title.includes('.') ? chapter.title.split('. ')[1] : chapter.title}
-                                    </a>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </aside>
+                <OnThisPage chapters={chapters} />
             </div>
         </Layout>
     );

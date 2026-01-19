@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PageHero from '@/components/PageHero';
 import Layout from '@/components/Layout';
+import OnThisPage from '@/components/OnThisPage';
 import CodeSnippet from '@/components/CodeSnippet';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -41,41 +42,11 @@ const chapters = [
 ];
 
 const JenkinsGuidelinePage: React.FC = () => {
-    const [activeSection, setActiveSection] = useState("introduction");
-
     const breadcrumbs = [
         { label: 'Home', href: '/' },
         { label: 'DevOps & CI/CD' },
         { label: 'Jenkins' }
     ];
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                const visibleEntries = entries.filter(entry => entry.isIntersecting);
-                if (visibleEntries.length > 0) {
-                    const mostVisible = visibleEntries.reduce((prev, current) => {
-                        if (current.intersectionRatio > prev.intersectionRatio) {
-                            return current;
-                        }
-                        if (current.intersectionRatio === prev.intersectionRatio) {
-                            return current.boundingClientRect.top < prev.boundingClientRect.top ? current : prev;
-                        }
-                        return prev;
-                    });
-                    setActiveSection(mostVisible.target.id);
-                }
-            },
-            { threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0], rootMargin: "-10% 0px -70% 0px" }
-        );
-
-        chapters.forEach((chapter) => {
-            const el = document.getElementById(chapter.id);
-            if (el) observer.observe(el);
-        });
-
-        return () => observer.disconnect();
-    }, []);
 
     return (
         <Layout>
@@ -116,9 +87,9 @@ const JenkinsGuidelinePage: React.FC = () => {
                         </div>
 
                         {/* Pipeline Workflow */}
-                        <div className="p-8 rounded-3xl bg-slate-900 border border-slate-700 font-mono text-xs text-blue-400">
+                        <div className="p-8 rounded-3xl bg-slate-900 border border-slate-700 font-mono text-xs text-blue-400 overflow-x-auto">
                             <div className="text-[10px] uppercase font-bold text-slate-500 tracking-widest mb-4">AXA CI/CD Pipeline Flow</div>
-                            <pre className="leading-relaxed">{`┌─────────────────────────────────────────────────────────────────┐
+                            <pre className="leading-relaxed min-w-[600px]">{`┌─────────────────────────────────────────────────────────────────┐
 │                     Jenkins Pipeline Flow                        │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                  │
@@ -1363,27 +1334,7 @@ EOF
                     />
                 </main>
 
-                {/* Table of Contents */}
-                <aside className="hidden lg:block w-64 flex-shrink-0">
-                    <div className="sticky top-28 space-y-4">
-                        <h4 className="font-bold text-sm text-muted-foreground uppercase tracking-wide">On This Page</h4>
-                        <nav className="space-y-1">
-                            {chapters.map((chapter) => (
-                                <a
-                                    key={chapter.id}
-                                    href={`#${chapter.id}`}
-                                    className={`flex items-center gap-2 px-3 py-2 text-sm rounded-lg transition-colors ${activeSection === chapter.id
-                                        ? "bg-primary/10 text-primary font-medium"
-                                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-                                        }`}
-                                >
-                                    <chapter.icon className="h-4 w-4" />
-                                    {chapter.title}
-                                </a>
-                            ))}
-                        </nav>
-                    </div>
-                </aside>
+                <OnThisPage chapters={chapters} />
             </div>
         </Layout>
     );

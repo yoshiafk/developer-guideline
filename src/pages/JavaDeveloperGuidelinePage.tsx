@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageHero from '@/components/PageHero';
 import Layout from '@/components/Layout';
+import FileTree, { FileTreeItem } from '@/components/FileTree';
+import OnThisPage from '@/components/OnThisPage';
 import CodeSnippet from '@/components/CodeSnippet';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -34,55 +36,74 @@ const chapters = [
     { id: "spring-boot", title: "3. Spring Boot Standards", icon: Zap },
     { id: "rest-api", title: "4. REST API Design", icon: Server },
     { id: "persistence", title: "5. Persistence & Database", icon: Database },
-    { id: "validation", title: "6. Validation & Errors", icon: ShieldCheck },
-    { id: "testing", title: "7. Testing Guidelines", icon: FlaskConical },
-    { id: "logging", title: "8. Logging & Monitoring", icon: Activity },
-    { id: "maven", title: "9. Maven Build", icon: Settings },
-    { id: "naming", title: "10. Code Style & Naming", icon: PenTool },
+    { id: "ci-cd", title: "6. CI/CD Pipeline", icon: Terminal },
+    { id: "validation", title: "7. Validation & Errors", icon: ShieldCheck },
+    { id: "testing", title: "8. Testing Guidelines", icon: FlaskConical },
+    { id: "logging", title: "9. Logging & Monitoring", icon: Activity },
+    { id: "maven", title: "10. Maven Build", icon: Settings },
+    { id: "naming", title: "11. Code Style & Naming", icon: PenTool },
+];
+
+const folderStructureData: FileTreeItem[] = [
+    {
+        name: "project-root",
+        type: "folder",
+        children: [
+            { name: "pom.xml", type: "file", comment: "Maven configuration" },
+            {
+                name: "src",
+                type: "folder",
+                children: [
+                    {
+                        name: "main",
+                        type: "folder",
+                        children: [
+                            {
+                                name: "java/com/axa/aii",
+                                type: "folder",
+                                children: [
+                                    { name: "Application.java", type: "file", comment: "Main entry point" },
+                                    { name: "config", type: "folder", comment: "Configuration classes" },
+                                    { name: "controller", type: "folder", comment: "REST controllers" },
+                                    { name: "service", type: "folder", comment: "Business logic" },
+                                    { name: "repository", type: "folder", comment: "Data access layer" },
+                                    { name: "model", type: "folder", comment: "Entity classes" },
+                                    { name: "dto", type: "folder", comment: "Data Transfer Objects" },
+                                    { name: "exception", type: "folder", comment: "Custom exceptions" }
+                                ]
+                            },
+                            {
+                                name: "resources",
+                                type: "folder",
+                                children: [
+                                    { name: "application.yml", type: "file", comment: "Main configuration" },
+                                    { name: "application-dev.yml", type: "file", comment: "Dev profile" },
+                                    { name: "application-prod.yml", type: "file", comment: "Production profile" }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        name: "test",
+                        type: "folder",
+                        children: [
+                            { name: "java", type: "folder", comment: "Test classes" },
+                            { name: "resources", type: "folder", comment: "Test configurations" }
+                        ]
+                    }
+                ]
+            },
+            { name: "target", type: "folder", comment: "Build output (gitignored)" }
+        ]
+    }
 ];
 
 const JavaDeveloperGuidelinePage: React.FC = () => {
-    const [activeSection, setActiveSection] = useState("overview");
-
     const breadcrumbs = [
         { label: 'Home', href: '/' },
         { label: 'Backend Guidelines' },
         { label: 'Java' }
     ];
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                // Find the entry that's most visible (closest to top of viewport)
-                const visibleEntries = entries.filter(entry => entry.isIntersecting);
-
-                if (visibleEntries.length > 0) {
-                    // Sort by intersection ratio (most visible first) and position
-                    const mostVisible = visibleEntries.reduce((prev, current) => {
-                        // Prefer the one with higher intersection ratio
-                        if (current.intersectionRatio > prev.intersectionRatio) {
-                            return current;
-                        }
-                        // If same ratio, prefer the one closer to top
-                        if (current.intersectionRatio === prev.intersectionRatio) {
-                            return current.boundingClientRect.top < prev.boundingClientRect.top ? current : prev;
-                        }
-                        return prev;
-                    });
-
-                    setActiveSection(mostVisible.target.id);
-                }
-            },
-            { threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0], rootMargin: "-10% 0px -70% 0px" }
-        );
-
-        chapters.forEach((chapter) => {
-            const el = document.getElementById(chapter.id);
-            if (el) observer.observe(el);
-        });
-
-        return () => observer.disconnect();
-    }, []);
 
     return (
         <Layout>
@@ -163,31 +184,10 @@ const JavaDeveloperGuidelinePage: React.FC = () => {
                             <p className="text-lg text-muted-foreground">Standard Maven project layout for all AII Java applications.</p>
                         </div>
 
-                        <div className="p-8 rounded-3xl bg-slate-900 border border-slate-700 font-mono text-xs text-blue-400 group relative">
-                            <div className="absolute top-4 right-4 text-[10px] uppercase font-bold text-slate-500 tracking-widest">Maven Standard Layout</div>
-                            <pre className="leading-relaxed">{`project-root/
-├── pom.xml                    # Maven configuration
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   └── com/axa/aii/
-│   │   │       ├── Application.java      # Main entry point
-│   │   │       ├── config/               # Configuration classes
-│   │   │       ├── controller/           # REST controllers
-│   │   │       ├── service/              # Business logic
-│   │   │       ├── repository/           # Data access layer
-│   │   │       ├── model/                # Entity classes
-│   │   │       ├── dto/                  # Data Transfer Objects
-│   │   │       └── exception/            # Custom exceptions
-│   │   └── resources/
-│   │       ├── application.yml           # Main configuration
-│   │       ├── application-dev.yml       # Dev profile
-│   │       └── application-prod.yml      # Production profile
-│   └── test/
-│       ├── java/                         # Test classes
-│       └── resources/                    # Test configurations
-└── target/                               # Build output (gitignored)`}</pre>
-                        </div>
+                        <FileTree
+                            title="Maven Standard Layout"
+                            data={folderStructureData}
+                        />
 
                         <div className="p-6 rounded-2xl bg-primary/5 border border-primary/10 space-y-4">
                             <h4 className="font-bold flex items-center gap-2 text-primary"><Layers className="h-5 w-5" /> Layer Responsibilities</h4>
@@ -384,7 +384,7 @@ public class UserController {
                             <p className="text-lg text-muted-foreground">JPA/Hibernate best practices and database access patterns.</p>
                         </div>
 
-                        <div className="grid lg:grid-cols-2 gap-8">
+                        <div className="grid grid-cols-1 gap-8">
                             <div className="space-y-4">
                                 <h4 className="text-xl font-bold">Entity Design</h4>
                                 <CodeSnippet
@@ -478,7 +478,7 @@ CREATE INDEX idx_users_status ON users(status);`}
                             <h2 className="text-4xl font-extrabold tracking-tight">Validation & Error Handling</h2>
                         </div>
 
-                        <div className="grid md:grid-cols-2 gap-8">
+                        <div className="grid grid-cols-1 gap-8">
                             <div className="space-y-4">
                                 <h4 className="font-bold flex items-center gap-2"><ShieldCheck className="h-5 w-5 text-emerald-500" /> Jakarta Validation</h4>
                                 <CodeSnippet
@@ -553,7 +553,7 @@ public class GlobalExceptionHandler {
                                 </div>
                             </div>
 
-                            <div className="grid lg:grid-cols-2 gap-8">
+                            <div className="grid grid-cols-1 gap-8">
                                 <div className="space-y-4">
                                     <h4 className="text-xl font-bold">Unit Testing with Mockito</h4>
                                     <CodeSnippet
@@ -634,7 +634,7 @@ class UserControllerIT {
                             <h2 className="text-4xl font-extrabold tracking-tight">Logging & Monitoring</h2>
                         </div>
 
-                        <div className="grid md:grid-cols-2 gap-8">
+                        <div className="grid grid-cols-1 gap-8">
                             <Card className="glass shadow-sm">
                                 <CardHeader>
                                     <CardTitle className="text-lg flex items-center gap-2">
@@ -888,25 +888,7 @@ management:
 
                 </main>
 
-                {/* Right Side Sticky ToC */}
-                <aside className="lg:w-64 shrink-0 h-[calc(100vh-8rem)] sticky top-24 hidden xl:block overflow-y-auto pl-4 border-l">
-                    <div className="space-y-1 pb-12">
-                        <h4 className="text-[10px] font-bold mb-6 px-3 text-muted-foreground/60 uppercase tracking-[0.2em]">On this page</h4>
-                        {chapters.map((chapter) => (
-                            <a
-                                key={chapter.id}
-                                href={`#${chapter.id}`}
-                                className={`flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg transition-all ${activeSection === chapter.id
-                                    ? "text-primary font-bold"
-                                    : "text-muted-foreground hover:text-foreground"
-                                    }`}
-                            >
-                                <chapter.icon className={`h-3.5 w-3.5 shrink-0 ${activeSection === chapter.id ? "text-primary" : "text-muted-foreground/40"}`} />
-                                {chapter.title}
-                            </a>
-                        ))}
-                    </div>
-                </aside>
+                <OnThisPage chapters={chapters} />
             </div>
         </Layout>
     );

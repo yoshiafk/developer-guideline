@@ -1,4 +1,9 @@
 {
+  "\u0000/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/highlight.js/lib/index.js?commonjs-es-import": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
   "\u0000/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/prop-types/index.js?commonjs-es-import": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
@@ -10,7 +15,7 @@
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
   "\u0000/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/react-dom/cjs/react-dom-client.production.js?commonjs-exports": [
-    "/aii/developer-guideline/js/client-DytVPCns.js"
+    "/aii/developer-guideline/js/client-BFNiXorA.js"
   ],
   "\u0000/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/react-dom/cjs/react-dom.production.js?commonjs-exports": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
@@ -18,10 +23,10 @@
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
   "\u0000/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/react-dom/client.js?commonjs-es-import": [
-    "/aii/developer-guideline/js/client-DytVPCns.js"
+    "/aii/developer-guideline/js/client-BFNiXorA.js"
   ],
   "\u0000/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/react-dom/client.js?commonjs-module": [
-    "/aii/developer-guideline/js/client-DytVPCns.js"
+    "/aii/developer-guideline/js/client-BFNiXorA.js"
   ],
   "\u0000/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/react-dom/index.js?commonjs-es-import": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
@@ -64,10 +69,10 @@
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
   "\u0000/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/scheduler/cjs/scheduler.production.js?commonjs-exports": [
-    "/aii/developer-guideline/js/client-DytVPCns.js"
+    "/aii/developer-guideline/js/client-BFNiXorA.js"
   ],
   "\u0000/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/scheduler/index.js?commonjs-module": [
-    "/aii/developer-guideline/js/client-DytVPCns.js"
+    "/aii/developer-guideline/js/client-BFNiXorA.js"
   ],
   "\u0000commonjsHelpers.js": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
@@ -724,6 +729,981 @@
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
+  "node_modules/highlight.js/lib/core.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/index.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/1c.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/abnf.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/accesslog.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/actionscript.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/ada.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/angelscript.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/apache.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/applescript.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/arcade.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/arduino.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/armasm.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/asciidoc.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/aspectj.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/autohotkey.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/autoit.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/avrasm.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/awk.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/axapta.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/bash.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/basic.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/bnf.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/brainfuck.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/c.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/cal.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/capnproto.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/ceylon.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/clean.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/clojure-repl.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/clojure.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/cmake.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/coffeescript.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/coq.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/cos.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/cpp.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/crmsh.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/crystal.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/csharp.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/csp.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/css.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/d.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/dart.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/delphi.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/diff.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/django.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/dns.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/dockerfile.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/dos.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/dsconfig.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/dts.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/dust.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/ebnf.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/elixir.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/elm.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/erb.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/erlang-repl.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/erlang.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/excel.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/fix.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/flix.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/fortran.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/fsharp.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/gams.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/gauss.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/gcode.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/gherkin.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/glsl.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/gml.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/go.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/golo.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/gradle.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/graphql.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/groovy.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/haml.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/handlebars.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/haskell.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/haxe.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/hsp.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/http.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/hy.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/inform7.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/ini.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/irpf90.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/isbl.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/java.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/javascript.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/jboss-cli.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/json.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/julia-repl.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/julia.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/kotlin.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/lasso.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/latex.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/ldif.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/leaf.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/less.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/lisp.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/livecodeserver.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/livescript.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/llvm.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/lsl.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/lua.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/makefile.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/markdown.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/mathematica.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/matlab.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/maxima.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/mel.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/mercury.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/mipsasm.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/mizar.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/mojolicious.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/monkey.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/moonscript.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/n1ql.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/nestedtext.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/nginx.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/nim.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/nix.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/node-repl.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/nsis.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/objectivec.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/ocaml.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/openscad.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/oxygene.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/parser3.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/perl.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/pf.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/pgsql.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/php-template.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/php.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/plaintext.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/pony.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/powershell.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/processing.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/profile.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/prolog.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/properties.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/protobuf.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/puppet.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/purebasic.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/python-repl.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/python.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/q.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/qml.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/r.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/reasonml.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/rib.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/roboconf.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/routeros.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/rsl.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/ruby.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/ruleslanguage.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/rust.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/sas.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/scala.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/scheme.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/scilab.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/scss.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/shell.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/smali.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/smalltalk.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/sml.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/sqf.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/sql.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/stan.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/stata.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/step21.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/stylus.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/subunit.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/swift.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/taggerscript.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/tap.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/tcl.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/thrift.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/tp.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/twig.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/typescript.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/vala.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/vbnet.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/vbscript-html.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/vbscript.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/verilog.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/vhdl.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/vim.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/wasm.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/wren.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/x86asm.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/xl.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/xml.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/xquery.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/yaml.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/lib/languages/zephir.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/highlight.js/styles/github-dark.css": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
   "node_modules/lucide-react/dist/esm/Icon.js": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
@@ -844,11 +1824,6 @@
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
-  "node_modules/lucide-react/dist/esm/icons/code.js": [
-    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
-    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
-    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
-  ],
   "node_modules/lucide-react/dist/esm/icons/coffee.js": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
@@ -914,6 +1889,11 @@
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
+  "node_modules/lucide-react/dist/esm/icons/file.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
   "node_modules/lucide-react/dist/esm/icons/fingerprint-pattern.js": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
@@ -930,6 +1910,11 @@
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
   "node_modules/lucide-react/dist/esm/icons/folder-tree.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/folder.js": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
@@ -2230,7 +3215,7 @@
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
   "node_modules/react-dom/cjs/react-dom-client.production.js": [
-    "/aii/developer-guideline/js/client-DytVPCns.js"
+    "/aii/developer-guideline/js/client-BFNiXorA.js"
   ],
   "node_modules/react-dom/cjs/react-dom.production.js": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
@@ -2238,7 +3223,7 @@
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
   "node_modules/react-dom/client.js": [
-    "/aii/developer-guideline/js/client-DytVPCns.js"
+    "/aii/developer-guideline/js/client-BFNiXorA.js"
   ],
   "node_modules/react-dom/index.js": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
@@ -2341,10 +3326,10 @@
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
   "node_modules/scheduler/cjs/scheduler.production.js": [
-    "/aii/developer-guideline/js/client-DytVPCns.js"
+    "/aii/developer-guideline/js/client-BFNiXorA.js"
   ],
   "node_modules/scheduler/index.js": [
-    "/aii/developer-guideline/js/client-DytVPCns.js"
+    "/aii/developer-guideline/js/client-BFNiXorA.js"
   ],
   "node_modules/tailwind-merge/dist/bundle-mjs.mjs": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
@@ -2431,6 +3416,11 @@
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
+  "src/components/FileTree.tsx": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
   "src/components/Header.tsx": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
@@ -2442,6 +3432,11 @@
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
   "src/components/Layout.tsx": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "src/components/OnThisPage.tsx": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"

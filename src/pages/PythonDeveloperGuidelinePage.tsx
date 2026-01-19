@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageHero from '@/components/PageHero';
 import Layout from '@/components/Layout';
+import FileTree, { FileTreeItem } from '@/components/FileTree';
+import OnThisPage from '@/components/OnThisPage';
 import CodeSnippet from '@/components/CodeSnippet';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -37,51 +39,108 @@ const chapters = [
     { id: "testing", title: "7. Testing Standards", icon: FlaskConical },
     { id: "code-style", title: "8. Code Style", icon: PenTool },
     { id: "error-handling", title: "9. Error Handling", icon: Bug },
-    { id: "deployment", title: "10. Deployment", icon: Server },
+    { id: "ci-cd", title: "10. CI/CD Pipeline", icon: Terminal },
+];
+
+const folderStructureData: FileTreeItem[] = [
+    {
+        name: "project-root",
+        type: "folder",
+        children: [
+            {
+                name: "app",
+                type: "folder",
+                children: [
+                    { name: "__init__.py", type: "file" },
+                    { name: "main.py", type: "file", comment: "FastAPI application entry" },
+                    { name: "config.py", type: "file", comment: "Settings and configuration" },
+                    {
+                        name: "api",
+                        type: "folder",
+                        children: [
+                            { name: "__init__.py", type: "file" },
+                            { name: "deps.py", type: "file", comment: "Dependency injection" },
+                            {
+                                name: "v1",
+                                type: "folder",
+                                children: [
+                                    { name: "__init__.py", type: "file" },
+                                    { name: "router.py", type: "file", comment: "API router aggregation" },
+                                    {
+                                        name: "endpoints",
+                                        type: "folder",
+                                        children: [
+                                            { name: "users.py", type: "file", comment: "User endpoints" },
+                                            { name: "items.py", type: "file", comment: "Item endpoints" }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        name: "core",
+                        type: "folder",
+                        children: [
+                            { name: "security.py", type: "file", comment: "Auth & JWT logic" },
+                            { name: "exceptions.py", type: "file", comment: "Custom exceptions" }
+                        ]
+                    },
+                    {
+                        name: "models",
+                        type: "folder",
+                        children: [
+                            { name: "__init__.py", type: "file" },
+                            { name: "user.py", type: "file", comment: "SQLAlchemy models" }
+                        ]
+                    },
+                    {
+                        name: "schemas",
+                        type: "folder",
+                        children: [
+                            { name: "__init__.py", type: "file" },
+                            { name: "user.py", type: "file", comment: "Pydantic schemas" }
+                        ]
+                    },
+                    {
+                        name: "services",
+                        type: "folder",
+                        children: [
+                            { name: "user_service.py", type: "file", comment: "Business logic" }
+                        ]
+                    },
+                    {
+                        name: "db",
+                        type: "folder",
+                        children: [
+                            { name: "session.py", type: "file", comment: "Database session" },
+                            { name: "base.py", type: "file", comment: "Base model class" }
+                        ]
+                    }
+                ]
+            },
+            {
+                name: "tests",
+                type: "folder",
+                children: [
+                    { name: "conftest.py", type: "file", comment: "Pytest fixtures" },
+                    { name: "test_users.py", type: "file", comment: "Test files" }
+                ]
+            },
+            { name: "alembic", type: "folder", comment: "Database migrations" },
+            { name: "requirements.txt", type: "file", comment: "Dependencies" },
+            { name: "pyproject.toml", type: "file", comment: "Project configuration" },
+            { name: "Dockerfile", type: "file" }
+        ]
+    }
 ];
 
 const PythonDeveloperGuidelinePage: React.FC = () => {
-    const [activeSection, setActiveSection] = useState("overview");
-
     const breadcrumbs = [
         { label: 'Home', href: '/' },
         { label: 'Backend Guidelines' },
         { label: 'Python' }
     ];
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                // Find the entry that's most visible (closest to top of viewport)
-                const visibleEntries = entries.filter(entry => entry.isIntersecting);
-
-                if (visibleEntries.length > 0) {
-                    // Sort by intersection ratio (most visible first) and position
-                    const mostVisible = visibleEntries.reduce((prev, current) => {
-                        // Prefer the one with higher intersection ratio
-                        if (current.intersectionRatio > prev.intersectionRatio) {
-                            return current;
-                        }
-                        // If same ratio, prefer the one closer to top
-                        if (current.intersectionRatio === prev.intersectionRatio) {
-                            return current.boundingClientRect.top < prev.boundingClientRect.top ? current : prev;
-                        }
-                        return prev;
-                    });
-
-                    setActiveSection(mostVisible.target.id);
-                }
-            },
-            { threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0], rootMargin: "-10% 0px -70% 0px" }
-        );
-
-        chapters.forEach((chapter) => {
-            const el = document.getElementById(chapter.id);
-            if (el) observer.observe(el);
-        });
-
-        return () => observer.disconnect();
-    }, []);
 
     return (
         <Layout>
@@ -162,44 +221,10 @@ const PythonDeveloperGuidelinePage: React.FC = () => {
                             <p className="text-lg text-muted-foreground">Standard project layout for all AII Python applications.</p>
                         </div>
 
-                        <div className="p-8 rounded-3xl bg-slate-900 border border-slate-700 font-mono text-xs text-blue-400 group relative">
-                            <div className="absolute top-4 right-4 text-[10px] uppercase font-bold text-slate-500 tracking-widest">FastAPI Project Layout</div>
-                            <pre className="leading-relaxed">{`project-root/
-├── app/
-│   ├── __init__.py
-│   ├── main.py                 # FastAPI application entry
-│   ├── config.py               # Settings and configuration
-│   ├── api/
-│   │   ├── __init__.py
-│   │   ├── deps.py             # Dependency injection
-│   │   └── v1/
-│   │       ├── __init__.py
-│   │       ├── router.py       # API router aggregation
-│   │       └── endpoints/
-│   │           ├── users.py    # User endpoints
-│   │           └── items.py    # Item endpoints
-│   ├── core/
-│   │   ├── security.py         # Auth & JWT logic
-│   │   └── exceptions.py       # Custom exceptions
-│   ├── models/
-│   │   ├── __init__.py
-│   │   └── user.py             # SQLAlchemy models
-│   ├── schemas/
-│   │   ├── __init__.py
-│   │   └── user.py             # Pydantic schemas
-│   ├── services/
-│   │   └── user_service.py     # Business logic
-│   └── db/
-│       ├── session.py          # Database session
-│       └── base.py             # Base model class
-├── tests/
-│   ├── conftest.py             # Pytest fixtures
-│   └── test_users.py           # Test files
-├── alembic/                    # Database migrations
-├── requirements.txt            # Dependencies
-├── pyproject.toml              # Project configuration
-└── Dockerfile`}</pre>
-                        </div>
+                        <FileTree
+                            title="FastAPI Project Layout"
+                            data={folderStructureData}
+                        />
 
                         <div className="p-6 rounded-2xl bg-primary/5 border border-primary/10 space-y-4">
                             <h4 className="font-bold flex items-center gap-2 text-primary"><Layers className="h-5 w-5" /> Layer Responsibilities</h4>
@@ -336,7 +361,7 @@ async def get_current_user(
                             <p className="text-lg text-muted-foreground">Type-safe data validation and serialization with Pydantic v2.</p>
                         </div>
 
-                        <div className="grid lg:grid-cols-2 gap-8">
+                        <div className="grid grid-cols-1 gap-8">
                             <div className="space-y-4">
                                 <h4 className="text-xl font-bold">Schema Design</h4>
                                 <CodeSnippet
@@ -615,7 +640,7 @@ async def predict(
                                 </div>
                             </div>
 
-                            <div className="grid lg:grid-cols-2 gap-8">
+                            <div className="grid grid-cols-1 gap-8">
                                 <CodeSnippet
                                     title="Pytest Fixtures"
                                     language="python"
@@ -917,25 +942,7 @@ CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]`}
 
                 </main>
 
-                {/* Right Side Sticky ToC */}
-                <aside className="lg:w-64 shrink-0 h-[calc(100vh-8rem)] sticky top-24 hidden xl:block overflow-y-auto pl-4 border-l">
-                    <div className="space-y-1 pb-12">
-                        <h4 className="text-[10px] font-bold mb-6 px-3 text-muted-foreground/60 uppercase tracking-[0.2em]">On this page</h4>
-                        {chapters.map((chapter) => (
-                            <a
-                                key={chapter.id}
-                                href={`#${chapter.id}`}
-                                className={`flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg transition-all ${activeSection === chapter.id
-                                    ? "text-primary font-bold"
-                                    : "text-muted-foreground hover:text-foreground"
-                                    }`}
-                            >
-                                <chapter.icon className={`h-3.5 w-3.5 shrink-0 ${activeSection === chapter.id ? "text-primary" : "text-muted-foreground/40"}`} />
-                                {chapter.title}
-                            </a>
-                        ))}
-                    </div>
-                </aside>
+                <OnThisPage chapters={chapters} />
             </div>
         </Layout>
     );

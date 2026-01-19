@@ -1,6 +1,6 @@
 {
-  "_client-DytVPCns.js": {
-    "file": "js/client-DytVPCns.js",
+  "_client-BFNiXorA.js": {
+    "file": "js/client-BFNiXorA.js",
     "name": "client",
     "isDynamicEntry": true,
     "imports": [
@@ -8,15 +8,15 @@
     ]
   },
   "index.html": {
-    "file": "js/main-CCc8E5Tj.js",
+    "file": "js/main-D7qMSBIS.js",
     "name": "app",
     "src": "index.html",
     "isEntry": true,
     "dynamicImports": [
-      "_client-DytVPCns.js"
+      "_client-BFNiXorA.js"
     ],
     "css": [
-      "css/app-CGqm2pB8.css"
+      "css/app-CAmZiics.css"
     ],
     "assets": [
       "fonts/fa-brands-400-BfBXV7Mm.woff2",

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageHero from '@/components/PageHero';
 import Layout from '@/components/Layout';
+import OnThisPage from '@/components/OnThisPage';
+import FileTree, { FileTreeItem } from '@/components/FileTree';
 import CodeSnippet from '@/components/CodeSnippet';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -42,48 +44,38 @@ const chapters = [
   { id: "accessibility", title: "10. Accessibility", icon: Accessibility },
 ];
 
-const ReactDeveloperGuidelinePage: React.FC = () => {
-  const [activeSection, setActiveSection] = useState("overview");
+const folderStructureData: FileTreeItem[] = [
+  {
+    name: "src",
+    type: "folder",
+    children: [
+      {
+        name: "components",
+        type: "folder",
+        children: [
+          { name: "ui", type: "folder", comment: "Reusable UI primitives (Button, Card, etc.)" },
+          { name: "forms", type: "folder", comment: "Form-specific components" },
+          { name: "layout", type: "folder", comment: "Layout components (Header, Sidebar, etc.)" },
+          { name: "features", type: "folder", comment: "Feature-specific components" }
+        ]
+      },
+      { name: "hooks", type: "folder", comment: "Custom hooks" },
+      { name: "lib", type: "folder", comment: "Utilities and helpers" },
+      { name: "pages", type: "folder", comment: "Page components (route-level)" },
+      { name: "services", type: "folder", comment: "API service functions" },
+      { name: "stores", type: "folder", comment: "Global state (Zustand/Context)" },
+      { name: "types", type: "folder", comment: "TypeScript type definitions" },
+      { name: "styles", type: "folder", comment: "Global styles and themes" }
+    ]
+  }
+];
 
+const ReactDeveloperGuidelinePage: React.FC = () => {
   const breadcrumbs = [
     { label: 'Home', href: '/' },
     { label: 'Frontend & Mobile' },
     { label: 'React' }
   ];
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // Find the entry that's most visible (closest to top of viewport)
-        const visibleEntries = entries.filter(entry => entry.isIntersecting);
-
-        if (visibleEntries.length > 0) {
-          // Sort by intersection ratio (most visible first) and position
-          const mostVisible = visibleEntries.reduce((prev, current) => {
-            // Prefer the one with higher intersection ratio
-            if (current.intersectionRatio > prev.intersectionRatio) {
-              return current;
-            }
-            // If same ratio, prefer the one closer to top
-            if (current.intersectionRatio === prev.intersectionRatio) {
-              return current.boundingClientRect.top < prev.boundingClientRect.top ? current : prev;
-            }
-            return prev;
-          });
-
-          setActiveSection(mostVisible.target.id);
-        }
-      },
-      { threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0], rootMargin: "-10% 0px -70% 0px" }
-    );
-
-    chapters.forEach((chapter) => {
-      const el = document.getElementById(chapter.id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <Layout>
@@ -207,22 +199,10 @@ export default UserProfile;`}
                 />
               </div>
 
-              <div className="p-8 rounded-3xl bg-slate-900 border border-slate-700 font-mono text-xs text-blue-400 group relative">
-                <div className="absolute top-4 right-4 text-[10px] uppercase font-bold text-slate-500 tracking-widest">Project Structure</div>
-                <pre className="leading-relaxed">{`src/
-├── components/
-│   ├── ui/                    # Reusable UI primitives (Button, Card, etc.)
-│   ├── forms/                 # Form-specific components
-│   ├── layout/                # Layout components (Header, Sidebar, etc.)
-│   └── features/              # Feature-specific components
-├── hooks/                     # Custom hooks
-├── lib/                       # Utilities and helpers
-├── pages/                     # Page components (route-level)
-├── services/                  # API service functions
-├── stores/                    # Global state (Zustand/Context)
-├── types/                     # TypeScript type definitions
-└── styles/                    # Global styles and themes`}</pre>
-              </div>
+              <FileTree
+                title="Project Structure"
+                data={folderStructureData}
+              />
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="p-5 rounded-xl bg-emerald-500/5 border border-emerald-500/20">
@@ -282,7 +262,7 @@ export default UserProfile;`}
                 </div>
               </div>
 
-              <div className="grid lg:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 gap-8">
                 <CodeSnippet
                   title="Zustand Global Store"
                   language="typescript"
@@ -393,7 +373,7 @@ const SearchComponent = () => {
 };`}
               />
 
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 gap-8">
                 <div className="p-6 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 space-y-4">
                   <h5 className="font-bold text-emerald-600">✅ useEffect Best Practices</h5>
                   <ul className="text-sm text-muted-foreground space-y-2">
@@ -674,7 +654,7 @@ const UserForm = () => {
               <h2 className="text-4xl font-extrabold tracking-tight">Testing Standards</h2>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 gap-8">
               <CodeSnippet
                 title="Component Testing"
                 language="typescript"
@@ -745,7 +725,7 @@ describe('useCounter', () => {
               <h2 className="text-4xl font-extrabold tracking-tight">Performance Optimization</h2>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 gap-8">
               <Card className="glass shadow-sm">
                 <CardHeader>
                   <CardTitle className="text-lg flex items-center gap-2">
@@ -874,25 +854,7 @@ const App = () => (
 
         </main>
 
-        {/* Right Side Sticky ToC */}
-        <aside className="lg:w-64 shrink-0 h-[calc(100vh-8rem)] sticky top-24 hidden xl:block overflow-y-auto pl-4 border-l">
-          <div className="space-y-1 pb-12">
-            <h4 className="text-[10px] font-bold mb-6 px-3 text-muted-foreground/60 uppercase tracking-[0.2em]">On this page</h4>
-            {chapters.map((chapter) => (
-              <a
-                key={chapter.id}
-                href={`#${chapter.id}`}
-                className={`flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg transition-all ${activeSection === chapter.id
-                  ? "text-primary font-bold"
-                  : "text-muted-foreground hover:text-foreground"
-                  }`}
-              >
-                <chapter.icon className={`h-3.5 w-3.5 shrink-0 ${activeSection === chapter.id ? "text-primary" : "text-muted-foreground/40"}`} />
-                {chapter.title}
-              </a>
-            ))}
-          </div>
-        </aside>
+        <OnThisPage chapters={chapters} />
       </div>
 
       {/* Page Navigation */}

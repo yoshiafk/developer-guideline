@@ -139,9 +139,9 @@ const OpenShiftGuidelinePage: React.FC = () => {
             </div>
 
             {/* Architecture Diagram */}
-            <div className="p-8 rounded-3xl bg-slate-900 border border-slate-700 font-mono text-xs text-blue-400">
+            <div className="p-8 rounded-3xl bg-slate-900 border border-slate-700 font-mono text-xs text-blue-400 overflow-x-auto">
               <div className="absolute top-4 right-4 text-[10px] uppercase font-bold text-slate-500 tracking-widest">AXA OpenShift Architecture</div>
-              <pre className="leading-relaxed">{`┌─────────────────────────────────────────────────────────────────┐
+              <pre className="leading-relaxed min-w-[600px]">{`┌─────────────────────────────────────────────────────────────────┐
 │                      AXA OpenShift 4.x Cluster                  │
 ├─────────────────────────────────────────────────────────────────┤
 │  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐          │
@@ -615,7 +615,7 @@ stage('Promote to Staging') {
             </div>
 
             <div className="space-y-8">
-              <div className="grid lg:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 gap-8">
                 <CodeSnippet
                   title="ConfigMap (configmap.yaml)"
                   language="yaml"

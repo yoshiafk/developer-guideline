@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, BookOpen } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -9,6 +9,8 @@ import MotionGridBackground from './animate-ui/MotionGridBackground';
 import { ShimmerButton } from './animate-ui/ShimmerButton';
 
 const Hero: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="relative overflow-hidden py-20 lg:py-28">
       <MotionGridBackground />
@@ -63,7 +65,7 @@ const Hero: React.FC = () => {
           >
             <ShimmerButton
               className="h-12"
-              onClick={() => window.location.href = '/github-axa-usage'}
+              onClick={() => navigate('/github-axa-usage')}
             >
               Get Started
               <ArrowRight className="ml-2 h-4 w-4" />

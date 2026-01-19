@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageHero from '@/components/PageHero';
 import Layout from '@/components/Layout';
+import OnThisPage from '@/components/OnThisPage';
 import CodeSnippet from '@/components/CodeSnippet';
+import FileTree, { FileTreeItem } from '@/components/FileTree';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -40,48 +42,87 @@ const chapters = [
   { id: "naming", title: "10. Code Style", icon: PenTool },
 ];
 
-const FlutterDeveloperGuidelinePage: React.FC = () => {
-  const [activeSection, setActiveSection] = useState("overview");
+const folderStructureData: FileTreeItem[] = [
+  {
+    name: "lib",
+    type: "folder",
+    children: [
+      { name: "main.dart", type: "file", comment: "App entry point" },
+      { name: "app.dart", type: "file", comment: "MaterialApp configuration" },
+      {
+        name: "core",
+        type: "folder",
+        children: [
+          { name: "constants", type: "folder", comment: "App-wide constants" },
+          { name: "error", type: "folder", comment: "Failure classes, exceptions" },
+          { name: "network", type: "folder", comment: "Dio client, interceptors" },
+          { name: "theme", type: "folder", comment: "Theme data, colors, typography" },
+          { name: "utils", type: "folder", comment: "Helpers, extensions" }
+        ]
+      },
+      {
+        name: "features",
+        type: "folder",
+        children: [
+          {
+            name: "auth",
+            type: "folder",
+            children: [
+              {
+                name: "data",
+                type: "folder",
+                children: [
+                  { name: "datasources", type: "folder", comment: "Remote & local data sources" },
+                  { name: "models", type: "folder", comment: "Data models (JSON serialization)" },
+                  { name: "repositories", type: "folder", comment: "Repository implementations" }
+                ]
+              },
+              {
+                name: "domain",
+                type: "folder",
+                children: [
+                  { name: "entities", type: "folder", comment: "Business entities" },
+                  { name: "repositories", type: "folder", comment: "Repository interfaces" },
+                  { name: "usecases", type: "folder", comment: "Business logic use cases" }
+                ]
+              },
+              {
+                name: "presentation",
+                type: "folder",
+                children: [
+                  { name: "bloc", type: "folder", comment: "BLoC / Riverpod providers" },
+                  { name: "pages", type: "folder", comment: "Screen widgets" },
+                  { name: "widgets", type: "folder", comment: "Feature-specific widgets" }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        name: "shared",
+        type: "folder",
+        children: [
+          { name: "widgets", type: "folder", comment: "Reusable widgets across features" }
+        ]
+      },
+      {
+        name: "router",
+        type: "folder",
+        children: [
+          { name: "app_router.dart", type: "file", comment: "GoRouter configuration" }
+        ]
+      }
+    ]
+  }
+];
 
+const FlutterDeveloperGuidelinePage: React.FC = () => {
   const breadcrumbs = [
     { label: 'Home', href: '/' },
     { label: 'Frontend & Mobile' },
     { label: 'Flutter' }
   ];
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // Find the entry that's most visible (closest to top of viewport)
-        const visibleEntries = entries.filter(entry => entry.isIntersecting);
-
-        if (visibleEntries.length > 0) {
-          // Sort by intersection ratio (most visible first) and position
-          const mostVisible = visibleEntries.reduce((prev, current) => {
-            // Prefer the one with higher intersection ratio
-            if (current.intersectionRatio > prev.intersectionRatio) {
-              return current;
-            }
-            // If same ratio, prefer the one closer to top
-            if (current.intersectionRatio === prev.intersectionRatio) {
-              return current.boundingClientRect.top < prev.boundingClientRect.top ? current : prev;
-            }
-            return prev;
-          });
-
-          setActiveSection(mostVisible.target.id);
-        }
-      },
-      { threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0], rootMargin: "-10% 0px -70% 0px" }
-    );
-
-    chapters.forEach((chapter) => {
-      const el = document.getElementById(chapter.id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <Layout>
@@ -162,36 +203,10 @@ const FlutterDeveloperGuidelinePage: React.FC = () => {
               <p className="text-lg text-muted-foreground">Feature-based folder organization following Clean Architecture principles.</p>
             </div>
 
-            <div className="p-8 rounded-3xl bg-slate-900 border border-slate-700 font-mono text-xs text-blue-400 group relative">
-              <div className="absolute top-4 right-4 text-[10px] uppercase font-bold text-slate-500 tracking-widest">Clean Architecture Layout</div>
-              <pre className="leading-relaxed">{`lib/
-├── main.dart                     # App entry point
-├── app.dart                      # MaterialApp configuration
-├── core/
-│   ├── constants/                # App-wide constants
-│   ├── error/                    # Failure classes, exceptions
-│   ├── network/                  # Dio client, interceptors
-│   ├── theme/                    # Theme data, colors, typography
-│   └── utils/                    # Helpers, extensions
-├── features/
-│   └── auth/                     # Feature module example
-│       ├── data/
-│       │   ├── datasources/      # Remote & local data sources
-│       │   ├── models/           # Data models (JSON serialization)
-│       │   └── repositories/     # Repository implementations
-│       ├── domain/
-│       │   ├── entities/         # Business entities
-│       │   ├── repositories/     # Repository interfaces
-│       │   └── usecases/         # Business logic use cases
-│       └── presentation/
-│           ├── bloc/             # BLoC / Riverpod providers
-│           ├── pages/            # Screen widgets
-│           └── widgets/          # Feature-specific widgets
-├── shared/
-│   └── widgets/                  # Reusable widgets across features
-└── router/
-    └── app_router.dart           # GoRouter configuration`}</pre>
-            </div>
+            <FileTree
+              title="Clean Architecture Layout"
+              data={folderStructureData}
+            />
 
             <div className="p-6 rounded-2xl bg-primary/5 border border-primary/10 space-y-4">
               <h4 className="font-bold flex items-center gap-2 text-primary"><Layers className="h-5 w-5" /> Clean Architecture Layers</h4>
@@ -243,7 +258,7 @@ const FlutterDeveloperGuidelinePage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="grid lg:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 gap-8">
                 <CodeSnippet
                   title="Riverpod Provider Example"
                   language="dart"
@@ -258,22 +273,22 @@ class Auth extends _$Auth {
   AuthState build() => const AuthState.initial();
 
   Future<void> login(String email, String password) async {
-    state = const AuthState.loading();
-    try {
+  state = const AuthState.loading();
+  try {
       final user = await ref.read(authRepositoryProvider).login(
-        email: email,
-        password: password,
-      );
-      state = AuthState.authenticated(user);
-    } catch (e) {
-      state = AuthState.error(e.toString());
-    }
+    email: email,
+    password: password,
+  );
+    state = AuthState.authenticated(user);
+  } catch (e) {
+    state = AuthState.error(e.toString());
   }
+}
 
-  void logout() {
-    ref.read(authRepositoryProvider).logout();
-    state = const AuthState.initial();
-  }
+void logout() {
+  ref.read(authRepositoryProvider).logout();
+  state = const AuthState.initial();
+}
 }
 
 // Usage in Widget
@@ -281,7 +296,7 @@ class LoginPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final authState = ref.watch(authProvider);
-    
+
     return authState.when(
       initial: () => LoginForm(),
       loading: () => CircularProgressIndicator(),
@@ -289,7 +304,7 @@ class LoginPage extends ConsumerWidget {
       error: (message) => ErrorWidget(message),
     );
   }
-}`}
+} `}
                 />
                 <CodeSnippet
                   title="BLoC Pattern Example"
@@ -299,43 +314,43 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthRepository _authRepository;
-  
-  AuthBloc(this._authRepository) : super(AuthInitial()) {
-    on<LoginRequested>(_onLoginRequested);
-    on<LogoutRequested>(_onLogoutRequested);
-  }
 
-  Future<void> _onLoginRequested(
-    LoginRequested event,
-    Emitter<AuthState> emit,
-  ) async {
-    emit(AuthLoading());
-    try {
+  AuthBloc(this._authRepository): super(AuthInitial()) {
+  on<LoginRequested>(_onLoginRequested);
+  on<LogoutRequested>(_onLogoutRequested);
+}
+
+Future < void> _onLoginRequested(
+  LoginRequested event,
+  Emitter < AuthState > emit,
+) async {
+  emit(AuthLoading());
+  try {
       final user = await _authRepository.login(
-        email: event.email,
-        password: event.password,
-      );
-      emit(AuthAuthenticated(user));
-    } catch (e) {
-      emit(AuthError(e.toString()));
-    }
+    email: event.email,
+    password: event.password,
+  );
+    emit(AuthAuthenticated(user));
+  } catch (e) {
+    emit(AuthError(e.toString()));
   }
+}
 
-  void _onLogoutRequested(
-    LogoutRequested event,
-    Emitter<AuthState> emit,
-  ) {
-    _authRepository.logout();
-    emit(AuthInitial());
-  }
+void _onLogoutRequested(
+  LogoutRequested event,
+  Emitter < AuthState > emit,
+) {
+  _authRepository.logout();
+  emit(AuthInitial());
+}
 }
 
 // Usage in Widget
 BlocBuilder<AuthBloc, AuthState>(
   builder: (context, state) {
     if (state is AuthLoading) return CircularProgressIndicator();
-    if (state is AuthAuthenticated) return HomePage(user: state.user);
-    return LoginForm();
+if (state is AuthAuthenticated) return HomePage(user: state.user);
+return LoginForm();
   },
 )`}
                 />
@@ -364,29 +379,29 @@ class AppTheme {
     useMaterial3: true,
     colorScheme: ColorScheme.fromSeed(
       seedColor: const Color(0xFF0066CC),
-      brightness: Brightness.light,
+        brightness: Brightness.light,
     ),
-    textTheme: const TextTheme(
-      headlineLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-      bodyLarge: TextStyle(fontSize: 16),
+textTheme: const TextTheme(
+  headlineLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+    bodyLarge: TextStyle(fontSize: 16),
     ),
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+elevatedButtonTheme: ElevatedButtonThemeData(
+  style: ElevatedButton.styleFrom(
+    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
     ),
-    inputDecorationTheme: const InputDecorationTheme(
-      border: OutlineInputBorder(),
-      contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+inputDecorationTheme: const InputDecorationTheme(
+  border: OutlineInputBorder(),
+    contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
     ),
   );
 
   static ThemeData get darkTheme => ThemeData(
-    useMaterial3: true,
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: const Color(0xFF0066CC),
-      brightness: Brightness.dark,
+      useMaterial3: true,
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: const Color(0xFF0066CC),
+          brightness: Brightness.dark,
     ),
   );
 }`}
@@ -445,10 +460,10 @@ final appRouter = GoRouter(
     return null;
   },
   routes: [
-    GoRoute(
-      path: '/',
-      name: 'home',
-      builder: (context, state) => const HomePage(),
+  GoRoute(
+    path: '/',
+    name: 'home',
+    builder: (context, state) => const HomePage(),
       routes: [
         GoRoute(
           path: 'profile',
@@ -462,27 +477,27 @@ final appRouter = GoRouter(
         ),
       ],
     ),
-    GoRoute(
-      path: '/login',
-      name: 'login',
-      builder: (context, state) => const LoginPage(),
+  GoRoute(
+    path: '/login',
+    name: 'login',
+    builder: (context, state) => const LoginPage(),
     ),
-    GoRoute(
-      path: '/product/:id',
-      name: 'product-detail',
-      builder: (context, state) {
+  GoRoute(
+    path: '/product/:id',
+    name: 'product-detail',
+    builder: (context, state) {
         final productId = state.pathParameters['id']!;
-        return ProductDetailPage(productId: productId);
-      },
-    ),
-  ],
+      return ProductDetailPage(productId: productId);
+    },
+  ),
+],
   errorBuilder: (context, state) => ErrorPage(error: state.error),
 );
 
 // Navigation usage
 context.go('/profile');  // Replace current route
 context.push('/product/123');  // Push new route
-context.goNamed('product-detail', pathParameters: {'id': '456'});`}
+context.goNamed('product-detail', pathParameters: { 'id': '456' }); `}
             />
           </section>
 
@@ -510,8 +525,8 @@ class DioClient {
     _dio = Dio(BaseOptions(
       baseUrl: 'https://api.example.com/v1',
       connectTimeout: const Duration(seconds: 30),
-      receiveTimeout: const Duration(seconds: 30),
-      headers: {'Content-Type': 'application/json'},
+        receiveTimeout: const Duration(seconds: 30),
+          headers: { 'Content-Type': 'application/json' },
     ));
 
     _dio.interceptors.addAll([
@@ -520,42 +535,42 @@ class DioClient {
     ]);
   }
 
-  Future<Response<T>> get<T>(String path, {Map<String, dynamic>? queryParameters}) {
+  Future<Response<T>> get<T>(String path, {Map<String, dynamic> ? queryParameters}) {
     return _dio.get<T>(path, queryParameters: queryParameters);
   }
 
-  Future<Response<T>> post<T>(String path, {dynamic data}) {
+      Future<Response<T>> post<T>(String path, {dynamic data}) {
     return _dio.post<T>(path, data: data);
   }
 }
 
-class _AuthInterceptor extends Interceptor {
-  final TokenStorage _tokenStorage;
-  
-  _AuthInterceptor(this._tokenStorage);
+          class _AuthInterceptor extends Interceptor {
+            final TokenStorage _tokenStorage;
 
-  @override
-  void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
-    final token = await _tokenStorage.getAccessToken();
-    if (token != null) {
-      options.headers['Authorization'] = 'Bearer $token';
+          _AuthInterceptor(this._tokenStorage);
+
+          @override
+          void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
+            final token = await _tokenStorage.getAccessToken();
+          if (token != null) {
+            options.headers['Authorization'] = 'Bearer $token';
     }
-    handler.next(options);
+          handler.next(options);
   }
 
-  @override
-  void onError(DioException err, ErrorInterceptorHandler handler) async {
+          @override
+          void onError(DioException err, ErrorInterceptorHandler handler) async {
     if (err.response?.statusCode == 401) {
       // Handle token refresh
       try {
-        await _tokenStorage.refreshToken();
-        // Retry original request
-        handler.resolve(await _dio.fetch(err.requestOptions));
+            await _tokenStorage.refreshToken();
+          // Retry original request
+          handler.resolve(await _dio.fetch(err.requestOptions));
       } catch (e) {
-        handler.next(err);
+            handler.next(err);
       }
     } else {
-      handler.next(err);
+            handler.next(err);
     }
   }
 }`}
@@ -571,7 +586,7 @@ class _AuthInterceptor extends Interceptor {
               <h2 className="text-4xl font-extrabold tracking-tight">Local Storage</h2>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 gap-8">
               <Card className="glass shadow-sm">
                 <CardHeader>
                   <CardTitle className="text-lg">SharedPreferences</CardTitle>
@@ -632,7 +647,7 @@ await box.put('current', user);`}
               <h2 className="text-4xl font-extrabold tracking-tight">Testing</h2>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 gap-8">
               <CodeSnippet
                 title="Widget Testing"
                 language="dart"
@@ -837,25 +852,7 @@ ListView.builder(
 
         </main>
 
-        {/* Right Side Sticky ToC */}
-        <aside className="lg:w-64 shrink-0 h-[calc(100vh-8rem)] sticky top-24 hidden xl:block overflow-y-auto pl-4 border-l">
-          <div className="space-y-1 pb-12">
-            <h4 className="text-[10px] font-bold mb-6 px-3 text-muted-foreground/60 uppercase tracking-[0.2em]">On this page</h4>
-            {chapters.map((chapter) => (
-              <a
-                key={chapter.id}
-                href={`#${chapter.id}`}
-                className={`flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg transition-all ${activeSection === chapter.id
-                  ? "text-primary font-bold"
-                  : "text-muted-foreground hover:text-foreground"
-                  }`}
-              >
-                <chapter.icon className={`h-3.5 w-3.5 shrink-0 ${activeSection === chapter.id ? "text-primary" : "text-muted-foreground/40"}`} />
-                {chapter.title}
-              </a>
-            ))}
-          </div>
-        </aside>
+        <OnThisPage chapters={chapters} />
       </div>
     </Layout>
   );
