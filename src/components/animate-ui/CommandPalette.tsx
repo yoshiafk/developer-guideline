@@ -34,7 +34,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onOpenChange })
             }
         };
 
-        const timeoutId = setTimeout(performSearch, 300);
+        const timeoutId = setTimeout(performSearch, 150);
         return () => clearTimeout(timeoutId);
     }, [query, search]);
 

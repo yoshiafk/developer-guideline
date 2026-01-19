@@ -117,6 +117,7 @@ const HomePage: React.FC = () => {
                   href={card.href}
                   title={card.title}
                   description={card.description}
+                  icon={<card.icon className="h-6 w-6" />}
                   className="h-full"
                 />
               </motion.div>

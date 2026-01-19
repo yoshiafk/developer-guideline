@@ -16,6 +16,10 @@ export interface PagefindResult {
     sub_results: any[];
 }
 
+// Simple LRU-style cache for search results
+const searchCache = new Map<string, PagefindResult[]>();
+const MAX_CACHE_SIZE = 20;
+
 export const usePagefind = () => {
     const [pagefind, setPagefind] = useState<any>(null);
     const [loading, setLoading] = useState(false);
@@ -53,40 +57,59 @@ export const usePagefind = () => {
         initPagefind();
     }, []);
 
+    const cleanUrl = useCallback((rawUrl: string) => {
+        let url = rawUrl;
+        const base = import.meta.env.BASE_URL;
+
+        // Strip base URL if present
+        if (url.startsWith(base)) {
+            url = url.substring(base.length);
+        }
+
+        // Ensure leading slash
+        if (!url.startsWith('/')) {
+            url = '/' + url;
+        }
+
+        // Remove .html extension or /index.html
+        url = url.replace(/\/index\.html$/, '/');
+        url = url.replace(/\.html$/, '');
+
+        // Final clean up for trailing slashes if needed
+        if (url.length > 1 && url.endsWith('/')) {
+            url = url.substring(0, url.length - 1);
+        }
+        return url;
+    }, []);
+
     const search = useCallback(async (query: string) => {
         if (!pagefind || !query) return [];
 
+        const trimmedQuery = query.trim().toLowerCase();
+
+        // Check cache first
+        if (searchCache.has(trimmedQuery)) {
+            return searchCache.get(trimmedQuery)!;
+        }
+
         setLoading(true);
         try {
-            const searchResponse = await pagefind.search(query);
+            const searchResponse = await pagefind.search(trimmedQuery);
             const results = await Promise.all(
                 searchResponse.results.slice(0, 10).map(async (r: any) => {
                     const data = await r.data();
-                    let url = data.url;
-
-                    // Strip base URL if present
-                    const base = import.meta.env.BASE_URL;
-                    if (url.startsWith(base)) {
-                        url = url.substring(base.length);
-                    }
-
-                    // Ensure leading slash
-                    if (!url.startsWith('/')) {
-                        url = '/' + url;
-                    }
-
-                    // Remove .html extension or /index.html
-                    url = url.replace(/\/index\.html$/, '/');
-                    url = url.replace(/\.html$/, '');
-
-                    // Final clean up for trailing slashes if needed (depending on router config)
-                    if (url.length > 1 && url.endsWith('/')) {
-                        url = url.substring(0, url.length - 1);
-                    }
-
+                    const url = cleanUrl(data.url);
                     return { ...data, url };
                 })
             );
+
+            // Update cache
+            if (searchCache.size >= MAX_CACHE_SIZE) {
+                const firstKey = searchCache.keys().next().value;
+                if (firstKey !== undefined) searchCache.delete(firstKey);
+            }
+            searchCache.set(trimmedQuery, results as PagefindResult[]);
+
             setLoading(false);
             return results as PagefindResult[];
         } catch (err) {
@@ -94,7 +117,7 @@ export const usePagefind = () => {
             setLoading(false);
             return [];
         }
-    }, [pagefind]);
+    }, [pagefind, cleanUrl]);
 
     return { search, loading, isReady: !!pagefind };
 };
