@@ -26,6 +26,8 @@ import {
     FolderCode
 } from 'lucide-react';
 import PageNavigation from '../components/PageNavigation';
+import AnimatedCodeTabs from '@/components/animate-ui/AnimatedCodeTabs';
+import HighlightText from '@/components/animate-ui/HighlightText';
 
 const chapters = [
     { id: "introduction", title: "1. Introduction", icon: BookOpen },
@@ -35,6 +37,7 @@ const chapters = [
     { id: "deployment", title: "5. Deployment Pipelines", icon: Rocket },
     { id: "shared-libraries", title: "6. Shared Libraries", icon: Share2 },
     { id: "best-practices", title: "7. Best Practices", icon: Shield },
+    { id: "case-study", title: "8. Case Study: .NET", icon: Cog },
 ];
 
 const JenkinsGuidelinePage: React.FC = () => {
@@ -83,8 +86,8 @@ const JenkinsGuidelinePage: React.FC = () => {
                 readingTime={35}
             />
 
-            <div className="container py-8 px-4 flex flex-col lg:flex-row gap-12">
-                <main className="flex-1 min-w-0 space-y-16 pb-16 lg:max-w-4xl">
+            <div className="py-8 flex flex-col lg:flex-row gap-12">
+                <main className="flex-1 min-w-0 space-y-16 pb-16">
 
                     {/* Chapter 1: Introduction */}
                     <section id="introduction" className="scroll-mt-28 space-y-8">
@@ -378,14 +381,16 @@ pipeline {
                         <div className="space-y-4">
                             <Badge variant="outline" className="text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 4</Badge>
                             <h2 className="text-4xl font-extrabold tracking-tight">Build & Test</h2>
-                            <p className="text-lg text-muted-foreground">Configure build and test stages for different technology stacks.</p>
+                            <p className="text-lg text-muted-foreground">Configure <HighlightText>build and test stages</HighlightText> for different technology stacks.</p>
                         </div>
 
                         <div className="space-y-8">
-                            <CodeSnippet
-                                title="Maven/Java Build Pipeline"
-                                language="groovy"
-                                code={`pipeline {
+                            <AnimatedCodeTabs
+                                snippets={{
+                                    maven: {
+                                        title: "Maven/Java",
+                                        language: "groovy",
+                                        code: `pipeline {
     agent {
         kubernetes {
             inheritFrom 'maven'
@@ -461,13 +466,12 @@ pipeline {
             }
         }
     }
-}`}
-                            />
-
-                            <CodeSnippet
-                                title="Node.js/React Build Pipeline"
-                                language="groovy"
-                                code={`pipeline {
+}`
+                                    },
+                                    node: {
+                                        title: "Node.js/React",
+                                        language: "groovy",
+                                        code: `pipeline {
     agent {
         kubernetes {
             inheritFrom 'nodejs'
@@ -532,13 +536,12 @@ pipeline {
             }
         }
     }
-}`}
-                            />
-
-                            <CodeSnippet
-                                title=".NET Build Pipeline"
-                                language="groovy"
-                                code={`pipeline {
+}`
+                                    },
+                                    dotnet: {
+                                        title: ".NET Core",
+                                        language: "groovy",
+                                        code: `pipeline {
     agent {
         kubernetes {
             inheritFrom 'dotnet'
@@ -590,7 +593,9 @@ pipeline {
             }
         }
     }
-}`}
+}`
+                                    }
+                                }}
                             />
                         </div>
                     </section>
@@ -1207,6 +1212,148 @@ pipeline {
     }
 }`}
                         />
+                    </section>
+
+                    <Separator />
+
+                    {/* Chapter 8: Case Study: .NET Production Pipeline */}
+                    <section id="case-study" className="scroll-mt-28 space-y-12">
+                        <div className="space-y-4">
+                            <Badge variant="outline" className="text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 8</Badge>
+                            <h2 className="text-4xl font-extrabold tracking-tight">Case Study: .NET Production Pipeline</h2>
+                            <p className="text-lg text-muted-foreground">
+                                A real-world example of a comprehensive .NET pipeline featuring SonarScanner integration, Artifactory authentication, and advanced test coverage processing.
+                            </p>
+                        </div>
+
+                        <div className="space-y-8">
+                            <div className="grid md:grid-cols-3 gap-4">
+                                {[
+                                    { title: "NuGet/Artifactory", desc: "Dynamic nuget.config generation with credentials." },
+                                    { title: "SonarScanner", desc: "Full analysis with PR vs Branch conditional logic." },
+                                    { title: "Coverage Processing", desc: "Automated path fixing for SonarQube compatibility." },
+                                ].map((feature, i) => (
+                                    <div key={i} className="p-4 rounded-xl preview-card border bg-background/50">
+                                        <h4 className="font-bold text-sm mb-1">{feature.title}</h4>
+                                        <p className="text-xs text-muted-foreground">{feature.desc}</p>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <CodeSnippet
+                                title="Production .NET Jenkinsfile (Surrounding Systems)"
+                                language="groovy"
+                                code={`pipeline {
+  agent any
+
+  options {
+    skipDefaultCheckout(true) // avoid duplicate SCM checkout
+  }
+
+  environment {
+    TARGET_NS                 = 'surrounding-systems-dev-axa-magi-id'
+    APP_NAME                  = 'virtual-account-snap-mandiri'
+    SOLUTION                  = 'JwtApp.sln'
+    BC_NAME                   = "\${APP_NAME}"
+    KUBE_CRED_ID              = 'jenkins-dev-axa-magi-id-kubeconfig'
+    GITHUB_CRED               = 'github-ssh-prod'
+    ARTIFACTORY_CRED_ID       = 'artifactory-credentials'
+    SONAR_PROJECT_KEY         = 'aii_virtual-account-snap-mandiri_...'
+  }
+
+  stages {
+    stage('📥 Checkout Code') {
+      steps {
+        checkout([$class: 'GitSCM', ...]) // Standard checkout
+        sh 'git submodule update --init --recursive'
+      }
+    }
+
+    stage('📦 Restore NuGet Packages') {
+      steps {
+        withCredentials([usernamePassword(credentialsId: env.ARTIFACTORY_CRED_ID, ...)]) {
+          sh '''
+            # Generate temporary nuget.config with Artifactory auth
+            cat > nuget.config <<EOF
+<configuration>
+  <packageSources>
+    <add key="AXA-Virtual" value="https://artifactory.asia.axa-cloud.com/..." />
+  </packageSources>
+</configuration>
+EOF
+            dotnet restore "\${SOLUTION}" --configfile nuget.config
+          '''
+        }
+      }
+    }
+
+    stage('🔍 SonarQube Analysis (Begin)') {
+      steps {
+        withSonarQubeEnv('SonarQube') {
+          script {
+            def sonarArgs = env.CHANGE_ID ? "/d:sonar.pullrequest.key=\${CHANGE_ID} ..." : "/d:sonar.branch.name=\${BRANCH_NAME}"
+            sh "dotnet sonarscanner begin /k:\\"\${SONAR_PROJECT_KEY}\\" \${sonarArgs} ..."
+          }
+        }
+      }
+    }
+
+    stage('⚙️ Build Project') {
+      steps {
+        sh 'dotnet build "\${SOLUTION}" -c Release --no-restore'
+      }
+    }
+
+    stage('📊 Parse Test Coverage') {
+      steps {
+        sh '''
+          # Advanced logic to fix absolute paths in OpenCover files
+          # This ensures SonarQube correctly maps coverage to source files
+          sed -i 's|fullPath="[^"]*/virtual-account-snap-mandiri/|fullPath="|g' coverage.opencover.xml
+        '''
+      }
+    }
+
+    stage('✅ SonarQube Analysis (End)') {
+      steps {
+        withSonarQubeEnv('SonarQube') {
+          sh 'dotnet sonarscanner end /d:sonar.token="\${SONAR_AUTH_TOKEN}"'
+        }
+      }
+    }
+
+    stage('🚀 Deploy to OpenShift') {
+      when { branch 'dev' }
+      steps {
+        withCredentials([file(credentialsId: env.KUBE_CRED_ID, variable: 'KUBECONFIG')]) {
+          sh 'oc start-build \${BC_NAME} --follow -n \${TARGET_NS}'
+        }
+      }
+    }
+  }
+}`}
+                            />
+
+                            <div className="p-6 rounded-2xl bg-primary/5 border border-primary/10 space-y-4">
+                                <h4 className="font-bold flex items-center gap-2 text-primary">
+                                    <Settings className="h-5 w-5" /> Key Takeaways
+                                </h4>
+                                <ul className="space-y-3 text-sm text-muted-foreground">
+                                    <li className="flex gap-2">
+                                        <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                                        <span><strong>Dynamic Config</strong>: Generating `nuget.config` on the fly prevents credential leakage and ensures clean builds.</span>
+                                    </li>
+                                    <li className="flex gap-2">
+                                        <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                                        <span><strong>PR Analysis</strong>: Conditional use of `sonar.pullrequest` arguments allows Jenkins to report status directly back to GitHub PRs.</span>
+                                    </li>
+                                    <li className="flex gap-2">
+                                        <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                                        <span><strong>Path Normalization</strong>: Using `sed` or `tr` to fix coverage reports is often necessary when tools generate absolute paths that don't match the SonarQube workspace.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </section>
 
                     {/* Page Navigation */}

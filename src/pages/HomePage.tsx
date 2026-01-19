@@ -16,6 +16,8 @@ import {
 import { motion } from 'framer-motion';
 import Layout from '@/components/Layout';
 import Hero from '@/components/Hero';
+import PreviewLinkCard from '@/components/animate-ui/PreviewLinkCard';
+import AnimatedFeedbackIcon from '@/components/animate-ui/AnimatedFeedbackIcon';
 
 // Documentation cards data
 const docCards = [
@@ -98,7 +100,7 @@ const HomePage: React.FC = () => {
               Choose Your Stack
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive guidelines tailored for each technology in the AII ecosystem.
+              Comprehensive standards and strategies for the entire AII IT ecosystem.
             </p>
           </div>
 
@@ -107,27 +109,16 @@ const HomePage: React.FC = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
-            className="grid gap-4 md:grid-cols-2 lg:grid-cols-3"
+            className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
           >
             {docCards.map((card) => (
               <motion.div key={card.href} variants={itemVariants}>
-                <Link
-                  to={card.href}
-                  className="group flex items-start gap-4 p-6 rounded-2xl border bg-card hover:bg-muted/50 hover:border-primary/20 transition-all duration-300"
-                >
-                  <div className={`p-3 rounded-xl transition-colors duration-300 ${colorVariants[card.color]}`}>
-                    <card.icon className="h-6 w-6" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {card.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      {card.description}
-                    </p>
-                  </div>
-                  <ArrowRight className="h-5 w-5 text-muted-foreground/50 group-hover:text-primary group-hover:translate-x-1 transition-all mt-1" />
-                </Link>
+                <PreviewLinkCard
+                  href={card.href}
+                  title={card.title}
+                  description={card.description}
+                  className="h-full"
+                />
               </motion.div>
             ))}
           </motion.div>
@@ -152,23 +143,27 @@ const HomePage: React.FC = () => {
                 {
                   step: '01',
                   title: 'Read the Guidelines',
-                  description: 'Explore standards tailored for your tech stack.'
+                  description: 'Explore standards tailored for your tech stack.',
+                  icon: <FileCode className="h-6 w-6" />
                 },
                 {
                   step: '02',
                   title: 'Apply Patterns',
-                  description: 'Implement Clean Architecture and naming conventions.'
+                  description: 'Implement Clean Architecture and naming conventions.',
+                  icon: <Terminal className="h-6 w-6" />
                 },
                 {
                   step: '03',
                   title: 'Submit PR',
-                  description: 'Follow our GitHub workflow for code reviews.'
+                  description: 'Follow our GitHub workflow for code reviews.',
+                  icon: <CheckCircle2 className="h-6 w-6" />
                 }
               ].map((item, i) => (
-                <div key={i} className="text-center">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary font-bold text-lg mb-4">
-                    {item.step}
-                  </div>
+                <div key={i} className="text-center group">
+                  <AnimatedFeedbackIcon
+                    icon={item.icon}
+                    className="mx-auto mb-4"
+                  />
                   <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
                   <p className="text-sm text-muted-foreground">{item.description}</p>
                 </div>

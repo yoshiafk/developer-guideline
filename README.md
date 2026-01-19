@@ -1,8 +1,8 @@
-# AII Developer Guidelines
+# AII IT Playbook
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-View%20Site-blue)](https://pages.github.axa.com/aii/developer-guideline)
 
-A comprehensive React-based documentation site for AII's .NET development standards, featuring Clean Architecture patterns, coding best practices, and interactive guidelines for new developers.
+Welcome to the **AII IT Playbook**, the central repository for technical standards, engineering best practices, and DevOps strategies within the AII IT Department.
 
 ## 🌐 Live Site
 
@@ -40,7 +40,7 @@ npm install
 
 3. Start the development server:
 ```bash
-npm run dev
+npm start
 ```
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser
@@ -49,7 +49,7 @@ npm run dev
 
 ### Development
 ```bash
-npm run dev        # Start development server
+npm start          # Start development server
 npm test           # Run test suite
 npm run build      # Build for production
 ```
@@ -127,6 +127,7 @@ The site is automatically deployed to GitHub Pages using GitHub Actions. The pro
 To deploy manually:
 
 ```bash
+npm run build
 npm run deploy
 ```
 
@@ -155,12 +156,3 @@ This project is proprietary to AII. All rights reserved.
 ## 📞 Support
 
 For questions or support, please contact the AII development team.
-
-New Documentation
--- FinOps
--- Artifactory
--- Architecture Diagram
--- CARE Documentation
--- Advance Search Feature
--- Docs Header kurang transparency change to Frosted
-

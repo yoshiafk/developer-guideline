@@ -95,7 +95,7 @@ const SearchResultsPage: React.FC = () => {
         breadcrumbs={breadcrumbs}
       />
 
-      <div className="container py-12 px-4 max-w-4xl">
+      <div className="py-12 px-4">
         <div className="space-y-6">
           {results.length > 0 ? (
             results.map((result) => (

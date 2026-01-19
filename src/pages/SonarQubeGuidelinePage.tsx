@@ -83,8 +83,8 @@ const SonarQubeGuidelinePage: React.FC = () => {
                 readingTime={30}
             />
 
-            <div className="container py-8 px-4 flex flex-col lg:flex-row gap-12">
-                <main className="flex-1 min-w-0 space-y-16 pb-16 lg:max-w-4xl">
+            <div className="py-8 flex flex-col lg:flex-row gap-12">
+                <main className="flex-1 min-w-0 space-y-16 pb-16">
 
                     {/* Chapter 1: Introduction */}
                     <section id="introduction" className="scroll-mt-28 space-y-8">

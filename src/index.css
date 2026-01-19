@@ -91,17 +91,17 @@
 
 @layer utilities {
     .glass {
-        @apply bg-background/80 backdrop-blur-md border border-white/20 dark:border-white/10;
+        @apply bg-background border border-white/20 dark:border-white/10;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     }
 
     .glass-card {
-        @apply bg-card/60 backdrop-blur-xl border border-white/20 dark:border-white/10;
+        @apply bg-card border border-white/20 dark:border-white/10;
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
     }
 
     .glass-sidebar {
-        @apply bg-background/50 backdrop-blur-lg border-r border-white/20 dark:border-white/10;
+        @apply bg-background border-r border-white/20 dark:border-white/10;
     }
 
     .text-gradient {
@@ -122,6 +122,21 @@
             opacity: 1;
             transform: translateY(0);
         }
+    }
+
+    /* Responsive content wrapper utility */
+    .content-wrapper {
+        @apply mx-auto w-full min-w-0 max-w-none px-4;
+    }
+    
+    /* Large screen content wrapper for pages with sidebar */
+    .content-wrapper-sidebar {
+        @apply mx-auto w-full min-w-0 max-w-6xl px-4 md:px-6 lg:px-8 xl:px-12;
+    }
+    
+    /* Large screen content wrapper for full-width pages */
+    .content-wrapper-full {
+        @apply mx-auto w-full min-w-0 max-w-none px-4 md:px-8 lg:px-12 xl:px-16;
     }
 }
 

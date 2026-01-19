@@ -23,14 +23,14 @@ const Layout: React.FC<LayoutProps> = ({ children, showSidebar = true, showReadi
       {shouldShowProgress && <ReadingProgress />}
       <SkipToContent />
       <Header />
-      <div className="flex-1 items-start md:grid md:grid-cols-[240px_minmax(0,1fr)] lg:grid-cols-[280px_minmax(0,1fr)]">
+      <div className="flex-1 items-start md:grid md:grid-cols-[240px_minmax(0,1fr)] lg:grid-cols-[260px_minmax(0,1fr)] xl:grid-cols-[280px_minmax(0,1fr)]">
         {shouldShowSidebar && (
           <aside
             className="fixed top-14 z-30 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block"
             role="navigation"
             aria-label="Documentation navigation"
           >
-            <ScrollArea className="h-full py-6 pr-6 lg:py-8">
+            <ScrollArea className="h-full py-6 pr-3 lg:py-8 lg:pr-4">
               <Sidebar />
             </ScrollArea>
           </aside>
@@ -38,9 +38,9 @@ const Layout: React.FC<LayoutProps> = ({ children, showSidebar = true, showReadi
         <main
           id="main-content"
           role="main"
-          className={`relative py-6 lg:gap-10 lg:py-8 ${!shouldShowSidebar ? 'md:col-span-2 px-4 md:px-8' : ''}`}
+          className={`relative py-6 lg:gap-10 lg:py-8 ${!shouldShowSidebar ? 'md:col-span-2' : ''}`}
         >
-          <div className="mx-auto w-full min-w-0">
+          <div className={`w-full min-w-0 ${!shouldShowSidebar ? 'px-4 md:px-8 lg:px-12' : 'px-3 md:px-4 lg:px-6'}`}>
             {children}
           </div>
         </main>

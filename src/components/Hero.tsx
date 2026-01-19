@@ -3,10 +3,14 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, BookOpen } from 'lucide-react';
 import { motion } from 'framer-motion';
+import GradientText from './animate-ui/GradientText';
+import HighlightText from './animate-ui/HighlightText';
+import MotionGridBackground from './animate-ui/MotionGridBackground';
 
 const Hero: React.FC = () => {
   return (
     <section className="relative overflow-hidden py-20 lg:py-28">
+      <MotionGridBackground />
       {/* Background Gradient Orbs */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" />
@@ -29,7 +33,7 @@ const Hero: React.FC = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
               </span>
-              Enterprise Development Standards
+              Enterprise IT Standards
             </div>
           </motion.div>
 
@@ -41,11 +45,11 @@ const Hero: React.FC = () => {
             className="space-y-4 max-w-3xl"
           >
             <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-              AII Developer{' '}
-              <span className="text-gradient">Guidelines</span>
+              AII IT{' '}
+              <GradientText>Playbook</GradientText>
             </h1>
             <p className="mx-auto max-w-[600px] text-lg text-muted-foreground md:text-xl">
-              Clean Architecture, coding standards, and best practices for every tech stack at AII.
+              <HighlightText>Engineering standards</HighlightText>, DevOps strategies, and best practices for the AII IT environment.
             </p>
           </motion.div>
 

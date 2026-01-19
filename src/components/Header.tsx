@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Code2, Menu, Search, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from './ThemeToggle';
-import SearchModal from './SearchModal';
+import CommandPalette from './animate-ui/CommandPalette';
 import DocsNavDropdown from './DocsNavDropdown';
 import {
   Sheet,
@@ -76,13 +76,13 @@ const Header: React.FC = () => {
           <Link
             to="/"
             className="flex items-center gap-2 transition-opacity hover:opacity-80"
-            aria-label="AII Developer Guidelines Home"
+            aria-label="AII IT Playbook Home"
           >
             <div className="p-1.5 rounded-lg bg-primary/10">
               <Code2 className="h-5 w-5 text-primary" />
             </div>
             <span className="hidden font-bold text-foreground sm:inline-block">
-              AII Dev Guide
+              AII IT Playbook
             </span>
           </Link>
 
@@ -109,7 +109,7 @@ const Header: React.FC = () => {
               <SheetTitle>
                 <Link to="/" className="flex items-center gap-2">
                   <Code2 className="h-5 w-5 text-primary" />
-                  <span className="font-bold">AII Dev Guide</span>
+                  <span className="font-bold">AII IT Playbook</span>
                 </Link>
               </SheetTitle>
             </SheetHeader>
@@ -126,8 +126,8 @@ const Header: React.FC = () => {
                           key={item.href}
                           to={item.href}
                           className={`block px-2 py-2 text-sm rounded-lg transition-colors ${location.pathname === item.href
-                              ? 'bg-primary/10 text-primary font-medium'
-                              : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                            ? 'bg-primary/10 text-primary font-medium'
+                            : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                             }`}
                         >
                           {item.title}
@@ -145,9 +145,9 @@ const Header: React.FC = () => {
         <div className="flex items-center gap-2">
           {/* Search Button */}
           <Button
-            variant="outline"
+            variant="ghost"
             onClick={() => setIsSearchOpen(true)}
-            className="relative h-9 w-9 p-0 md:w-60 md:justify-start md:px-3 md:py-2 rounded-lg bg-muted/30 border-transparent hover:bg-muted/50 transition-all"
+            className="relative h-9 w-9 p-0 md:w-60 md:justify-start md:px-3 md:py-2 rounded-lg hover:bg-muted/30 transition-colors"
             aria-label="Search documentation"
           >
             <Search className="h-4 w-4 md:mr-2" />
@@ -180,7 +180,7 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      <SearchModal isOpen={isSearchOpen} onOpenChange={setIsSearchOpen} />
+      <CommandPalette isOpen={isSearchOpen} onOpenChange={setIsSearchOpen} />
     </header>
   );
 };

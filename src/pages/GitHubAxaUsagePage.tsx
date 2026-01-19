@@ -95,9 +95,9 @@ const GitHubAxaUsagePage: React.FC = () => {
         breadcrumbs={breadcrumbs}
       />
 
-      <div className="container py-12 px-4 flex flex-col lg:flex-row gap-12">
+      <div className="py-12 flex flex-col lg:flex-row gap-12">
         {/* Content Area */}
-        <main className="flex-1 min-w-0 space-y-32 pb-24 lg:max-w-4xl">
+        <main className="flex-1 min-w-0 space-y-32 pb-24">
 
           {/* 1. Quick Reference */}
           <section id="quick-ref" className="scroll-mt-28 space-y-8">
@@ -176,8 +176,8 @@ const GitHubAxaUsagePage: React.FC = () => {
                 {[
                   {
                     title: "Sync & Branch",
-                    cmd: "git checkout main && git pull\ngit checkout -b feature/JIRA-123-ui-fix",
-                    desc: "Always start from the latest main branch and use the JIRA ID in your branch name."
+                    cmd: "git checkout master && git pull\ngit checkout -b feature/JIRA-123-ui-fix",
+                    desc: "Always start from the latest master branch and use the JIRA ID in your branch name."
                   },
                   {
                     title: "Commit Work",
@@ -187,7 +187,7 @@ const GitHubAxaUsagePage: React.FC = () => {
                   {
                     title: "Push & Open",
                     cmd: "git push -u origin feature/JIRA-123-ui-fix",
-                    desc: "Push and then click the GitHub link to open a PR against the main branch."
+                    desc: "Push and then click the GitHub link to open a PR against the master branch."
                   }
                 ].map((item, i) => (
                   <div key={i} className="space-y-3">
@@ -306,7 +306,7 @@ const GitHubAxaUsagePage: React.FC = () => {
                 <div className="grid md:grid-cols-3 gap-6">
                   {[
                     { name: "master", type: "CRITICAL", desc: "Production branch. Contains only tested, production-ready code.", border: "border-orange-500/50", bg: "bg-orange-500/5" },
-                    { name: "development", type: "PROTECTED", desc: "Main integration branch. Base for all feature work.", border: "border-blue-500/50", bg: "bg-blue-500/5" },
+                    { name: "development", type: "PROTECTED", desc: "Master integration branch. Base for all feature work.", border: "border-blue-500/50", bg: "bg-blue-500/5" },
                     { name: "release/*", type: "LOCKED", desc: "Release candidates for staging testing and stabilization.", border: "border-emerald-500/50", bg: "bg-emerald-500/5" },
                   ].map(branch => (
                     <div key={branch.name} className={`glass p-6 rounded-2xl border ${branch.border} ${branch.bg} space-y-3`}>

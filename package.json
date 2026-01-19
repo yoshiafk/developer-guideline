@@ -1,5 +1,5 @@
 {
-  "name": "aii-developer-guidelines",
+  "name": "aii-it-playbook",
   "version": "0.1.0",
   "homepage": "https://pages.github.axa.com/aii/developer-guideline",
   "private": true,
@@ -33,9 +33,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:clean": "rm -rf dist && npm run build",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "predeploy": "npm run build:clean",
+    "deploy": "gh-pages -d dist",
+    "deploy:force": "gh-pages -d dist -f"
   },
   "eslintConfig": {
     "extends": [

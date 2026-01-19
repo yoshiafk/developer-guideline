@@ -79,9 +79,9 @@ const CleanArchitecturePage: React.FC = () => {
         breadcrumbs={breadcrumbs}
       />
 
-      <div className="container py-12 px-4 flex flex-col lg:flex-row gap-12">
+      <div className="py-12 flex flex-col lg:flex-row gap-12">
         {/* Content Area */}
-        <main className="flex-1 space-y-20 max-w-4xl min-w-0">
+        <main className="flex-1 space-y-20 min-w-0">
           {/* Introduction */}
           <section id="introduction" className="space-y-6">
             <div className="p-4 rounded-lg bg-primary/5 border border-primary/10 flex gap-4">

@@ -91,8 +91,8 @@ const FlutterDeveloperGuidelinePage: React.FC = () => {
         breadcrumbs={breadcrumbs}
       />
 
-      <div className="container py-12 px-4 flex flex-col lg:flex-row gap-12">
-        <main className="flex-1 min-w-0 space-y-32 pb-24 lg:max-w-4xl">
+      <div className="py-12 flex flex-col lg:flex-row gap-12">
+        <main className="flex-1 min-w-0 space-y-32 pb-24">
 
           {/* Chapter 1: Project Overview */}
           <section id="overview" className="scroll-mt-28 space-y-8">

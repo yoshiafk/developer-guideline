@@ -94,8 +94,8 @@ const ReactDeveloperGuidelinePage: React.FC = () => {
         readingTime={35}
       />
 
-      <div className="container py-8 px-4 flex flex-col lg:flex-row gap-12">
-        <main className="flex-1 min-w-0 space-y-16 pb-16 lg:max-w-4xl">
+      <div className="py-8 flex flex-col lg:flex-row gap-12">
+        <main className="flex-1 min-w-0 space-y-16 pb-16">
 
           {/* Chapter 1: Project Overview */}
           <section id="overview" className="scroll-mt-28 space-y-8">
@@ -896,7 +896,7 @@ const App = () => (
       </div>
 
       {/* Page Navigation */}
-      <div className="container px-4 pb-8">
+      <div className="px-4 pb-8">
         <PageNavigation
           previous={{ title: ".NET Development", href: "/dotnet-developer-guideline" }}
           next={{ title: "Flutter Development", href: "/flutter-developer-guideline" }}
