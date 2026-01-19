@@ -20,6 +20,11 @@ const mobileNavigation = [
     title: "Getting Started", items: [
       { title: "GitHub Workflow", href: "/github-axa-usage" },
       { title: "Coding Standards", href: "/coding-standard" },
+    ]
+  },
+  {
+    title: "Architecture", items: [
+      { title: "Clean Code", href: "/clean-code-guideline" },
       { title: "Clean Architecture", href: "/clean-architecture" },
     ]
   },
@@ -34,6 +39,12 @@ const mobileNavigation = [
     title: "Frontend & Mobile", items: [
       { title: "React Development", href: "/react-developer-guideline" },
       { title: "Flutter Development", href: "/flutter-developer-guideline" },
+    ]
+  },
+  {
+    title: "Cloud & FinOps", items: [
+      { title: "FinOps Guide", href: "/finops-guideline" },
+      { title: "AWS Architecture", href: "/aws-architecture-guideline" },
     ]
   },
 ];

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from "@/lib/utils";
-import { ChevronDown, FileCode, Coffee, Code2, Atom, Smartphone, GitBranch, Terminal, Layers, Server, Wrench, ScanSearch } from 'lucide-react';
+import { ChevronDown, FileCode, Coffee, Code2, Atom, Smartphone, GitBranch, Terminal, Layers, Server, Wrench, ScanSearch, Sparkles, DollarSign, Cloud } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface NavItem {
@@ -22,6 +22,12 @@ const navigation: NavGroup[] = [
         items: [
             { title: "GitHub Workflow", href: "/github-axa-usage", icon: GitBranch, description: "PR standards & branching" },
             { title: "Coding Standards", href: "/coding-standard", icon: Terminal, description: "Global conventions" },
+        ],
+    },
+    {
+        title: "Architecture",
+        items: [
+            { title: "Clean Code", href: "/clean-code-guideline", icon: Sparkles, description: "SOLID & craftsmanship" },
             { title: "Clean Architecture", href: "/clean-architecture", icon: Layers, description: "DDD patterns" },
         ],
     },
@@ -46,6 +52,13 @@ const navigation: NavGroup[] = [
             { title: "OpenShift Platform", href: "/openshift-guideline", icon: Server, description: "Container platform" },
             { title: "Jenkins CI/CD", href: "/jenkins-guideline", icon: Wrench, description: "Build & deploy" },
             { title: "SonarQube", href: "/sonarqube-guideline", icon: ScanSearch, description: "Code quality" },
+        ],
+    },
+    {
+        title: "Cloud & FinOps",
+        items: [
+            { title: "FinOps Guide", href: "/finops-guideline", icon: DollarSign, description: "Cloud cost optimization" },
+            { title: "AWS Architecture", href: "/aws-architecture-guideline", icon: Cloud, description: "Well-Architected" },
         ],
     },
 ];
@@ -82,7 +95,7 @@ const DocsNavDropdown: React.FC = () => {
                         transition={{ duration: 0.15, ease: "easeOut" }}
                         className="absolute left-0 top-full pt-2 z-50"
                     >
-                        <div className="w-[700px] glass rounded-2xl shadow-2xl border p-4 grid grid-cols-4 gap-4">
+                        <div className="w-[850px] glass rounded-2xl shadow-2xl border p-4 grid grid-cols-6 gap-4">
                             {navigation.map((group) => (
                                 <div key={group.title} className="space-y-2">
                                     <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide px-2">

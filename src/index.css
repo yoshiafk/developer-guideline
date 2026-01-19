@@ -124,6 +124,19 @@
         }
     }
 
+    @keyframes shimmer {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(100%);
+        }
+    }
+
+    .animate-shimmer {
+        animation: shimmer 2s infinite;
+    }
+
     /* Responsive content wrapper utility */
     .content-wrapper {
         @apply mx-auto w-full min-w-0 max-w-none px-4;

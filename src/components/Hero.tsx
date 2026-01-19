@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import GradientText from './animate-ui/GradientText';
 import HighlightText from './animate-ui/HighlightText';
 import MotionGridBackground from './animate-ui/MotionGridBackground';
+import { ShimmerButton } from './animate-ui/ShimmerButton';
 
 const Hero: React.FC = () => {
   return (
@@ -60,16 +61,13 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="flex flex-col sm:flex-row items-center gap-4"
           >
-            <Button
-              asChild
-              size="lg"
-              className="h-12 px-8 rounded-xl shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all font-semibold"
+            <ShimmerButton
+              className="h-12"
+              onClick={() => window.location.href = '/github-axa-usage'}
             >
-              <Link to="/github-axa-usage">
-                Get Started
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
+              Get Started
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </ShimmerButton>
             <Button
               asChild
               variant="outline"

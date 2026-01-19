@@ -1,70 +1,69 @@
 import React, { useState, useEffect } from 'react';
-import Layout from '../components/Layout';
-import PageHero from '../components/PageHero';
+import PageHero from '@/components/PageHero';
+import Layout from '@/components/Layout';
+import CodeSnippet from '@/components/CodeSnippet';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Layers,
-  Zap,
   ShieldCheck,
-  Layout as LayoutIcon,
-  Search,
-  Database,
-  Globe,
+  Zap,
   CheckCircle2,
-  CircleAlert as AlertCircle,
-  Lightbulb,
-  BookOpen,
   ArrowRight,
   Code2,
-  Info,
-  Server,
-  FileCode,
-  Table as TableIcon,
+  Database,
+  Globe,
+  Settings,
+  Puzzle,
+  GitMerge,
   FlaskConical,
   Bug,
-  CircleHelp as HelpCircle,
+  Info,
+  BookOpen,
+  Layout as LayoutIcon,
+  Table as TableIcon
 } from 'lucide-react';
-import { motion } from 'framer-motion';
-import CodeSnippet from '../components/CodeSnippet';
+
+const chapters = [
+  { id: "core-concept", title: "1. Core Concept", icon: Layers },
+  { id: "layers", title: "2. Layer Responsibilities", icon: Settings },
+  { id: "dependency-rule", title: "3. The Dependency Rule", icon: ShieldCheck },
+  { id: "hexagonal", title: "4. Hexagonal (Ports & Adapters)", icon: Puzzle },
+  { id: "onion", title: "5. Onion Architecture", icon: GitMerge },
+  { id: "implementation", title: "6. Practical Implementation", icon: Code2 },
+  { id: "testing", title: "7. Testing the Layers", icon: FlaskConical },
+];
 
 const CleanArchitecturePage: React.FC = () => {
-  const [activeSection, setActiveSection] = useState("architecture");
+  const [activeSection, setActiveSection] = useState("core-concept");
 
   const breadcrumbs = [
     { label: 'Home', href: '/' },
-    { label: 'General', href: '/coding-standard' },
-    { label: 'Clean Architecture Standards' }
-  ];
-
-  const sections = [
-    { id: "architecture", title: "1. Architecture Decisions", icon: Layers },
-    { id: "patterns", title: "2. Design Patterns", icon: Zap },
-    { id: "data-access", title: "3. Data Access", icon: Database },
-    { id: "api-style", title: "4. API Approaches", icon: Globe },
-    { id: "checklist", title: "5. Standards Checklist", icon: CheckCircle2 },
-    { id: "structure", title: "6. Project Structure", icon: LayoutIcon },
-    { id: "code-patterns", title: "7. Essential Patterns", icon: Code2 },
-    { id: "testing", title: "8. Testing Patterns", icon: FlaskConical },
-    { id: "matrix", title: "9. Decision Matrix", icon: TableIcon },
+    { label: 'Architecture & Standards' },
+    { label: 'Clean Architecture' }
   ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
+        const visibleEntries = entries.filter(entry => entry.isIntersecting);
+        if (visibleEntries.length > 0) {
+          const mostVisible = visibleEntries.reduce((prev, current) => {
+            if (current.intersectionRatio > prev.intersectionRatio) {
+              return current;
+            }
+            return prev;
+          });
+          setActiveSection(mostVisible.target.id);
+        }
       },
-      { threshold: 0.2, rootMargin: "-10% 0px -70% 0px" }
+      { threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0], rootMargin: "-10% 0px -70% 0px" }
     );
 
-    sections.forEach((section) => {
-      const el = document.getElementById(section.id);
+    chapters.forEach((chapter) => {
+      const el = document.getElementById(chapter.id);
       if (el) observer.observe(el);
     });
 
@@ -74,352 +73,356 @@ const CleanArchitecturePage: React.FC = () => {
   return (
     <Layout>
       <PageHero
-        title="App Architecture Guide"
-        subtitle="Comprehensive standards and quick reference for .NET Clean Architecture and Vertical Slice patterns."
+        title="Clean Architecture Standards"
+        subtitle="Creating systems that are independent of frameworks, UI, and databases while being highly testable."
         breadcrumbs={breadcrumbs}
+        readingTime={40}
       />
 
-      <div className="py-12 flex flex-col lg:flex-row gap-12">
-        {/* Content Area */}
-        <main className="flex-1 space-y-20 min-w-0">
-          {/* Introduction */}
-          <section id="introduction" className="space-y-6">
-            <div className="p-4 rounded-lg bg-primary/5 border border-primary/10 flex gap-4">
-              <Info className="h-6 w-6 text-primary shrink-0" />
-              <p className="text-sm text-primary/80 leading-relaxed italic">
-                For detailed examples and explanations, see the full <a href="/coding-standard" className="underline font-bold">Coding Standards Guide</a>.
-                This is a quick reference for daily development and code reviews.
+      <div className="py-8 flex flex-col lg:flex-row gap-12">
+        <main className="flex-1 min-w-0 space-y-20 pb-16">
+
+          {/* Chapter 1: Core Concept */}
+          <section id="core-concept" className="scroll-mt-28 space-y-8">
+            <div className="space-y-4">
+              <Badge variant="outline" className="text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 1</Badge>
+              <h2 className="text-4xl font-extrabold tracking-tight">Core Concept</h2>
+              <p className="text-xl text-muted-foreground leading-relaxed">
+                The primary goal of Clean Architecture is the <strong>separation of concerns</strong>. By keeping the business logic independent of external agencies like databases and UI, we create systems that are easier to maintain and test.
               </p>
             </div>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Our architecture standards ensure consistency across services. We support two primary patterns based on complexity: <strong>Clean Architecture</strong> for rich domains and <strong>Vertical Slice</strong> for feature-focused or CRUD-heavy applications.
-            </p>
 
-            {/* Quick Handbook for New Joiners */}
-            <div className="p-8 rounded-3xl bg-blue-500/5 border border-blue-500/10 space-y-6">
-              <div className="flex items-center gap-3 text-blue-500">
-                <div className="p-2 rounded-lg bg-blue-500/10">
-                  <BookOpen className="h-6 w-6" />
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-6">
+                <div className="p-6 rounded-2xl bg-primary/5 border border-primary/10 space-y-3">
+                  <h4 className="font-bold text-lg flex items-center gap-2 text-primary">
+                    <CheckCircle2 className="h-5 w-5" />
+                    Key Characteristics
+                  </h4>
+                  <ul className="text-sm space-y-3 text-muted-foreground">
+                    <li>• <strong>Independent of Frameworks:</strong> Use frameworks as tools, don't build your logic around them.</li>
+                    <li>• <strong>Testable:</strong> Business rules can be tested without the UI, Database, or any external element.</li>
+                    <li>• <strong>Independent of UI:</strong> Changing the web UI shouldn't require changing the business rules.</li>
+                    <li>• <strong>Independent of Database:</strong> Switch from SQL Server to MongoDB with minimal impact on logic.</li>
+                  </ul>
                 </div>
-                <h3 className="text-2xl font-bold">The Developer Handbook</h3>
               </div>
-              <p className="text-sm text-muted-foreground">If you're new to AII, here's the absolute essentials you need to know about our architectural philosophy:</p>
+              <div className="relative aspect-square flex items-center justify-center p-8 bg-slate-900 rounded-3xl overflow-hidden border border-slate-700">
+                <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500 to-transparent animate-pulse" />
+                <div className="z-10 text-center space-y-2 font-mono">
+                  <div className="w-56 h-56 rounded-full border-2 border-indigo-500 flex items-center justify-center">
+                    <div className="w-40 h-40 rounded-full border-2 border-blue-400 flex items-center justify-center">
+                      <div className="w-24 h-24 rounded-full border-2 border-emerald-400 flex items-center justify-center">
+                        <span className="text-emerald-400 text-xs font-bold">Domain</span>
+                      </div>
+                    </div>
+                  </div>
+                  <span className="text-[10px] text-slate-500 block uppercase pt-4">Inward Dependency Rule</span>
+                </div>
+              </div>
+            </div>
+          </section>
 
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Separator />
+
+          {/* Chapter 2: Layers */}
+          <section id="layers" className="scroll-mt-28 space-y-12">
+            <div className="space-y-4">
+              <Badge variant="outline" className="text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 2</Badge>
+              <h2 className="text-4xl font-extrabold tracking-tight">Layer Responsibilities</h2>
+              <p className="text-lg text-muted-foreground">Standardized definition of what goes into each architectural layer.</p>
+            </div>
+
+            <div className="grid gap-6">
+              {[
+                {
+                  name: "Entities (Domain)",
+                  color: "emerald",
+                  desc: "Business objects and enterprise-wide rules. No dependencies on anything else.",
+                  items: ["Value Objects", "Aggregates", "Domain Services", "Domain Events"]
+                },
+                {
+                  name: "Use Cases (Application)",
+                  color: "blue",
+                  desc: "Application-specific business rules. Orchestrates flow of data to and from entities.",
+                  items: ["Command/Query Handlers", "DTOs", "Mappers", "Ports/Interfaces"]
+                },
+                {
+                  name: "Interface Adapters",
+                  color: "indigo",
+                  desc: "Converts data between use cases and external formats.",
+                  items: ["Controllers", "Presenters", "Repository Implementations", "Gateways"]
+                },
+                {
+                  name: "Frameworks & Drivers",
+                  color: "slate",
+                  desc: "External tools like DB, UI, Devices, Frameworks.",
+                  items: ["Database (EF Core/JPA)", "HTTP Client", "File System", "External APIs"]
+                }
+              ].map((layer, i) => (
+                <div key={i} className="flex gap-6 p-8 rounded-3xl border border-border bg-background/50 hover:border-primary/30 transition-all group">
+                  <div className={`w-1 font-bold text-transparent bg-gradient-to-b from-${layer.color}-500 to-transparent rounded-full`} />
+                  <div className="space-y-3 flex-1">
+                    <div className="flex justify-between items-center">
+                      <h4 className={`font-bold text-xl text-${layer.color}-500`}>{layer.name}</h4>
+                      <div className="flex gap-2">
+                        {layer.items.map(tag => <Badge key={tag} variant="secondary" className="text-[10px]">{tag}</Badge>)}
+                      </div>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{layer.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <Separator />
+
+          {/* Chapter 3: Dependency Rule */}
+          <section id="dependency-rule" className="scroll-mt-28 space-y-12">
+            <div className="space-y-4">
+              <Badge variant="outline" className="text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 3</Badge>
+              <h2 className="text-4xl font-extrabold tracking-tight">The Dependency Rule</h2>
+              <p className="text-lg text-muted-foreground">Source code dependencies can only point inwards. Nothing in an inner circle can know anything at all about something in an outer circle.</p>
+            </div>
+
+            <div className="p-8 rounded-3xl bg-blue-500/5 border border-blue-500/10 space-y-8">
+              <div className="flex flex-col md:flex-row gap-12 items-center">
+                <div className="space-y-6 flex-1">
+                  <h4 className="font-bold text-2xl flex items-center gap-2">
+                    <Zap className="h-6 w-6 text-blue-500" />
+                    How to Invert Dependencies
+                  </h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    If the Application layer needs to save data (an Infrastructure concern), it defines an <strong>Interface (Port)</strong>. The Infrastructure layer then <strong>Implements (Adapter)</strong> that interface.
+                  </p>
+                  <div className="flex gap-4">
+                    <Badge className="bg-emerald-500">Domain Knows No One</Badge>
+                    <Badge className="bg-blue-500">App Knows Domain</Badge>
+                    <Badge className="bg-indigo-500">Infra Knows App</Badge>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <CodeSnippet
+              title="Implementing Dependency Inversion"
+              language="typescript"
+              code={`// --- Application Layer (Inner) ---
+export interface IOrderRepository {
+  save(order: Order): Promise<void>;
+}
+
+export class CreateOrderUseCase {
+  constructor(private repo: IOrderRepository) {}
+  
+  async execute(order: Order) {
+    // Business logic...
+    await this.repo.save(order);
+  }
+}
+
+// --- Infrastructure Layer (Outer) ---
+export class PostgresOrderRepository implements IOrderRepository {
+  async save(order: Order) {
+    // Direct database access code
+  }
+}`}
+            />
+          </section>
+
+          <Separator />
+
+          {/* Chapter 4: Hexagonal Architecture */}
+          <section id="hexagonal" className="scroll-mt-28 space-y-12">
+            <div className="space-y-4">
+              <Badge variant="outline" className="text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 4</Badge>
+              <h2 className="text-4xl font-extrabold tracking-tight">Hexagonal (Ports & Adapters)</h2>
+              <p className="text-lg text-muted-foreground">Separating the application core from the drivers and driven actors.</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="p-6 rounded-2xl bg-indigo-500/5 border border-indigo-500/20 space-y-4">
+                <h4 className="font-bold flex items-center gap-2 text-indigo-700">
+                  <Puzzle className="h-5 w-5" />
+                  Ports & Adapters
+                </h4>
+                <div className="space-y-4 text-sm text-muted-foreground">
+                  <p><strong>Ports:</strong> Interfaces that provide entry points to or exits from the application core.</p>
+                  <p><strong>Adapters:</strong> Bridges between external technologies and the application's ports.</p>
+                  <div className="grid grid-cols-2 gap-4 pt-4 border-t border-indigo-500/10">
+                    <div>
+                      <span className="text-[10px] font-bold uppercase text-indigo-400">Driving (Input)</span>
+                      <p className="text-xs">UIs, CLI, Test Scripts</p>
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-bold uppercase text-indigo-400">Driven (Output)</span>
+                      <p className="text-xs">DBs, MQ, Mail, SMS</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-slate-900 border border-slate-700 flex flex-col justify-center font-mono text-xs text-blue-400 space-y-4">
+                <div className="text-center">ADAPTER {'->'} [PORT | CORE | PORT] {'->'} ADAPTER</div>
+                <div className="flex justify-between items-center opacity-70">
+                  <div className="p-2 border border-slate-700 rounded text-[10px]">REST API</div>
+                  <ArrowRight className="h-4 w-4" />
+                  <div className="p-4 border-2 border-blue-500 rounded-lg text-blue-400">DOMAIN</div>
+                  <ArrowRight className="h-4 w-4" />
+                  <div className="p-2 border border-slate-700 rounded text-[10px]">PostgreSQL</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <Separator />
+
+          {/* Chapter 5: Onion Architecture */}
+          <section id="onion" className="scroll-mt-28 space-y-8">
+            <div className="space-y-4">
+              <Badge variant="outline" className="text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 5</Badge>
+              <h2 className="text-4xl font-extrabold tracking-tight">Onion Architecture</h2>
+              <p className="text-lg text-muted-foreground">Emphasizing the domain at the center with concentric rings of abstraction.</p>
+            </div>
+
+            <div className="p-8 rounded-3xl border border-border bg-background/50 space-y-6">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
-                  { title: "Layered Isolation", desc: "The Domain Layer is the center and must NEVER depend on Infrastructure or WebApi." },
-                  { title: "Dependency Flow", desc: "Dependencies always point inwards. Use Interfaces to decouple logic." },
-                  { title: "Feature Focus", desc: "Vertical Slice allows for faster delivery by grouping logic by feature instead of layer." },
-                ].map((item, i) => (
-                  <div key={i} className="space-y-2">
-                    <h4 className="font-bold text-sm flex items-center gap-2">
-                      <ArrowRight className="h-4 w-4 text-primary" /> {item.title}
-                    </h4>
-                    <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+                  { title: "Domain Model", pos: "Center", desc: "Pure business entities and value objects." },
+                  { title: "Domain Services", pos: "Inner Ring", desc: "Logic that doesn't belong to a single entity." },
+                  { title: "App Services", pos: "Middle Ring", desc: "Orchestration and workflow logic." },
+                  { title: "Infra/UI", pos: "Outer Ring", desc: "External technical implementations." }
+                ].map((step, i) => (
+                  <div key={i} className="space-y-2 relative">
+                    <span className="text-[10px] font-bold uppercase text-primary/60">{step.pos}</span>
+                    <h5 className="font-bold text-sm">{step.title}</h5>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
                   </div>
                 ))}
               </div>
             </div>
           </section>
 
-          {/* 1. Architecture Decisions */}
-          <section id="architecture" className="scroll-mt-28 space-y-8">
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-blue-500/10 text-blue-500">
-                <Layers className="h-6 w-6" />
-              </div>
-              <h2 className="text-3xl font-bold tracking-tight">Architecture Decisions</h2>
+          <Separator />
+
+          {/* Chapter 6: Implementation */}
+          <section id="implementation" className="scroll-mt-28 space-y-8">
+            <div className="space-y-4">
+              <Badge variant="outline" className="text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 6</Badge>
+              <h2 className="text-4xl font-extrabold tracking-tight">Practical Implementation</h2>
+              <p className="text-lg text-muted-foreground">Choosing the right approach based on project complexity.</p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              <Card className="relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent pointer-events-none" />
-                <CardHeader>
-                  <CardTitle className="flex items-center justify-between">
-                    Clean Architecture
-                    <Badge variant="secondary">Complex Domains</Badge>
-                  </CardTitle>
-                  <CardDescription>Domain → Application → Infrastructure → WebApi</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4 text-sm">
-                  <p className="text-muted-foreground">Focuses on business logic isolation and strict layer boundaries.</p>
-                  <ul className="space-y-2 list-none p-0">
-                    <li className="flex gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
-                      <span>Rich business logic / Long-term projects</span>
-                    </li>
-                    <li className="flex gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
-                      <span>Multiple applications sharing the same domain</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent pointer-events-none" />
-                <CardHeader>
-                  <CardTitle className="flex items-center justify-between">
-                    Vertical Slice
-                    <Badge variant="secondary">CRUD Heavy</Badge>
-                  </CardTitle>
-                  <CardDescription>Features/Orders/Create/, Features/Orders/GetById/</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4 text-sm">
-                  <p className="text-muted-foreground">Focuses on high cohesion by co-locating all code related to a specific feature.</p>
-                  <ul className="space-y-2 list-none p-0">
-                    <li className="flex gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
-                      <span>Independent features / Rapid development</span>
-                    </li>
-                    <li className="flex gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
-                      <span>Smaller teams or microservices context</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-          </section>
-
-          {/* 2. Design Patterns */}
-          <section id="patterns" className="scroll-mt-28 space-y-8">
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-yellow-500/10 text-yellow-500">
-                <Zap className="h-6 w-6" />
-              </div>
-              <h2 className="text-3xl font-bold tracking-tight">Design Patterns</h2>
-            </div>
-
-            <Tabs defaultValue="cqrs" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 mb-6">
-                <TabsTrigger value="cqrs">CQRS + MediatR</TabsTrigger>
-                <TabsTrigger value="services">Direct Services</TabsTrigger>
-              </TabsList>
-              <TabsContent value="cqrs" className="space-y-4">
-                <div className="bg-muted/30 p-6 rounded-lg border">
-                  <h4 className="font-semibold mb-2">Pattern Overview</h4>
-                  <p className="text-muted-foreground text-sm mb-4">Decouples commands (writes) and queries (reads). Uses MediatR for pipeline behaviors like logging and validation.</p>
-                  <CodeSnippet
-                    code={`public record CreateOrderCommand(string Product) : IRequest<OrderResult>;\npublic class CreateOrderHandler : IRequestHandler<CreateOrderCommand, OrderResult>`}
-                    language="csharp"
-                    title="CQRS Implementation"
-                  />
-                </div>
-              </TabsContent>
-              <TabsContent value="services" className="space-y-4">
-                <div className="bg-muted/30 p-6 rounded-lg border">
-                  <h4 className="font-semibold mb-2">Pattern Overview</h4>
-                  <p className="text-muted-foreground text-sm mb-4">Traditional application services. Simpler, less abstraction overhead.</p>
-                  <CodeSnippet
-                    code={`public interface IOrderService { Task<OrderResult> CreateAsync(CreateOrderRequest request); }\npublic class OrderService : IOrderService`}
-                    language="csharp"
-                    title="Service Implementation"
-                  />
-                </div>
-              </TabsContent>
-            </Tabs>
-          </section>
-
-          {/* 3. Data Access */}
-          <section id="data-access" className="scroll-mt-28 space-y-8">
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-500">
-                <Database className="h-6 w-6" />
-              </div>
-              <h2 className="text-3xl font-bold tracking-tight">Data Access</h2>
-            </div>
-
-            <div className="grid gap-6">
-              {[
-                { title: "Option 1: Repository Pattern", desc: "Abstraction over EF Core, essential for CA/Testing.", use: "Testing abstraction needed, multiple data sources." },
-                { title: "Option 2: Generic Repository + UoW", desc: "Consistent patterns for bulk entities.", use: "Many similar entities, transaction coordination." },
-                { title: "Option 3: Direct DbContext", desc: "Highest performance, lowest complexity.", use: "Simple operations, Vertical Slice, performance critical." }
-              ].map((item, i) => (
-                <div key={i} className="flex gap-4 p-4 rounded-lg border bg-card hover:bg-accent/5 transition-colors">
-                  <div className="h-6 w-6 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-1 text-xs font-bold">{i + 1}</div>
-                  <div>
-                    <h4 className="font-bold underline decoration-primary/30 underline-offset-4">{item.title}</h4>
-                    <p className="text-sm text-muted-foreground mt-1">{item.desc}</p>
-                    <p className="text-xs font-medium text-primary mt-2 flex items-center gap-1"><ArrowRight className="h-3 w-3" /> {item.use}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* 4. Standards Checklist */}
-          <section id="checklist" className="scroll-mt-28 space-y-8 p-8 rounded-2xl bg-muted/30 border border-primary/5">
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-indigo-500/10 text-indigo-500">
-                <CheckCircle2 className="h-6 w-6" />
-              </div>
-              <h2 className="text-3xl font-bold tracking-tight">Quick Standards Checklist</h2>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-x-12 gap-y-8 mt-4">
-              <div className="space-y-4">
-                <h4 className="font-semibold text-primary flex items-center gap-2"><TableIcon className="h-4 w-4" /> Naming Conventions</h4>
-                <ul className="space-y-3 text-sm list-none p-0">
-                  <li className="flex justify-between border-b pb-1"><span>Classes</span> <code className="text-blue-500">PascalCase</code></li>
-                  <li className="flex justify-between border-b pb-1"><span>Interfaces</span> <code className="text-blue-500">IPascalCase</code></li>
-                  <li className="flex justify-between border-b pb-1"><span>Methods</span> <code className="text-blue-500">PascalCaseAsync</code></li>
-                  <li className="flex justify-between border-b pb-1"><span>Fields (private)</span> <code className="text-blue-500">_camelCase</code></li>
-                </ul>
-              </div>
-
-              <div className="space-y-4">
-                <h4 className="font-semibold text-primary flex items-center gap-2"><Lightbulb className="h-4 w-4" /> Async/Await Rules</h4>
-                <div className="p-3 rounded border bg-emerald-500/5 text-xs">
-                  <p className="font-bold text-emerald-600 mb-2 whitespace-nowrap">✅ DO: Async all the way through</p>
-                  <code className="text-muted-foreground">return await _repository.GetByIdAsync(id, ct);</code>
-                </div>
-                <div className="p-3 rounded border bg-destructive/5 text-xs">
-                  <p className="font-bold text-destructive mb-2 whitespace-nowrap">❌ DON'T: Block async calls</p>
-                  <code className="text-muted-foreground">var res = GetAsync().Result; // CRITICAL!</code>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* 5. Project Structure */}
-          <section id="structure" className="scroll-mt-28 space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight">Recommended Project Structure</h2>
-            <div className="p-6 rounded-lg bg-slate-900 overflow-x-auto border border-slate-700">
-              <pre className="text-xs text-blue-300 font-mono leading-relaxed group">
-                {`src/
-├── Domain/           # Entities, ValueObjects, Domain Interfaces
-├── Application/      # UseCases, DTOs, Validators
-├── Infrastructure/   # DbContext, Repositories, Services
-└── WebApi/           # Controllers, Middleware, Auth`}
-              </pre>
-            </div>
-          </section>
-
-          {/* 6. Testing Patterns */}
-          <section id="testing" className="scroll-mt-28 space-y-8">
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-pink-500/10 text-pink-500">
-                <FlaskConical className="h-6 w-6" />
-              </div>
-              <h2 className="text-3xl font-bold tracking-tight">Testing Patterns</h2>
-            </div>
-
-            <Card className="border-none bg-muted/40">
-              <CardContent className="p-6 space-y-4">
-                <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-sm">
-                  <h5 className="font-bold text-emerald-600 mb-1 flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4" />
-                    Unit Test Structure (AAA)
-                  </h5>
-                  <p className="text-muted-foreground italic mb-3">Arrange, Act, Assert. Everything must be isolatable.</p>
-                  <CodeSnippet title="Test Example" code={`[Test]\npublic async Task Handle_ValidRequest_ReturnsSuccess()\n{\n    // Arrange\n    var cmd = new CreateOrderCommand("Prod");\n    // Act\n    var result = await _handler.Handle(cmd, CancellationToken.None);\n    // Assert\n    Assert.That(result.Success, Is.True);\n}`} />
-                </div>
-              </CardContent>
-            </Card>
-          </section>
-
-          {/* 7. Decision Matrix */}
-          <section id="matrix" className="scroll-mt-28 space-y-8">
-            <h2 className="text-3xl font-bold tracking-tight">Decision Matrix</h2>
             <div className="overflow-x-auto rounded-xl border border-border">
               <table className="w-full text-sm text-left">
                 <thead className="bg-muted text-muted-foreground uppercase text-[10px] font-bold tracking-wider">
                   <tr>
-                    <th className="px-6 py-3">Scenario</th>
-                    <th className="px-6 py-3">Architecture</th>
-                    <th className="px-6 py-3">Pattern</th>
-                    <th className="px-6 py-3">Data Access</th>
+                    <th className="px-6 py-3">Factor</th>
+                    <th className="px-6 py-3">Clean Architecture</th>
+                    <th className="px-6 py-3">Vertical Slice</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y">
                   <tr className="hover:bg-accent/5">
-                    <td className="px-6 py-4 font-medium">Complex Logic</td>
-                    <td className="px-6 py-4">Clean Arch</td>
-                    <td className="px-6 py-4">CQRS</td>
-                    <td className="px-6 py-4">Repository</td>
+                    <td className="px-6 py-4 font-medium">Domain Complexity</td>
+                    <td className="px-6 py-4">High (Rich Domain)</td>
+                    <td className="px-6 py-4">Low/Medium (CRUD)</td>
                   </tr>
                   <tr className="hover:bg-accent/5">
-                    <td className="px-6 py-4 font-medium">CRUD Application</td>
-                    <td className="px-6 py-4">Vertical Slice</td>
-                    <td className="px-6 py-4">Services</td>
-                    <td className="px-6 py-4">Direct DbContext</td>
+                    <td className="px-6 py-4 font-medium">Coupling</td>
+                    <td className="px-6 py-4">Decoupled by Layers</td>
+                    <td className="px-6 py-4">Coupled by Feature</td>
                   </tr>
                   <tr className="hover:bg-accent/5">
-                    <td className="px-6 py-4 font-medium">Microservice</td>
-                    <td className="px-6 py-4">Vertical Slice</td>
-                    <td className="px-6 py-4">CQRS</td>
-                    <td className="px-6 py-4">Direct DbContext</td>
-                  </tr>
-                  <tr className="hover:bg-accent/5">
-                    <td className="px-6 py-4 font-medium">Enterprise App</td>
-                    <td className="px-6 py-4">Clean Arch</td>
-                    <td className="px-6 py-4">CQRS</td>
-                    <td className="px-6 py-4">Repository + UoW</td>
+                    <td className="px-6 py-4 font-medium">Maintenance</td>
+                    <td className="px-6 py-4">Long term, Enterprise</td>
+                    <td className="px-6 py-4">Fast delivery, Small apps</td>
                   </tr>
                 </tbody>
               </table>
             </div>
+
+            <div className="p-6 rounded-2xl bg-slate-900 border border-slate-700">
+              <h4 className="font-bold text-sm text-blue-400 mb-4 tracking-widest uppercase">Standard Folder Structure</h4>
+              <pre className="text-xs text-muted-foreground/80 font-mono leading-relaxed">
+                {`src/
+│
+├── core/
+│   ├── domain/           (Entities, Value Objects, Repository Interfaces)
+│   └── application/      (Use Cases, DTOs, Handlers)
+│
+├── infrastructure/       (DB Context, Repository Impls, External Clients)
+│
+└── webapi/               (Controllers, Routes, Middlewares)`}
+              </pre>
+            </div>
           </section>
 
-          {/* 8. Common Mistakes */}
-          <section id="mistakes" className="scroll-mt-28 space-y-8 bg-destructive/5 p-8 rounded-2xl border border-destructive/10">
-            <h2 className="text-2xl font-bold flex items-center gap-2 text-destructive">
-              <Bug className="h-6 w-6" /> Common Mistakes to Avoid
-            </h2>
-            <div className="grid gap-4">
+          <Separator />
+
+          {/* Chapter 7: Testing */}
+          <section id="testing" className="scroll-mt-28 space-y-12">
+            <div className="space-y-4 text-center max-w-2xl mx-auto">
+              <Badge variant="outline" className="text-primary border-primary/20 bg-primary/5 px-3 py-1">Chapter 7</Badge>
+              <h2 className="text-4xl font-extrabold tracking-tight">Testing the Layers</h2>
+              <p className="text-lg text-muted-foreground">Clean Architecture makes testing easier by providing clear boundaries to mock or stub.</p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
               {[
-                { title: "Mixing Patterns", rule: "Don't use OrderService and ISender for the same logic." },
-                { title: "Blocking Async", rule: "Avoid .Result or .Wait() at all costs." },
-                { title: "Entities in API", rule: "Never return Domain Entities directly; always use DTOs." },
-                { title: "Logic in Controllers", rule: "Controllers should only orchestrate, never handle business rules." }
-              ].map((mistake, i) => (
-                <div key={i} className="flex gap-4 items-start border-l-4 border-destructive pl-4 py-2">
-                  <div className="mt-1"><AlertCircle className="h-5 w-5 text-destructive" /></div>
-                  <div>
-                    <h5 className="font-bold text-destructive/90">{mistake.title}</h5>
-                    <p className="text-sm text-muted-foreground">{mistake.rule}</p>
-                  </div>
+                {
+                  name: "Domain Unit Tests",
+                  type: "Pure Logic",
+                  desc: "Test business rules in entities. No infrastructure needed."
+                },
+                {
+                  name: "Application Unit Tests",
+                  type: "Mocked Ports",
+                  desc: "Test use cases by mocking repository interfaces."
+                },
+                {
+                  name: "Infrastructure Integration",
+                  type: "Real DB/Adapter",
+                  desc: "Test that adapters correctly interact with external systems."
+                }
+              ].map((test, i) => (
+                <div key={i} className="p-6 rounded-2xl border border-border bg-background/50 hover:border-primary/30 transition-colors">
+                  <FlaskConical className="h-6 w-6 text-primary mb-4" />
+                  <h5 className="font-bold text-sm mb-1">{test.name}</h5>
+                  <Badge variant="secondary" className="text-[9px] mb-3">{test.type}</Badge>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{test.desc}</p>
                 </div>
               ))}
             </div>
           </section>
 
-          {/* Navigation Footer */}
-          <section className="pt-12">
-            <Card className="bg-primary text-primary-foreground border-none overflow-hidden group">
-              <CardContent className="p-0">
-                <a href="/coding-standard" className="flex items-center justify-between p-8 group-hover:bg-primary/90 transition-colors">
-                  <div className="space-y-1">
-                    <p className="text-primary-foreground/70 text-sm font-medium uppercase tracking-wider">Next Chapter</p>
-                    <h3 className="text-2xl font-bold">Comprehensive Coding Standards</h3>
-                  </div>
-                  <div className="bg-primary-foreground/10 p-4 rounded-full group-hover:translate-x-2 transition-transform">
-                    <ArrowRight className="h-6 w-6" />
-                  </div>
-                </a>
-              </CardContent>
-            </Card>
-          </section>
         </main>
 
-        {/* Right Side ToC */}
-        <aside className="lg:w-64 shrink-0 h-[calc(100vh-8rem)] sticky top-24 hidden xl:block overflow-y-auto pl-4 border-l">
-          <div className="space-y-1 pb-12">
-            <h4 className="text-[10px] font-bold mb-6 px-3 text-muted-foreground/60 uppercase tracking-[0.2em]">On This Page</h4>
-            {sections.map((section) => (
-              <a
-                key={section.id}
-                href={`#${section.id}`}
-                className={`flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg transition-all ${activeSection === section.id
-                  ? "text-primary font-bold"
-                  : "text-muted-foreground hover:text-foreground"
-                  }`}
-              >
-                <section.icon className={`h-3.5 w-3.5 shrink-0 ${activeSection === section.id ? "text-primary" : "text-muted-foreground/40"}`} />
-                {section.title}
-              </a>
-            ))}
+        {/* Sidebar mini ToC */}
+        <aside className="lg:w-64 flex-shrink-0 hidden lg:block">
+          <div className="sticky top-28 space-y-4">
+            <div className="p-1 rounded-2xl bg-muted/50 border border-border/50">
+              <div className="px-4 py-3 flex items-center gap-2 border-b border-border/50">
+                <Layers className="h-4 w-4 text-primary" />
+                <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">On this page</span>
+              </div>
+              <div className="p-2 space-y-1">
+                {chapters.map((chapter) => (
+                  <a
+                    key={chapter.id}
+                    href={`#${chapter.id}`}
+                    className={`flex items-center gap-3 px-3 py-2 rounded-xl text-sm transition-all ${activeSection === chapter.id
+                      ? "bg-primary text-primary-foreground font-semibold shadow-lg shadow-primary/20"
+                      : "text-muted-foreground hover:bg-primary/5 hover:text-primary"
+                      }`}
+                  >
+                    <chapter.icon className="h-4 w-4" />
+                    {chapter.title.split('. ')[1]}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </aside>
       </div>

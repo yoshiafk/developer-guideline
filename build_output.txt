@@ -1,0 +1,373 @@
+
+> aii-it-playbook@0.1.0 build
+> vite-react-ssg build && pagefind --site dist
+
+
+[vite-react-ssg] Build for client...
+vite v6.4.1 building for production...
+transforming...
+✓ 22 modules transformed.
+✗ Build failed in 541ms
+
+[vite-react-ssg] An internal error occurred.
+[vite-react-ssg] Please report an issue, if none already exists: https://github.com/daydreamer-riri/vite-react-ssg/issues
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+[vite:esbuild] Transform failed with 14 errors:
+/Users/yoshiafk/Development/Personal Project/developer-guideline/src/pages/CleanCodeGuidelinePage.tsx:143:93: ERROR: Unexpected closing "code" tag does not match opening "User" tag
+/Users/yoshiafk/Development/Personal Project/developer-guideline/src/pages/CleanCodeGuidelinePage.tsx:143:100: ERROR: Unexpected closing "li" tag does not match opening "code" tag
+/Users/yoshiafk/Development/Personal Project/developer-guideline/src/pages/CleanCodeGuidelinePage.tsx:145:20: ERROR: Unexpected closing "ul" tag does not match opening "li" tag
+/Users/yoshiafk/Development/Personal Project/developer-guideline/src/pages/CleanCodeGuidelinePage.tsx:146:18: ERROR: Unexpected closing "div" tag does not match opening "ul" tag
+/Users/yoshiafk/Development/Personal Project/developer-guideline/src/pages/CleanCodeGuidelinePage.tsx:152:100: ERROR: Unexpected closing "code" tag does not match opening "User" tag
+...
+file: /Users/yoshiafk/Development/Personal Project/developer-guideline/src/pages/CleanCodeGuidelinePage.tsx:143:93
+
+Unexpected closing "code" tag does not match opening "User" tag
+141|                      <li>• <code className="text-destructive">int d; // elapsed time in days</code></li>
+142|                      <li>• <code className="text-destructive">void Process(Data data)</code></li>
+143|                      <li>• <code className="text-destructive">var list = new List<User>();</code></li>
+   |                                                                                               ^
+144|                      <li>• <code className="text-destructive">bool flag = true;</code></li>
+145|                    </ul>
+
+Unexpected closing "li" tag does not match opening "code" tag
+141|                      <li>• <code className="text-destructive">int d; // elapsed time in days</code></li>
+142|                      <li>• <code className="text-destructive">void Process(Data data)</code></li>
+143|                      <li>• <code className="text-destructive">var list = new List<User>();</code></li>
+   |                                                                                                      ^
+144|                      <li>• <code className="text-destructive">bool flag = true;</code></li>
+145|                    </ul>
+
+Unexpected closing "ul" tag does not match opening "li" tag
+143|                      <li>• <code className="text-destructive">var list = new List<User>();</code></li>
+144|                      <li>• <code className="text-destructive">bool flag = true;</code></li>
+145|                    </ul>
+   |                      ^
+146|                  </div>
+147|                  <div className="p-6 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 space-y-3">
+
+Unexpected closing "div" tag does not match opening "ul" tag
+144|                      <li>• <code className="text-destructive">bool flag = true;</code></li>
+145|                    </ul>
+146|                  </div>
+   |                    ^
+147|                  <div className="p-6 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 space-y-3">
+148|                    <h4 className="font-bold text-emerald-600">✅ Clean Naming</h4>
+
+Unexpected closing "code" tag does not match opening "User" tag
+150|                      <li>• <code className="text-emerald-600">int elapsedTimeInDays;</code></li>
+151|                      <li>• <code className="text-emerald-600">void ProcessOrder(Order order)</code></li>
+152|                      <li>• <code className="text-emerald-600">var activeUsers = new List<User>();</code></li>
+   |                                                                                                      ^
+153|                      <li>• <code className="text-emerald-600">bool isOrderValid = true;</code></li>
+154|                    </ul>
+
+Unexpected closing "li" tag does not match opening "code" tag
+150|                      <li>• <code className="text-emerald-600">int elapsedTimeInDays;</code></li>
+151|                      <li>• <code className="text-emerald-600">void ProcessOrder(Order order)</code></li>
+152|                      <li>• <code className="text-emerald-600">var activeUsers = new List<User>();</code></li>
+   |                                                                                                             ^
+153|                      <li>• <code className="text-emerald-600">bool isOrderValid = true;</code></li>
+154|                    </ul>
+
+Unexpected closing "ul" tag does not match opening "li" tag
+152|                      <li>• <code className="text-emerald-600">var activeUsers = new List<User>();</code></li>
+153|                      <li>• <code className="text-emerald-600">bool isOrderValid = true;</code></li>
+154|                    </ul>
+   |                      ^
+155|                  </div>
+156|                </div>
+
+Unexpected closing "div" tag does not match opening "ul" tag
+153|                      <li>• <code className="text-emerald-600">bool isOrderValid = true;</code></li>
+154|                    </ul>
+155|                  </div>
+   |                    ^
+156|                </div>
+157|  
+
+Unexpected closing "section" tag does not match opening "div" tag
+175|                />
+176|              </div>
+177|            </section>
+   |              ^
+178|  
+179|            <Separator />
+
+Unexpected closing "main" tag does not match opening "div" tag
+371|            </section>
+372|  
+373|          </main>
+   |            ^
+374|  
+375|          {/* Sidebar Mini ToC */}
+
+Unexpected closing "div" tag does not match opening "section" tag
+405|            </div>
+406|          </aside>
+407|        </div>
+   |          ^
+408|      </Layout>
+409|    );
+
+Unexpected closing "Layout" tag does not match opening "main" tag
+406|          </aside>
+407|        </div>
+408|      </Layout>
+   |        ^
+409|    );
+410|  };
+
+The character "}" is not valid inside a JSX element
+408|      </Layout>
+409|    );
+410|  };
+   |  ^
+411|  
+412|  export default CleanCodeGuidelinePage;
+
+Unexpected end of file before a closing "div" tag
+411|  
+412|  export default CleanCodeGuidelinePage;
+413|  
+   |  ^
+
+    at failureErrorWithLog (/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/esbuild/lib/main.js:1467:15)
+    at /Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/esbuild/lib/main.js:736:50
+    at responseCallbacks.<computed> (/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/esbuild/lib/main.js:603:9)
+    at handleIncomingPacket (/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/esbuild/lib/main.js:658:12)
+    at Socket.readFromStdout (/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/esbuild/lib/main.js:581:7)
+    at Socket.emit (node:events:508:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Readable.push (node:internal/streams/readable:390:5)
+    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23) {
+  errors: [Getter/Setter],
+  warnings: [Getter/Setter],
+  frame: '\n' +
+    'Unexpected closing "code" tag does not match opening "User" tag\n' +
+    '141|                      <li>• <code className="text-destructive">int d; // elapsed time in days</code></li>\n' +
+    '142|                      <li>• <code className="text-destructive">void Process(Data data)</code></li>\n' +
+    '143|                      <li>• <code className="text-destructive">var list = new List<User>();</code></li>\n' +
+    '   |                                                                                               ^\n' +
+    '144|                      <li>• <code className="text-destructive">bool flag = true;</code></li>\n' +
+    '145|                    </ul>\n' +
+    '\n' +
+    'Unexpected closing "li" tag does not match opening "code" tag\n' +
+    '141|                      <li>• <code className="text-destructive">int d; // elapsed time in days</code></li>\n' +
+    '142|                      <li>• <code className="text-destructive">void Process(Data data)</code></li>\n' +
+    '143|                      <li>• <code className="text-destructive">var list = new List<User>();</code></li>\n' +
+    '   |                                                                                                      ^\n' +
+    '144|                      <li>• <code className="text-destructive">bool flag = true;</code></li>\n' +
+    '145|                    </ul>\n' +
+    '\n' +
+    'Unexpected closing "ul" tag does not match opening "li" tag\n' +
+    '143|                      <li>• <code className="text-destructive">var list = new List<User>();</code></li>\n' +
+    '144|                      <li>• <code className="text-destructive">bool flag = true;</code></li>\n' +
+    '145|                    </ul>\n' +
+    '   |                      ^\n' +
+    '146|                  </div>\n' +
+    '147|                  <div className="p-6 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 space-y-3">\n' +
+    '\n' +
+    'Unexpected closing "div" tag does not match opening "ul" tag\n' +
+    '144|                      <li>• <code className="text-destructive">bool flag = true;</code></li>\n' +
+    '145|                    </ul>\n' +
+    '146|                  </div>\n' +
+    '   |                    ^\n' +
+    '147|                  <div className="p-6 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 space-y-3">\n' +
+    '148|                    <h4 className="font-bold text-emerald-600">✅ Clean Naming</h4>\n' +
+    '\n' +
+    'Unexpected closing "code" tag does not match opening "User" tag\n' +
+    '150|                      <li>• <code className="text-emerald-600">int elapsedTimeInDays;</code></li>\n' +
+    '151|                      <li>• <code className="text-emerald-600">void ProcessOrder(Order order)</code></li>\n' +
+    '152|                      <li>• <code className="text-emerald-600">var activeUsers = new List<User>();</code></li>\n' +
+    '   |                                                                                                      ^\n' +
+    '153|                      <li>• <code className="text-emerald-600">bool isOrderValid = true;</code></li>\n' +
+    '154|                    </ul>\n' +
+    '\n' +
+    'Unexpected closing "li" tag does not match opening "code" tag\n' +
+    '150|                      <li>• <code className="text-emerald-600">int elapsedTimeInDays;</code></li>\n' +
+    '151|                      <li>• <code className="text-emerald-600">void ProcessOrder(Order order)</code></li>\n' +
+    '152|                      <li>• <code className="text-emerald-600">var activeUsers = new List<User>();</code></li>\n' +
+    '   |                                                                                                             ^\n' +
+    '153|                      <li>• <code className="text-emerald-600">bool isOrderValid = true;</code></li>\n' +
+    '154|                    </ul>\n' +
+    '\n' +
+    'Unexpected closing "ul" tag does not match opening "li" tag\n' +
+    '152|                      <li>• <code className="text-emerald-600">var activeUsers = new List<User>();</code></li>\n' +
+    '153|                      <li>• <code className="text-emerald-600">bool isOrderValid = true;</code></li>\n' +
+    '154|                    </ul>\n' +
+    '   |                      ^\n' +
+    '155|                  </div>\n' +
+    '156|                </div>\n' +
+    '\n' +
+    'Unexpected closing "div" tag does not match opening "ul" tag\n' +
+    '153|                      <li>• <code className="text-emerald-600">bool isOrderValid = true;</code></li>\n' +
+    '154|                    </ul>\n' +
+    '155|                  </div>\n' +
+    '   |                    ^\n' +
+    '156|                </div>\n' +
+    '157|  \n' +
+    '\n' +
+    'Unexpected closing "section" tag does not match opening "div" tag\n' +
+    '175|                />\n' +
+    '176|              </div>\n' +
+    '177|            </section>\n' +
+    '   |              ^\n' +
+    '178|  \n' +
+    '179|            <Separator />\n' +
+    '\n' +
+    'Unexpected closing "main" tag does not match opening "div" tag\n' +
+    '371|            </section>\n' +
+    '372|  \n' +
+    '373|          </main>\n' +
+    '   |            ^\n' +
+    '374|  \n' +
+    '375|          {/* Sidebar Mini ToC */}\n' +
+    '\n' +
+    'Unexpected closing "div" tag does not match opening "section" tag\n' +
+    '405|            </div>\n' +
+    '406|          </aside>\n' +
+    '407|        </div>\n' +
+    '   |          ^\n' +
+    '408|      </Layout>\n' +
+    '409|    );\n' +
+    '\n' +
+    'Unexpected closing "Layout" tag does not match opening "main" tag\n' +
+    '406|          </aside>\n' +
+    '407|        </div>\n' +
+    '408|      </Layout>\n' +
+    '   |        ^\n' +
+    '409|    );\n' +
+    '410|  };\n' +
+    '\n' +
+    'The character "}" is not valid inside a JSX element\n' +
+    '408|      </Layout>\n' +
+    '409|    );\n' +
+    '410|  };\n' +
+    '   |  ^\n' +
+    '411|  \n' +
+    '412|  export default CleanCodeGuidelinePage;\n' +
+    '\n' +
+    'Unexpected end of file before a closing "div" tag\n' +
+    '411|  \n' +
+    '412|  export default CleanCodeGuidelinePage;\n' +
+    '413|  \n' +
+    '   |  ^\n',
+  loc: {
+    column: 93,
+    file: '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/pages/CleanCodeGuidelinePage.tsx',
+    length: 4,
+    line: 143,
+    lineText: '                    <li>• <code className="text-destructive">var list = new List<User>();</code></li>',
+    namespace: '',
+    suggestion: 'User'
+  },
+  code: 'PLUGIN_ERROR',
+  plugin: 'vite:esbuild',
+  hook: 'transform',
+  id: '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/pages/CleanCodeGuidelinePage.tsx',
+  watchFiles: [
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/index.html',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/index.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/package.json',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/tailwind.config.ts',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/index.css',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/routes.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/vite-react-ssg/dist/index.mjs',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/@fortawesome/fontawesome-free/css/all.min.css',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/hooks/use-toast.ts',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/hooks/useKeyboardShortcuts.ts',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/hooks/usePagefind.ts',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/lib/utils.ts',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/App.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/AnimatedCounter.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/AnimatedSection.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/BackToTop.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/CodeBlock.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/CodeSnippet.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/ComparisonCard.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/ContentSection.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/DocsNavDropdown.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/DocumentCard.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/FeatureCard.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/Footer.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/GlobalSpotlight.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/Header.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/Hero.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/HoverCard.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/Layout.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/LoadingScreen.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/OptionCard.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/PageHero.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/PageNavigation.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/PageTransition.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/QuickReferenceCard.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/ReadingProgress.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/ScrollReveal.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/ScrollToTop.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/Sidebar.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/SkipToContent.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/StaggerContainer.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/StepCard.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/TableOfContents.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/ThemeToggle.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/animate-ui/AnimatedCodeTabs.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/animate-ui/AnimatedFeedbackIcon.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/animate-ui/AnimatedTabs.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/animate-ui/CommandPalette.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/animate-ui/CountingNumber.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/animate-ui/GradientText.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/animate-ui/HighlightText.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/animate-ui/MotionGridBackground.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/animate-ui/PreviewLinkCard.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/ui/badge.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/ui/button.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/ui/card.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/ui/scroll-area.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/ui/separator.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/ui/sheet.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/ui/tabs.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/ui/toast.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/ui/toaster.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/components/ui/tooltip.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/contexts/ThemeContext.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/pages/AWSArchitectureGuidelinePage.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/pages/CleanArchitecturePage.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/pages/CleanCodeGuidelinePage.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/pages/CodingStandardPage.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/pages/DotNetDeveloperGuidelinePage.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/pages/FinOpsGuidelinePage.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/pages/FlutterDeveloperGuidelinePage.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/pages/GitHubAxaUsagePage.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/pages/HomePage.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/pages/JavaDeveloperGuidelinePage.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/pages/JenkinsGuidelinePage.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/pages/OpenShiftGuidelinePage.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/pages/PythonDeveloperGuidelinePage.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/pages/ReactDeveloperGuidelinePage.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/pages/SearchResultsPage.tsx',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/src/pages/SonarQubeGuidelinePage.tsx',
+    'node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2',
+    'node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2',
+    'node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.woff2',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/vite-react-ssg/node_modules/react-helmet-async/lib/index.module.js',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/react-dom/index.js',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/react/index.js',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/vite-react-ssg/dist/shared/vite-react-ssg.CjIppNIS.mjs',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/vite-react-ssg/dist/shared/vite-react-ssg.C6pK7rvr.mjs',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/vite-react-ssg/dist/shared/vite-react-ssg.BxjO14Et.mjs',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/vite-react-ssg/dist/shared/vite-react-ssg.C0y5wbxl.mjs',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/react/jsx-runtime.js',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/react-router-dom/dist/index.js',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/invariant/browser.js',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/shallowequal/index.js',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/prop-types/index.js',
+    '/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/react-fast-compare/index.js'
+  ]
+}
+
+Node.js v24.12.0

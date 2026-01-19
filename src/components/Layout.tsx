@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import Sidebar from './Sidebar';
+import DocsSidebar from './DocsSidebar';
 import Header from './Header';
 import SkipToContent from './SkipToContent';
 import ReadingProgress from './ReadingProgress';
-import { ScrollArea } from "@/components/ui/scroll-area";
+import CommandPalette from './animate-ui/CommandPalette';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -18,6 +18,8 @@ const Layout: React.FC<LayoutProps> = ({ children, showSidebar = true, showReadi
   const shouldShowSidebar = showSidebar && !isHomePage;
   const shouldShowProgress = showReadingProgress || (!isHomePage && shouldShowSidebar);
 
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
   return (
     <div className="relative flex min-h-screen flex-col bg-background">
       {shouldShowProgress && <ReadingProgress />}
@@ -25,17 +27,22 @@ const Layout: React.FC<LayoutProps> = ({ children, showSidebar = true, showReadi
       <div data-pagefind-ignore>
         <Header />
       </div>
+
+      {/* Command Palette / Search */}
+      <CommandPalette
+        isOpen={isSearchOpen}
+        onOpenChange={setIsSearchOpen}
+      />
+
       <div className="flex-1 items-start md:grid md:grid-cols-[240px_minmax(0,1fr)] lg:grid-cols-[260px_minmax(0,1fr)] xl:grid-cols-[280px_minmax(0,1fr)]">
         {shouldShowSidebar && (
           <aside
-            className="fixed top-14 z-30 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block"
+            className="fixed top-14 z-30 hidden h-[calc(100vh-3.5rem)] w-[240px] shrink-0 md:sticky md:block lg:w-[260px] xl:w-[280px]"
             role="navigation"
             aria-label="Documentation navigation"
           >
-            <div data-pagefind-ignore>
-              <ScrollArea className="h-full py-6 pr-3 lg:py-8 lg:pr-4">
-                <Sidebar />
-              </ScrollArea>
+            <div data-pagefind-ignore className="h-full">
+              <DocsSidebar onSearchClick={() => setIsSearchOpen(true)} />
             </div>
           </aside>
         )}

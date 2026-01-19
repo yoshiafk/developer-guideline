@@ -11,13 +11,17 @@ import {
   Layers,
   GitBranch,
   Terminal,
-  CheckCircle2
+  CheckCircle2,
+  DollarSign,
+  Cloud,
+  Sparkles
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Layout from '@/components/Layout';
 import Hero from '@/components/Hero';
 import PreviewLinkCard from '@/components/animate-ui/PreviewLinkCard';
 import AnimatedFeedbackIcon from '@/components/animate-ui/AnimatedFeedbackIcon';
+import { BlurReveal } from '@/components/animate-ui/BlurReveal';
 
 // Documentation cards data
 const docCards = [
@@ -62,6 +66,27 @@ const docCards = [
     href: '/clean-architecture',
     icon: Layers,
     color: 'purple'
+  },
+  {
+    title: 'Clean Code',
+    description: 'SOLID principles and software craftsmanship.',
+    href: '/clean-code-guideline',
+    icon: Sparkles,
+    color: 'rose'
+  },
+  {
+    title: 'FinOps',
+    description: 'Cloud cost optimization and financial management.',
+    href: '/finops-guideline',
+    icon: DollarSign,
+    color: 'green'
+  },
+  {
+    title: 'AWS Architecture',
+    description: 'Well-Architected Framework and cloud patterns.',
+    href: '/aws-architecture-guideline',
+    icon: Cloud,
+    color: 'indigo'
   }
 ];
 
@@ -71,7 +96,10 @@ const colorVariants: Record<string, string> = {
   orange: 'bg-orange-500/10 text-orange-500 group-hover:bg-orange-500 group-hover:text-white',
   yellow: 'bg-yellow-500/10 text-yellow-600 group-hover:bg-yellow-500 group-hover:text-white',
   sky: 'bg-sky-500/10 text-sky-500 group-hover:bg-sky-500 group-hover:text-white',
-  purple: 'bg-purple-500/10 text-purple-500 group-hover:bg-purple-500 group-hover:text-white'
+  purple: 'bg-purple-500/10 text-purple-500 group-hover:bg-purple-500 group-hover:text-white',
+  rose: 'bg-rose-500/10 text-rose-500 group-hover:bg-rose-500 group-hover:text-white',
+  green: 'bg-green-500/10 text-green-500 group-hover:bg-green-500 group-hover:text-white',
+  indigo: 'bg-indigo-500/10 text-indigo-500 group-hover:bg-indigo-500 group-hover:text-white'
 };
 
 const HomePage: React.FC = () => {
@@ -150,7 +178,7 @@ const HomePage: React.FC = () => {
                 {
                   step: '02',
                   title: 'Apply Patterns',
-                  description: 'Implement Clean Architecture and naming conventions.',
+                  description: 'Implement Clean Code, Architecture and cloud best practices.',
                   icon: <Terminal className="h-6 w-6" />
                 },
                 {
@@ -160,14 +188,16 @@ const HomePage: React.FC = () => {
                   icon: <CheckCircle2 className="h-6 w-6" />
                 }
               ].map((item, i) => (
-                <div key={i} className="text-center group">
-                  <AnimatedFeedbackIcon
-                    icon={item.icon}
-                    className="mx-auto mb-4"
-                  />
-                  <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
-                </div>
+                <BlurReveal key={i} delay={i * 0.15} direction="up">
+                  <div className="text-center group">
+                    <AnimatedFeedbackIcon
+                      icon={item.icon}
+                      className="mx-auto mb-4"
+                    />
+                    <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground">{item.description}</p>
+                  </div>
+                </BlurReveal>
               ))}
             </div>
 
@@ -202,6 +232,12 @@ const HomePage: React.FC = () => {
                 <Link to="/clean-architecture">
                   <Layers className="mr-2 h-4 w-4" />
                   Architecture Guide
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="rounded-xl">
+                <Link to="/finops-guideline">
+                  <DollarSign className="mr-2 h-4 w-4" />
+                  Cloud & FinOps
                 </Link>
               </Button>
             </div>

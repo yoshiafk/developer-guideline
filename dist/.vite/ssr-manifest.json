@@ -10,7 +10,7 @@
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
   "\u0000/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/react-dom/cjs/react-dom-client.production.js?commonjs-exports": [
-    "/aii/developer-guideline/js/client-gi6eAi3h.js"
+    "/aii/developer-guideline/js/client-DytVPCns.js"
   ],
   "\u0000/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/react-dom/cjs/react-dom.production.js?commonjs-exports": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
@@ -18,10 +18,10 @@
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
   "\u0000/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/react-dom/client.js?commonjs-es-import": [
-    "/aii/developer-guideline/js/client-gi6eAi3h.js"
+    "/aii/developer-guideline/js/client-DytVPCns.js"
   ],
   "\u0000/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/react-dom/client.js?commonjs-module": [
-    "/aii/developer-guideline/js/client-gi6eAi3h.js"
+    "/aii/developer-guideline/js/client-DytVPCns.js"
   ],
   "\u0000/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/react-dom/index.js?commonjs-es-import": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
@@ -64,10 +64,10 @@
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
   "\u0000/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/scheduler/cjs/scheduler.production.js?commonjs-exports": [
-    "/aii/developer-guideline/js/client-gi6eAi3h.js"
+    "/aii/developer-guideline/js/client-DytVPCns.js"
   ],
   "\u0000/Users/yoshiafk/Development/Personal Project/developer-guideline/node_modules/scheduler/index.js?commonjs-module": [
-    "/aii/developer-guideline/js/client-gi6eAi3h.js"
+    "/aii/developer-guideline/js/client-DytVPCns.js"
   ],
   "\u0000commonjsHelpers.js": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
@@ -609,6 +609,11 @@
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
+  "node_modules/framer-motion/dist/es/render/dom/viewport/index.mjs": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
   "node_modules/framer-motion/dist/es/render/html/use-html-visual-state.mjs": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
@@ -670,6 +675,11 @@
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
   "node_modules/framer-motion/dist/es/utils/use-constant.mjs": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/framer-motion/dist/es/utils/use-in-view.mjs": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
@@ -744,6 +754,11 @@
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
+  "node_modules/lucide-react/dist/esm/icons/arrow-up-right.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
   "node_modules/lucide-react/dist/esm/icons/atom.js": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
@@ -754,12 +769,27 @@
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
+  "node_modules/lucide-react/dist/esm/icons/box.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
   "node_modules/lucide-react/dist/esm/icons/bug.js": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
+  "node_modules/lucide-react/dist/esm/icons/chart-column-increasing.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
   "node_modules/lucide-react/dist/esm/icons/chart-column.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/chart-pie.js": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
@@ -859,6 +889,11 @@
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
+  "node_modules/lucide-react/dist/esm/icons/dollar-sign.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
   "node_modules/lucide-react/dist/esm/icons/external-link.js": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
@@ -914,6 +949,11 @@
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
+  "node_modules/lucide-react/dist/esm/icons/git-merge.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
   "node_modules/lucide-react/dist/esm/icons/git-pull-request.js": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
@@ -954,7 +994,17 @@
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
+  "node_modules/lucide-react/dist/esm/icons/leaf.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
   "node_modules/lucide-react/dist/esm/icons/lightbulb.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/list-checks.js": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
@@ -1005,6 +1055,16 @@
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
   "node_modules/lucide-react/dist/esm/icons/pen-tool.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/puzzle.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/refresh-cw.js": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
@@ -1069,12 +1129,12 @@
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
-  "node_modules/lucide-react/dist/esm/icons/sun.js": [
+  "node_modules/lucide-react/dist/esm/icons/sparkles.js": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
-  "node_modules/lucide-react/dist/esm/icons/table.js": [
+  "node_modules/lucide-react/dist/esm/icons/sun.js": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
@@ -1094,12 +1154,22 @@
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
+  "node_modules/lucide-react/dist/esm/icons/trending-down.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
   "node_modules/lucide-react/dist/esm/icons/trending-up.js": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
   "node_modules/lucide-react/dist/esm/icons/triangle-alert.js": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "node_modules/lucide-react/dist/esm/icons/users.js": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
@@ -2160,7 +2230,7 @@
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
   "node_modules/react-dom/cjs/react-dom-client.production.js": [
-    "/aii/developer-guideline/js/client-gi6eAi3h.js"
+    "/aii/developer-guideline/js/client-DytVPCns.js"
   ],
   "node_modules/react-dom/cjs/react-dom.production.js": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
@@ -2168,7 +2238,7 @@
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
   "node_modules/react-dom/client.js": [
-    "/aii/developer-guideline/js/client-gi6eAi3h.js"
+    "/aii/developer-guideline/js/client-DytVPCns.js"
   ],
   "node_modules/react-dom/index.js": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
@@ -2271,10 +2341,10 @@
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
   "node_modules/scheduler/cjs/scheduler.production.js": [
-    "/aii/developer-guideline/js/client-gi6eAi3h.js"
+    "/aii/developer-guideline/js/client-DytVPCns.js"
   ],
   "node_modules/scheduler/index.js": [
-    "/aii/developer-guideline/js/client-gi6eAi3h.js"
+    "/aii/developer-guideline/js/client-DytVPCns.js"
   ],
   "node_modules/tailwind-merge/dist/bundle-mjs.mjs": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
@@ -2356,6 +2426,11 @@
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
+  "src/components/DocsSidebar.tsx": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
   "src/components/Header.tsx": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
@@ -2391,11 +2466,6 @@
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
-  "src/components/Sidebar.tsx": [
-    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
-    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
-    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
-  ],
   "src/components/SkipToContent.tsx": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
@@ -2421,6 +2491,11 @@
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
+  "src/components/animate-ui/BlurReveal.tsx": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
   "src/components/animate-ui/CommandPalette.tsx": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
@@ -2442,6 +2517,11 @@
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
   "src/components/animate-ui/PreviewLinkCard.tsx": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "src/components/animate-ui/ShimmerButton.tsx": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
@@ -2472,11 +2552,6 @@
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
   "src/components/ui/sheet.tsx": [
-    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
-    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
-    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
-  ],
-  "src/components/ui/tabs.tsx": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
@@ -2521,7 +2596,17 @@
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
+  "src/pages/AWSArchitectureGuidelinePage.tsx": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
   "src/pages/CleanArchitecturePage.tsx": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "src/pages/CleanCodeGuidelinePage.tsx": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
@@ -2532,6 +2617,11 @@
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
   ],
   "src/pages/DotNetDeveloperGuidelinePage.tsx": [
+    "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
+    "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
+    "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"
+  ],
+  "src/pages/FinOpsGuidelinePage.tsx": [
     "/aii/developer-guideline/fonts/fa-brands-400-BfBXV7Mm.woff2",
     "/aii/developer-guideline/fonts/fa-regular-400-BVHPE7da.woff2",
     "/aii/developer-guideline/fonts/fa-solid-900-8GirhLYJ.woff2"

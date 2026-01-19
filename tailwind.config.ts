@@ -71,6 +71,20 @@ const config: Config = {
                     '4': 'hsl(var(--chart-4))',
                     '5': 'hsl(var(--chart-5))'
                 }
+            },
+            keyframes: {
+                expand: {
+                    from: { height: '0px', opacity: '0' },
+                    to: { height: 'var(--radix-collapsible-content-height)', opacity: '1' }
+                },
+                collapse: {
+                    from: { height: 'var(--radix-collapsible-content-height)', opacity: '1' },
+                    to: { height: '0px', opacity: '0' }
+                }
+            },
+            animation: {
+                expand: 'expand 0.2s ease-out',
+                collapse: 'collapse 0.2s ease-out'
             }
         }
     },
