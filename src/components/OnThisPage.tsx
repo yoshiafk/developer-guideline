@@ -75,7 +75,7 @@ const OnThisPage: React.FC<OnThisPageProps> = ({ chapters, className }) => {
 
     return (
         <aside className={cn("lg:w-64 flex-shrink-0 hidden lg:block", className)}>
-            <div className="sticky top-28 space-y-4">
+            <div className="sticky top-28 z-10 space-y-4">
                 <div className="p-1 rounded-[2rem] bg-white dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)] backdrop-blur-sm overflow-hidden">
                     <div className="px-5 py-4 flex items-center gap-2.5">
                         <PieChart className="h-5 w-5 text-blue-600 dark:text-blue-500" />

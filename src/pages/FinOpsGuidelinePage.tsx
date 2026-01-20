@@ -57,7 +57,7 @@ const FinOpsGuidelinePage: React.FC = () => {
             />
 
             <div className="py-8 flex flex-col lg:flex-row gap-12">
-                <main className="flex-1 min-w-0 space-y-16 pb-16">
+                <main className="flex-1 min-w-0 overflow-x-auto space-y-16 pb-16">
 
                     {/* Chapter 1: Introduction */}
                     <section id="introduction" className="scroll-mt-28 space-y-8">
@@ -107,27 +107,141 @@ const FinOpsGuidelinePage: React.FC = () => {
                                 <CardHeader>
                                     <CardTitle className="flex items-center gap-2">
                                         <PieChart className="h-5 w-5 text-primary" />
-                                        Tagging Strategy
+                                        AXA Global Tagging Strategy
                                     </CardTitle>
-                                    <CardDescription>Mandatory tags for all cloud resources at AXA.</CardDescription>
+                                    <CardDescription>Mandatory tags for all cloud resources across OpenHosting and AWS at AXA.</CardDescription>
                                 </CardHeader>
-                                <CardContent>
+                                <CardContent className="space-y-6">
                                     <div className="overflow-x-auto">
                                         <table className="w-full text-sm">
                                             <thead className="bg-muted text-xs font-bold uppercase">
                                                 <tr>
-                                                    <th className="px-4 py-3 text-left">Tag Key</th>
-                                                    <th className="px-4 py-3 text-left">Description</th>
-                                                    <th className="px-4 py-3 text-left">Example</th>
+                                                    <th className="px-3 py-3 text-left">OpenHosting</th>
+                                                    <th className="px-3 py-3 text-left">AWS</th>
+                                                    <th className="px-3 py-3 text-center">Required</th>
+                                                    <th className="px-3 py-3 text-left min-w-[200px]">Description</th>
+                                                    <th className="px-3 py-3 text-left">Scope</th>
+                                                    <th className="px-3 py-3 text-left">Example Values</th>
+                                                    <th className="px-3 py-3 text-left">Applies To</th>
                                                 </tr>
                                             </thead>
                                             <tbody className="divide-y">
-                                                <tr><td className="px-4 py-2 font-mono">Environment</td><td className="px-4 py-2">Deployment tier</td><td className="px-4 py-2"><Badge variant="outline">prod, dev, staging</Badge></td></tr>
-                                                <tr><td className="px-4 py-2 font-mono">ProjectCode</td><td className="px-4 py-2">Internal budget code</td><td className="px-4 py-2"><Badge variant="outline">AXA-2024-X</Badge></td></tr>
-                                                <tr><td className="px-4 py-2 font-mono">Owner</td><td className="px-4 py-2">Team or individual email</td><td className="px-4 py-2"><Badge variant="outline">team-alpha@axa.com</Badge></td></tr>
-                                                <tr><td className="px-4 py-2 font-mono">ServiceType</td><td className="px-4 py-2">Functional category</td><td className="px-4 py-2"><Badge variant="outline">api, database, frontend</Badge></td></tr>
+                                                <tr>
+                                                    <td className="px-3 py-2 font-mono text-xs">global_opco</td>
+                                                    <td className="px-3 py-2 font-mono text-xs">global.opco</td>
+                                                    <td className="px-3 py-2 text-center"><Badge className="bg-red-500">Yes</Badge></td>
+                                                    <td className="px-3 py-2 text-xs">OpCo short name owning the subscription/account/project</td>
+                                                    <td className="px-3 py-2 text-xs">Subscription/Account/Project; Resource level</td>
+                                                    <td className="px-3 py-2"><Badge variant="outline">SILVA</Badge></td>
+                                                    <td className="px-3 py-2 text-xs">Billing, Operations, Security, Compliance</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="px-3 py-2 font-mono text-xs">global_dcs</td>
+                                                    <td className="px-3 py-2 font-mono text-xs">global.dcs</td>
+                                                    <td className="px-3 py-2 text-center"><Badge className="bg-amber-500">If Multi-tenant</Badge></td>
+                                                    <td className="px-3 py-2 text-xs">OpCo BU owning the subscription. Mandatory for shared environments.</td>
+                                                    <td className="px-3 py-2 text-xs">Subscription/Account; Project (AWS)</td>
+                                                    <td className="px-3 py-2"><Badge variant="outline">GO GETD, Cloud Products</Badge></td>
+                                                    <td className="px-3 py-2 text-xs">Billing, Governance</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="px-3 py-2 font-mono text-xs">global_env</td>
+                                                    <td className="px-3 py-2 font-mono text-xs">global.env</td>
+                                                    <td className="px-3 py-2 text-center"><Badge className="bg-red-500">Yes</Badge></td>
+                                                    <td className="px-3 py-2 text-xs">Cloud environment classification</td>
+                                                    <td className="px-3 py-2 text-xs">Subscription/Account/Project; Resource level</td>
+                                                    <td className="px-3 py-2"><Badge variant="outline">Sandbox, Development, Integration, Pre-Production, Production</Badge></td>
+                                                    <td className="px-3 py-2 text-xs">Billing, Operations, Inventory, Security Alerts, FinOps</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="px-3 py-2 font-mono text-xs">global_broker</td>
+                                                    <td className="px-3 py-2 font-mono text-xs">global.broker</td>
+                                                    <td className="px-3 py-2 text-center"><Badge className="bg-red-500">Yes</Badge></td>
+                                                    <td className="px-3 py-2 text-xs">Cloud Broker or Competency Center in charge</td>
+                                                    <td className="px-3 py-2 text-xs">Subscription/Account level</td>
+                                                    <td className="px-3 py-2"><Badge variant="outline">CB France, CB Asia</Badge></td>
+                                                    <td className="px-3 py-2 text-xs">Audit, Operations, Security</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="px-3 py-2 font-mono text-xs">global_dataclass</td>
+                                                    <td className="px-3 py-2 font-mono text-xs">global.dataclass</td>
+                                                    <td className="px-3 py-2 text-center"><Badge className="bg-amber-500">DB/Storage Only</Badge></td>
+                                                    <td className="px-3 py-2 text-xs">Data classification of the application (data at rest)</td>
+                                                    <td className="px-3 py-2 text-xs">Resource level; Resource Group level</td>
+                                                    <td className="px-3 py-2"><Badge variant="outline">Public, Internal, Confidential, Secret</Badge></td>
+                                                    <td className="px-3 py-2 text-xs">Security, Audit</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="px-3 py-2 font-mono text-xs">global_cbp</td>
+                                                    <td className="px-3 py-2 font-mono text-xs">global.cbp</td>
+                                                    <td className="px-3 py-2 text-center"><Badge className="bg-red-500">Yes</Badge></td>
+                                                    <td className="px-3 py-2 text-xs">Application-specific Cloud Permit number from SILVA. Required except Sandbox.</td>
+                                                    <td className="px-3 py-2 text-xs">Resource level; Resource Group level</td>
+                                                    <td className="px-3 py-2"><Badge variant="outline">A00001</Badge></td>
+                                                    <td className="px-3 py-2 text-xs">Governance, Architecture</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="px-3 py-2 font-mono text-xs">global_project</td>
+                                                    <td className="px-3 py-2 font-mono text-xs">global.project</td>
+                                                    <td className="px-3 py-2 text-center"><Badge className="bg-red-500">Yes</Badge></td>
+                                                    <td className="px-3 py-2 text-xs">Project identification and cost tracking with cost center/activity code</td>
+                                                    <td className="px-3 py-2 text-xs">Resource level</td>
+                                                    <td className="px-3 py-2"><Badge variant="outline">Cost center/Activity code, 'trans' for transversal</Badge></td>
+                                                    <td className="px-3 py-2 text-xs">Billing (Budget Code)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="px-3 py-2 font-mono text-xs">global_app</td>
+                                                    <td className="px-3 py-2 font-mono text-xs">global.app</td>
+                                                    <td className="px-3 py-2 text-center"><Badge className="bg-red-500">Yes</Badge></td>
+                                                    <td className="px-3 py-2 text-xs">Application code corresponding to SILVA Business Service</td>
+                                                    <td className="px-3 py-2 text-xs">Resource level</td>
+                                                    <td className="px-3 py-2"><Badge variant="outline">SILVA Business Service code</Badge></td>
+                                                    <td className="px-3 py-2 text-xs">Billing, Operations</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="px-3 py-2 font-mono text-xs">global_appserviceid</td>
+                                                    <td className="px-3 py-2 font-mono text-xs">global.appserviceid</td>
+                                                    <td className="px-3 py-2 text-center"><Badge className="bg-red-500">Yes</Badge></td>
+                                                    <td className="px-3 py-2 text-xs">Application Service ID (Sys ID). Auto-generated in SILVA.</td>
+                                                    <td className="px-3 py-2 text-xs">Resource level</td>
+                                                    <td className="px-3 py-2"><Badge variant="outline">Sys ID (namespace)</Badge></td>
+                                                    <td className="px-3 py-2 text-xs">Asset Management</td>
+                                                </tr>
+                                                <tr>
+                                                    <td className="px-3 py-2 font-mono text-xs">global_techserviceid</td>
+                                                    <td className="px-3 py-2 font-mono text-xs">global.techserviceid</td>
+                                                    <td className="px-3 py-2 text-center"><Badge variant="secondary">Optional</Badge></td>
+                                                    <td className="px-3 py-2 text-xs">Cloud Technical Service ID (Sys ID). Auto-generated in SILVA.</td>
+                                                    <td className="px-3 py-2 text-xs">Resource level</td>
+                                                    <td className="px-3 py-2"><Badge variant="outline">Sys ID (namespace)</Badge></td>
+                                                    <td className="px-3 py-2 text-xs">Incident and Change Management</td>
+                                                </tr>
                                             </tbody>
                                         </table>
+                                    </div>
+
+                                    <div className="grid md:grid-cols-3 gap-4 pt-4">
+                                        <div className="p-4 rounded-xl border border-red-500/20 bg-red-500/5">
+                                            <div className="flex items-center gap-2 mb-2">
+                                                <Badge className="bg-red-500">Yes</Badge>
+                                                <span className="font-semibold text-sm">Mandatory</span>
+                                            </div>
+                                            <p className="text-xs text-muted-foreground">Required for all environments and resources</p>
+                                        </div>
+                                        <div className="p-4 rounded-xl border border-amber-500/20 bg-amber-500/5">
+                                            <div className="flex items-center gap-2 mb-2">
+                                                <Badge className="bg-amber-500">Conditional</Badge>
+                                                <span className="font-semibold text-sm">Context-Dependent</span>
+                                            </div>
+                                            <p className="text-xs text-muted-foreground">Required based on environment type or resource</p>
+                                        </div>
+                                        <div className="p-4 rounded-xl border border-border bg-muted/30">
+                                            <div className="flex items-center gap-2 mb-2">
+                                                <Badge variant="secondary">Optional</Badge>
+                                                <span className="font-semibold text-sm">Recommended</span>
+                                            </div>
+                                            <p className="text-xs text-muted-foreground">Encouraged for better tracking and management</p>
+                                        </div>
                                     </div>
                                 </CardContent>
                             </Card>
