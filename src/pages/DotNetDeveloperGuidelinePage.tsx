@@ -317,15 +317,20 @@ const DotNetDeveloperGuidelinePage: React.FC = () => {
               <h2 className="text-4xl font-extrabold tracking-tight">Validation & Error Handling</h2>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="space-y-4">
-                <h4 className="font-bold flex items-center gap-2"><ShieldCheck className="h-5 w-5 text-emerald-500" /> FluentValidation</h4>
-                <p className="text-sm text-muted-foreground">Keep validation logic separate from your entities and commands.</p>
-                <CodeSnippet language="csharp" code={`public class CreateUserValidator : AbstractValidator<CreateUserCommand>\n{\n    public CreateUserValidator() {\n        RuleFor(x => x.Email).NotEmpty().EmailAddress();\n    }\n}`} />
+            <div className="space-y-8">
+              <div className="grid md:grid-cols-2 gap-8 items-start">
+                <div className="space-y-4">
+                  <h4 className="font-bold flex items-center gap-2"><ShieldCheck className="h-5 w-5 text-emerald-500" /> FluentValidation</h4>
+                  <p className="text-sm text-muted-foreground italic">Keep validation logic separate from your entities and commands.</p>
+                </div>
+                <div className="space-y-4">
+                  <h4 className="font-bold flex items-center gap-2"><Bug className="h-5 w-5 text-red-500" /> Global Exception Handling</h4>
+                  <p className="text-sm text-muted-foreground italic">Use Exception Filters or Middleware to catch errors and return RFC-standard Problem Details.</p>
+                </div>
               </div>
-              <div className="space-y-4">
-                <h4 className="font-bold flex items-center gap-2"><Bug className="h-5 w-5 text-red-500" /> Global Exception Handling</h4>
-                <p className="text-sm text-muted-foreground italic">Use Exception Filters or Middleware to catch errors and return RFC-standard Problem Details.</p>
+              <div className="grid md:grid-cols-2 gap-8">
+                <CodeSnippet language="csharp" title="CreateUserValidator.cs" code={`public class CreateUserValidator : AbstractValidator<CreateUserCommand>\n{\n    public CreateUserValidator() {\n        RuleFor(x => x.Email).NotEmpty().EmailAddress();\n    }\n}`} />
+                <CodeSnippet language="csharp" title="GlobalExceptionHandler.cs (.NET 8+)" code={`public class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger) : IExceptionHandler\n{\n    public async ValueTask<bool> TryHandleAsync(HttpContext context, Exception ex, CancellationToken ct) {\n        logger.LogError(ex, "An error occurred");\n        var problem = new ProblemDetails { Status = 500, Title = "Server Error" };\n        await context.Response.WriteAsJsonAsync(problem, ct);\n        return true;\n    }\n}`} />
               </div>
             </div>
           </section>
@@ -340,15 +345,20 @@ const DotNetDeveloperGuidelinePage: React.FC = () => {
             </div>
 
             <div className="space-y-10">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="space-y-4">
-                  <h4 className="font-bold">Unit Testing (xUnit)</h4>
-                  <p className="text-sm text-muted-foreground">Test business logic in isolation using Moq or NSubstitute.</p>
-                  <CodeSnippet language="csharp" code={`[Fact]\npublic async Task Handle_ValidRequest_ShouldReturnId() {\n    // Arrange, Act, Assert\n}`} />
+              <div className="space-y-8">
+                <div className="grid md:grid-cols-2 gap-8 items-start">
+                  <div className="space-y-4">
+                    <h4 className="font-bold">Unit Testing (NUnit)</h4>
+                    <p className="text-sm text-muted-foreground italic">Test business logic in isolation using Moq or NSubstitute.</p>
+                  </div>
+                  <div className="space-y-4">
+                    <h4 className="font-bold">Integration Testing</h4>
+                    <p className="text-sm text-muted-foreground italic">Test the whole ASP.NET Core stack using WebApplicationFactory and Respawn.</p>
+                  </div>
                 </div>
-                <div className="space-y-4">
-                  <h4 className="font-bold">Integration Testing</h4>
-                  <p className="text-sm text-muted-foreground">Test the whole ASP.NET Core stack using WebApplicationFactory and Respawn.</p>
+                <div className="grid md:grid-cols-2 gap-8">
+                  <CodeSnippet language="csharp" title="CreateUserTests.cs" code={`[Test]\npublic async Task Handle_ValidRequest_ShouldReturnId() {\n    // Arrange, Act, Assert\n}`} />
+                  <CodeSnippet language="csharp" title="StudentApiTests.cs" code={`[TestFixture]\npublic class StudentApiTests\n{\n    private HttpClient _client;\n    private WebApplicationFactory<Program> _factory;\n\n    [OneTimeSetUp]\n    public void Setup() => _factory = new WebApplicationFactory<Program>();\n\n    [Test]\n    public async Task GetAll_ReturnsSuccess() {\n        var client = _factory.CreateClient();\n        var response = await client.GetAsync("/api/students");\n        Assert.That(response.IsSuccessStatusCode, Is.True);\n    }\n}`} />
                 </div>
               </div>
             </div>
