@@ -57,18 +57,20 @@ const navigation = [
         ],
     },
     {
-        title: 'DevOps',
+        title: 'DevOps & Platform',
         items: [
             { title: 'OpenShift Platform', href: '/openshift-guideline', icon: Server },
             { title: 'Jenkins CI/CD', href: '/jenkins-guideline', icon: Wrench },
             { title: 'SonarQube', href: '/sonarqube-guideline', icon: ScanSearch },
+            { title: 'Terraform IaC', href: '/terraform-guideline', icon: Terminal },
         ],
     },
     {
-        title: 'Cloud & FinOps',
+        title: 'Cloud & Cost',
         items: [
-            { title: 'FinOps Guide', href: '/finops-guideline', icon: DollarSign },
+            { title: 'Cloud Computing 101', href: '/cloud-computing-guideline', icon: Layers },
             { title: 'AWS Architecture', href: '/aws-architecture-guideline', icon: Cloud },
+            { title: 'FinOps Guide', href: '/finops-guideline', icon: DollarSign },
         ],
     },
 ];

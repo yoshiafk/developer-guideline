@@ -29,6 +29,7 @@ import {
 import PageNavigation from '../components/PageNavigation';
 import AnimatedCodeTabs from '@/components/animate-ui/AnimatedCodeTabs';
 import HighlightText from '@/components/animate-ui/HighlightText';
+import FlowDiagram from '@/components/FlowDiagram';
 
 const chapters = [
     { id: "introduction", title: "1. Introduction", icon: BookOpen },
@@ -87,30 +88,29 @@ const JenkinsGuidelinePage: React.FC = () => {
                         </div>
 
                         {/* Pipeline Workflow */}
-                        <div className="p-8 rounded-3xl bg-slate-900 border border-slate-700 font-mono text-xs text-blue-400 overflow-x-auto">
-                            <div className="text-[10px] uppercase font-bold text-slate-500 tracking-widest mb-4">AXA CI/CD Pipeline Flow</div>
-                            <pre className="leading-relaxed min-w-[600px]">{`┌─────────────────────────────────────────────────────────────────┐
-│                     Jenkins Pipeline Flow                        │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                  │
-│  ┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐   │
-│  │  Commit  │───▶│  Build   │───▶│   Test   │───▶│ Analyze  │   │
-│  │  (Git)   │    │ (Maven/  │    │ (Unit/   │    │ (Sonar-  │   │
-│  │          │    │  npm)    │    │  Integ)  │    │  Qube)   │   │
-│  └──────────┘    └──────────┘    └──────────┘    └────┬─────┘   │
-│                                                       │          │
-│                                                       ▼          │
-│  ┌──────────────────────────────────────────────────────────┐   │
-│  │              OpenShift Build & Deploy                     │   │
-│  │  ┌──────────┐    ┌──────────┐    ┌──────────┐            │   │
-│  │  │ Build    │───▶│  Image   │───▶│  Deploy  │            │   │
-│  │  │ Config   │    │  Stream  │    │  (Dev/   │            │   │
-│  │  │ (oc)     │    │          │    │  Stage)  │            │   │
-│  │  └──────────┘    └──────────┘    └──────────┘            │   │
-│  └──────────────────────────────────────────────────────────┘   │
-│                                                                  │
-└─────────────────────────────────────────────────────────────────┘`}</pre>
-                        </div>
+                        <FlowDiagram
+                            title="AXA CI/CD Pipeline Flow"
+                            subtitle="Complete build, test, and deployment workflow"
+                            groups={[
+                                {
+                                    title: "Build & Test Phase",
+                                    steps: [
+                                        { id: 'commit', label: 'Commit', sublabel: 'Git', color: 'slate' },
+                                        { id: 'build', label: 'Build', sublabel: 'Maven/npm', color: 'blue' },
+                                        { id: 'test', label: 'Test', sublabel: 'Unit/Integ', color: 'green' },
+                                        { id: 'analyze', label: 'Analyze', sublabel: 'SonarQube', color: 'purple' },
+                                    ]
+                                },
+                                {
+                                    title: "OpenShift Build & Deploy",
+                                    steps: [
+                                        { id: 'buildconfig', label: 'BuildConfig', sublabel: 'oc', color: 'amber' },
+                                        { id: 'imagestream', label: 'ImageStream', sublabel: 'Registry', color: 'amber' },
+                                        { id: 'deploy', label: 'Deploy', sublabel: 'Dev/Stage', color: 'green' },
+                                    ]
+                                }
+                            ]}
+                        />
 
                         <div className="p-6 rounded-2xl bg-amber-500/5 border border-amber-500/20 space-y-4">
                             <div className="flex items-center gap-2 text-amber-600">

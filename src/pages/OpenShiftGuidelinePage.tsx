@@ -28,6 +28,7 @@ import {
   Database
 } from 'lucide-react';
 import PageNavigation from '../components/PageNavigation';
+import ArchitectureDiagram from '@/components/ArchitectureDiagram';
 
 const chapters = [
   { id: "overview", title: "1. Platform Overview", icon: BookOpen },
@@ -139,31 +140,47 @@ const OpenShiftGuidelinePage: React.FC = () => {
             </div>
 
             {/* Architecture Diagram */}
-            <div className="p-8 rounded-3xl bg-slate-900 border border-slate-700 font-mono text-xs text-blue-400 overflow-x-auto">
-              <div className="absolute top-4 right-4 text-[10px] uppercase font-bold text-slate-500 tracking-widest">AXA OpenShift Architecture</div>
-              <pre className="leading-relaxed min-w-[600px]">{`┌─────────────────────────────────────────────────────────────────┐
-│                      AXA OpenShift 4.x Cluster                  │
-├─────────────────────────────────────────────────────────────────┤
-│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐          │
-│  │   Jenkins   │───▶│ BuildConfig │───▶│ ImageStream │          │
-│  │  (Trigger)  │    │  (S2I/Docker)    │ (Registry)  │          │
-│  └─────────────┘    └─────────────┘    └──────┬──────┘          │
-│                                               │                 │
-│                                               ▼                 │
-│  ┌─────────────────────────────────────────────────────┐        │
-│  │              DeploymentConfig / Deployment           │        │
-│  │  ┌─────────┐  ┌─────────┐  ┌─────────┐              │        │
-│  │  │  Pod 1  │  │  Pod 2  │  │  Pod N  │  (Replicas)  │        │
-│  │  └─────────┘  └─────────┘  └─────────┘              │        │
-│  └────────────────────────┬────────────────────────────┘        │
-│                           │                                     │
-│                           ▼                                     │
-│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐          │
-│  │   Service   │───▶│    Route    │───▶│  External   │          │
-│  │ (ClusterIP) │    │ (Ingress)   │    │   Traffic   │          │
-│  └─────────────┘    └─────────────┘    └─────────────┘          │
-└─────────────────────────────────────────────────────────────────┘`}</pre>
-            </div>
+            <ArchitectureDiagram
+              title="AXA OpenShift 4.x Cluster"
+              subtitle="Build, deploy, and expose applications on the container platform"
+              layers={[
+                {
+                  id: 'build',
+                  title: 'Build Pipeline',
+                  color: 'blue',
+                  items: [
+                    { label: 'Jenkins', sublabel: 'Trigger' },
+                    { label: 'BuildConfig', sublabel: 'S2I/Docker' },
+                    { label: 'ImageStream', sublabel: 'Registry' },
+                  ],
+                },
+                {
+                  id: 'deployment',
+                  title: 'Deployment Layer',
+                  color: 'purple',
+                  nested: {
+                    title: 'DeploymentConfig / Deployment',
+                    items: [
+                      { label: 'Pod 1' },
+                      { label: 'Pod 2' },
+                      { label: 'Pod N' },
+                      { label: '(Replicas)' },
+                    ],
+                  },
+                  items: [],
+                },
+                {
+                  id: 'networking',
+                  title: 'Networking & Exposure',
+                  color: 'emerald',
+                  items: [
+                    { label: 'Service', sublabel: 'ClusterIP' },
+                    { label: 'Route', sublabel: 'Ingress' },
+                    { label: 'External', sublabel: 'Traffic' },
+                  ],
+                },
+              ]}
+            />
           </section>
 
           <Separator />

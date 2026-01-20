@@ -3,6 +3,7 @@ import PageHero from '@/components/PageHero';
 import Layout from '@/components/Layout';
 import OnThisPage from '@/components/OnThisPage';
 import CodeSnippet from '@/components/CodeSnippet';
+import FlowDiagram from '@/components/FlowDiagram';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
@@ -214,13 +215,15 @@ const AWSArchitectureGuidelinePage: React.FC = () => {
                                         <Badge variant="secondary">Health Checks</Badge>
                                     </div>
                                 </div>
-                                <div className="w-full md:w-64 aspect-video bg-slate-900 rounded-xl border border-slate-700 p-4 font-mono text-[10px] text-orange-400">
-                                    <pre>{`[Traffic] -> [ELB]
-   |          |
-   v          v
-[AZ-1]      [AZ-2]
-[Node]      [Node]`}</pre>
-                                </div>
+                                <FlowDiagram
+                                    steps={[
+                                        { id: 'traffic', label: 'Traffic', color: 'blue' },
+                                        { id: 'elb', label: 'ELB', color: 'amber' },
+                                        { id: 'az1', label: 'AZ-1', sublabel: 'Node', color: 'green' },
+                                        { id: 'az2', label: 'AZ-2', sublabel: 'Node', color: 'green' },
+                                    ]}
+                                    className="w-full md:w-80"
+                                />
                             </div>
                         </div>
                     </section>

@@ -16,6 +16,8 @@ import SonarQubeGuidelinePage from './pages/SonarQubeGuidelinePage';
 import CleanCodeGuidelinePage from './pages/CleanCodeGuidelinePage';
 import FinOpsGuidelinePage from './pages/FinOpsGuidelinePage';
 import AWSArchitectureGuidelinePage from './pages/AWSArchitectureGuidelinePage';
+import CloudComputingGuidelinePage from './pages/CloudComputingGuidelinePage';
+import TerraformGuidelinePage from './pages/TerraformGuidelinePage';
 import SearchResultsPage from './pages/SearchResultsPage';
 
 export const routes: RouteObject[] = [
@@ -38,7 +40,10 @@ export const routes: RouteObject[] = [
             { path: 'clean-code-guideline', element: <CleanCodeGuidelinePage /> },
             { path: 'finops-guideline', element: <FinOpsGuidelinePage /> },
             { path: 'aws-architecture-guideline', element: <AWSArchitectureGuidelinePage /> },
+            { path: 'cloud-computing-guideline', element: <CloudComputingGuidelinePage /> },
+            { path: 'terraform-guideline', element: <TerraformGuidelinePage /> },
             { path: 'search', element: <SearchResultsPage /> },
         ]
     },
 ];
+

@@ -9,6 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import CallToAction from '@/components/CallToAction';
 import {
   Smartphone,
   Zap,
@@ -834,21 +835,11 @@ ListView.builder(
           </section>
 
           {/* Conclusion */}
-          <section id="conclusion" className="p-12 rounded-[2.5rem] bg-primary text-primary-foreground border-none relative overflow-hidden">
-            <div className="relative z-10 space-y-6">
-              <h2 className="text-3xl font-bold">Ready to Build?</h2>
-              <p className="opacity-80 max-w-2xl">Following these Flutter standards ensures your mobile applications are performant, maintainable, and deliver a premium user experience.</p>
-              <div className="flex gap-4">
-                <Button variant="secondary" asChild>
-                  <a href="/github-axa-usage">GitHub Workflow <ArrowRight className="ml-2 h-4 w-4" /></a>
-                </Button>
-                <Button variant="outline" className="bg-white/10 border-white/20 hover:bg-white/20" asChild>
-                  <a href="/coding-standard">Global Standards</a>
-                </Button>
-              </div>
-            </div>
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl pointer-events-none" />
-          </section>
+          <CallToAction
+            description="Following these Flutter standards ensures your mobile applications are performant, maintainable, and deliver a premium user experience."
+            primaryAction={{ label: "GitHub Workflow", href: "/github-axa-usage" }}
+            secondaryAction={{ label: "Global Standards", href: "/coding-standard" }}
+          />
 
         </main>
 

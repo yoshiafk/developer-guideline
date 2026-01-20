@@ -9,6 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import CallToAction from '@/components/CallToAction';
 import {
     Coffee,
     Server,
@@ -36,12 +37,11 @@ const chapters = [
     { id: "spring-boot", title: "3. Spring Boot Standards", icon: Zap },
     { id: "rest-api", title: "4. REST API Design", icon: Server },
     { id: "persistence", title: "5. Persistence & Database", icon: Database },
-    { id: "ci-cd", title: "6. CI/CD Pipeline", icon: Terminal },
-    { id: "validation", title: "7. Validation & Errors", icon: ShieldCheck },
-    { id: "testing", title: "8. Testing Guidelines", icon: FlaskConical },
-    { id: "logging", title: "9. Logging & Monitoring", icon: Activity },
-    { id: "maven", title: "10. Maven Build", icon: Settings },
-    { id: "naming", title: "11. Code Style & Naming", icon: PenTool },
+    { id: "validation", title: "6. Validation & Errors", icon: ShieldCheck },
+    { id: "testing", title: "7. Testing Guidelines", icon: FlaskConical },
+    { id: "logging", title: "8. Logging & Monitoring", icon: Activity },
+    { id: "maven", title: "9. Maven Build", icon: Settings },
+    { id: "naming", title: "10. Code Style & Naming", icon: PenTool },
 ];
 
 const folderStructureData: FileTreeItem[] = [
@@ -870,21 +870,11 @@ management:
                     </section>
 
                     {/* Conclusion */}
-                    <section id="conclusion" className="p-12 rounded-[2.5rem] bg-primary text-primary-foreground border-none relative overflow-hidden">
-                        <div className="relative z-10 space-y-6">
-                            <h2 className="text-3xl font-bold">Ready to Build?</h2>
-                            <p className="opacity-80 max-w-2xl">Following these Java standards ensures your application is robust, secure, and ready for production at AII.</p>
-                            <div className="flex gap-4">
-                                <Button variant="secondary" asChild>
-                                    <a href="/github-axa-usage">GitHub Workflow <ArrowRight className="ml-2 h-4 w-4" /></a>
-                                </Button>
-                                <Button variant="outline" className="bg-white/10 border-white/20 hover:bg-white/20" asChild>
-                                    <a href="/coding-standard">Global Standards</a>
-                                </Button>
-                            </div>
-                        </div>
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl pointer-events-none" />
-                    </section>
+                    <CallToAction
+                        description="Following these Java standards ensures your application is robust, secure, and ready for production at AII."
+                        primaryAction={{ label: "Maven Build", href: "#maven" }}
+                        secondaryAction={{ label: "Naming Rules", href: "#naming" }}
+                    />
 
                 </main>
 

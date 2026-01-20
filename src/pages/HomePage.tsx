@@ -14,7 +14,12 @@ import {
   CheckCircle2,
   DollarSign,
   Cloud,
-  Sparkles
+  Sparkles,
+  Server,
+  Wrench,
+  ScanSearch,
+  Rocket,
+  Zap
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Layout from '@/components/Layout';
@@ -23,83 +28,63 @@ import PreviewLinkCard from '@/components/animate-ui/PreviewLinkCard';
 import AnimatedFeedbackIcon from '@/components/animate-ui/AnimatedFeedbackIcon';
 import { BlurReveal } from '@/components/animate-ui/BlurReveal';
 
-// Documentation cards data
-const docCards = [
+// Categorized documentation cards
+const categories = [
   {
-    title: '.NET Development',
-    description: 'Clean Architecture, DDD, and enterprise C# standards.',
-    href: '/dotnet-developer-guideline',
-    icon: FileCode,
-    color: 'blue'
+    title: 'Quickstart',
+    description: 'Essential guides to get started with AII development standards.',
+    icon: Rocket,
+    color: 'emerald',
+    cards: [
+      { title: 'Global Standards', description: 'Coding conventions and naming standards.', href: '/coding-standard', icon: Terminal },
+      { title: 'GitHub Workflow', description: 'Branch strategy and PR guidelines.', href: '/github-axa-usage', icon: GitBranch },
+      { title: 'Clean Code', description: 'SOLID principles and craftsmanship.', href: '/clean-code-guideline', icon: Sparkles },
+    ]
   },
   {
-    title: 'React Frontend',
-    description: 'Component architecture and modern hooks patterns.',
-    href: '/react-developer-guideline',
-    icon: Atom,
-    color: 'cyan'
-  },
-  {
-    title: 'Java Backend',
-    description: 'Spring Boot and microservices best practices.',
-    href: '/java-developer-guideline',
-    icon: Coffee,
-    color: 'orange'
-  },
-  {
-    title: 'Python & AI',
-    description: 'FastAPI standards and AI integration guidelines.',
-    href: '/python-developer-guideline',
+    title: 'Development',
+    description: 'Technology-specific guidelines for backend and frontend development.',
     icon: Code2,
-    color: 'yellow'
+    color: 'blue',
+    cards: [
+      { title: '.NET Development', description: 'Clean Architecture and enterprise C#.', href: '/dotnet-developer-guideline', icon: FileCode },
+      { title: 'Java Backend', description: 'Spring Boot and microservices.', href: '/java-developer-guideline', icon: Coffee },
+      { title: 'Python & AI', description: 'FastAPI and AI integration.', href: '/python-developer-guideline', icon: Code2 },
+      { title: 'React Frontend', description: 'Component architecture and hooks.', href: '/react-developer-guideline', icon: Atom },
+      { title: 'Flutter Mobile', description: 'Cross-platform with BLoC patterns.', href: '/flutter-developer-guideline', icon: Smartphone },
+    ]
   },
   {
-    title: 'Flutter Mobile',
-    description: 'Cross-platform excellence with BLoC patterns.',
-    href: '/flutter-developer-guideline',
-    icon: Smartphone,
-    color: 'sky'
+    title: 'DevOps & Platform',
+    description: 'CI/CD, container orchestration, and infrastructure automation.',
+    icon: Server,
+    color: 'orange',
+    cards: [
+      { title: 'OpenShift Platform', description: 'Container orchestration and deployment.', href: '/openshift-guideline', icon: Server },
+      { title: 'Jenkins CI/CD', description: 'Pipeline automation and builds.', href: '/jenkins-guideline', icon: Wrench },
+      { title: 'SonarQube', description: 'Code quality and static analysis.', href: '/sonarqube-guideline', icon: ScanSearch },
+      { title: 'Terraform IaC', description: 'Infrastructure as Code patterns.', href: '/terraform-guideline', icon: Terminal },
+    ]
   },
   {
-    title: 'Clean Architecture',
-    description: 'Naming conventions and DDD patterns.',
-    href: '/clean-architecture',
-    icon: Layers,
-    color: 'purple'
-  },
-  {
-    title: 'Clean Code',
-    description: 'SOLID principles and software craftsmanship.',
-    href: '/clean-code-guideline',
-    icon: Sparkles,
-    color: 'rose'
-  },
-  {
-    title: 'FinOps',
-    description: 'Cloud cost optimization and financial management.',
-    href: '/finops-guideline',
-    icon: DollarSign,
-    color: 'green'
-  },
-  {
-    title: 'AWS Architecture',
-    description: 'Well-Architected Framework and cloud patterns.',
-    href: '/aws-architecture-guideline',
+    title: 'Cloud & Architecture',
+    description: 'Cloud computing fundamentals, AWS patterns, and cost optimization.',
     icon: Cloud,
-    color: 'indigo'
+    color: 'purple',
+    cards: [
+      { title: 'Cloud Computing 101', description: 'SaaS, PaaS, IaaS fundamentals.', href: '/cloud-computing-guideline', icon: Layers },
+      { title: 'AWS Architecture', description: 'Well-Architected Framework.', href: '/aws-architecture-guideline', icon: Cloud },
+      { title: 'FinOps Guide', description: 'Cloud cost optimization.', href: '/finops-guideline', icon: DollarSign },
+      { title: 'Clean Architecture', description: 'DDD and layered patterns.', href: '/clean-architecture', icon: Layers },
+    ]
   }
 ];
 
-const colorVariants: Record<string, string> = {
-  blue: 'bg-blue-500/10 text-blue-500 group-hover:bg-blue-500 group-hover:text-white',
-  cyan: 'bg-cyan-500/10 text-cyan-500 group-hover:bg-cyan-500 group-hover:text-white',
-  orange: 'bg-orange-500/10 text-orange-500 group-hover:bg-orange-500 group-hover:text-white',
-  yellow: 'bg-yellow-500/10 text-yellow-600 group-hover:bg-yellow-500 group-hover:text-white',
-  sky: 'bg-sky-500/10 text-sky-500 group-hover:bg-sky-500 group-hover:text-white',
-  purple: 'bg-purple-500/10 text-purple-500 group-hover:bg-purple-500 group-hover:text-white',
-  rose: 'bg-rose-500/10 text-rose-500 group-hover:bg-rose-500 group-hover:text-white',
-  green: 'bg-green-500/10 text-green-500 group-hover:bg-green-500 group-hover:text-white',
-  indigo: 'bg-indigo-500/10 text-indigo-500 group-hover:bg-indigo-500 group-hover:text-white'
+const categoryColors: Record<string, { bg: string; text: string; border: string }> = {
+  emerald: { bg: 'bg-emerald-500/10', text: 'text-emerald-600', border: 'border-emerald-500/20' },
+  blue: { bg: 'bg-blue-500/10', text: 'text-blue-600', border: 'border-blue-500/20' },
+  orange: { bg: 'bg-orange-500/10', text: 'text-orange-600', border: 'border-orange-500/20' },
+  purple: { bg: 'bg-purple-500/10', text: 'text-purple-600', border: 'border-purple-500/20' },
 };
 
 const HomePage: React.FC = () => {
@@ -120,37 +105,65 @@ const HomePage: React.FC = () => {
     <Layout showSidebar={false}>
       <Hero />
 
-      {/* Quick Links Grid */}
+      {/* Categorized Documentation Sections */}
       <section className="py-16 lg:py-24">
         <div className="container px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight mb-4">
-              Choose Your Stack
+              Explore the Documentation
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Comprehensive standards and strategies for the entire AII IT ecosystem.
             </p>
           </div>
 
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
-          >
-            {docCards.map((card) => (
-              <motion.div key={card.href} variants={itemVariants}>
-                <PreviewLinkCard
-                  href={card.href}
-                  title={card.title}
-                  description={card.description}
-                  icon={<card.icon className="h-6 w-6" />}
-                  className="h-full"
-                />
-              </motion.div>
-            ))}
-          </motion.div>
+          <div className="space-y-16">
+            {categories.map((category, categoryIndex) => {
+              const colors = categoryColors[category.color] || { bg: 'bg-primary/10', text: 'text-primary', border: 'border-primary/20' };
+              return (
+                <motion.div
+                  key={category.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: categoryIndex * 0.1 }}
+                  className="space-y-6"
+                >
+                  {/* Category Header */}
+                  <div className="flex items-center gap-4">
+                    <div className={`p-3 rounded-xl ${colors.bg} ${colors.border} border`}>
+                      <category.icon className={`h-6 w-6 ${colors.text}`} />
+                    </div>
+                    <div>
+                      <h3 className={`text-2xl font-bold ${colors.text}`}>{category.title}</h3>
+                      <p className="text-sm text-muted-foreground">{category.description}</p>
+                    </div>
+                  </div>
+
+                  {/* Category Cards */}
+                  <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+                  >
+                    {category.cards.map((card) => (
+                      <motion.div key={card.href} variants={itemVariants}>
+                        <PreviewLinkCard
+                          href={card.href}
+                          title={card.title}
+                          description={card.description}
+                          icon={<card.icon className="h-5 w-5" />}
+                          className="h-full"
+                        />
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
